@@ -12,9 +12,13 @@ database.populate_db(tickers, '2008-1-1', '2012-11-25', dbfilename=db)
 
 # Create a DataFrame from a SQL query 
 conn = sqlite3.connect(db, detect_types=sqlite3.PARSE_DECLTYPES)
-df = sql.read_frame("""SELECT symbol, date, adjclose FROM stocks""", conn, index_col=['symbol', 'date'])
+df = sql.read_frame("""SELECT symbol, date, adjclose FROM stocks""", conn)
 conn.close()
 
-# Unstack DataFrame into to have a easy to work time series
-dfUnstacked = df.unstack('symbol')
-print dfUnstacked.tail()
+# Pivot DataFrame to have a easy to work time series
+dfPivot = df.pivot('date', 'symbol', 'adjclose')
+returns = dfPivot.pct_change()
+returnIndex = (1 + returns).cumprod()
+returnIndex.values[:1] = 1
+returnIndex.plot()
+

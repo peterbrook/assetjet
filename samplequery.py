@@ -2,6 +2,7 @@ import database
 import pandas.io.sql as sql
 import sqlite3
 import numpy as np
+import matplotlib.pyplot as plt
 
 # SQLite Database
 db = 'Stocks.db'
@@ -16,7 +17,7 @@ if updateDatabase:
 conn = sqlite3.connect(db, detect_types=sqlite3.PARSE_DECLTYPES)
 prices = sql.read_frame("""SELECT symbol, date, open, adjclose
                            FROM stocks
-                           WHERE symbol IN('MMM', 'NFLX', 'ADBE')""", conn)
+                           WHERE symbol IN('AAPL', 'NFLX', 'GOOG', 'AFL')""", conn)
 conn.close()
 
 # Pivot DataFrame to work easily with the time series
@@ -28,11 +29,9 @@ for i in px:
     returnIndex.values[:1] = 1
     returnIndex = returnIndex * 100
     returnIndex.plot()
-    
-correlation = returns.corr()
 
-import matplotlib.pyplot as plt
-def heatmap(df, cmap=plt.cm.gray_r):
+# Correlation Heatmap
+def heatmap(df, cmap=plt.cm.jet):
     fig = plt.figure()
     ax = fig.add_subplot(111)
     axim = ax.imshow(df.values, cmap=cmap, interpolation='nearest')
@@ -44,4 +43,16 @@ def heatmap(df, cmap=plt.cm.gray_r):
     ax.set_yticklabels(list(df.index))
     plt.colorbar(axim)
     
+correlation = returns.corr()    
 heatmap(correlation)
+
+# Quickly trying out histograms
+fig = plt.figure()
+fig.add_subplot(2,2,1)
+returns.AAPL.hist(bins=50)
+fig.add_subplot(2,2,2)
+returns.NFLX.hist(bins=50)
+fig.add_subplot(2,2,3)
+returns.GOOG.hist(bins=50)
+fig.add_subplot(2,2,4)
+returns.GOOG.hist(bins=50)

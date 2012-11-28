@@ -3,7 +3,7 @@ import os, sys
 from PyQt4 import QtGui, QtCore
 
 sys.path.append(os.curdir + "\\UI")
-from tripping_nemesis import Ui_TrippingNemesis
+from tn_mainwindow import Ui_TrippingNemesis
 
 class MainForm(QtGui.QMainWindow):
     def __init__(self, parent=None):

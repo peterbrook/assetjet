@@ -10,7 +10,7 @@ class MainForm(QtGui.QMainWindow):
         super(MainForm, self).__init__(parent)
         self.ui = Ui_TrippingNemesis()  
         # Go borderless so it looks the same no matter what platform? TBD
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint) 
+        #self.setWindowFlags(QtCore.Qt.FramelessWindowHint) 
         self.ui.setupUi(self)        
         self.model = QtGui.QStandardItemModel()
         

@@ -1,5 +1,7 @@
-# With minor changes taken from:
+# Few functions with minor changes taken from:
 # https://github.com/tvaught/experimental/tree/master/portfolio_metrics
+# TODO: indicate which functions
+
 """
 Copyright (c) 2011, Vaught Management, LLC
 All rights reserved.
@@ -20,6 +22,7 @@ import sys
 import numpy as np
 import datetime, time
 from urllib import urlopen
+from lxml import html
 
 schema = np.dtype({'names':['symbol', 'date', 'open', 'high', 'low',
                        'close', 'volume', 'adjclose'],
@@ -98,11 +101,13 @@ def create_db(filename="test.db"):
         raise IOError
     
     conn = sqlite3.connect(filename, 
-        detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
-    conn.execute('''CREATE TABLE stocks (symbol text, date timestamp, open float, high float, low float, close float, volume float, adjclose float)''')
-    conn.execute('''CREATE UNIQUE INDEX stock_idx ON stocks (symbol, date)''')
-    conn.execute('''CREATE TABLE symbol_list (symbol text, startdate datetime, enddate datetime, entries long)''')
-    conn.execute('''CREATE UNIQUE INDEX symbols_idx ON symbol_list (symbol)''')
+           detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
+    conn.execute('''CREATE TABLE TimeSeries (Cd text, Date timestamp, Open float, High float, Low float, Close float, Volume float, AdjClose float)''')       
+    conn.execute("""CREATE TABLE Assets (Cd text, Name text, GicsSectorId int)""")
+    conn.execute("""CREATE TABLE GicsSectors (Id int, Name text)""")
+    conn.execute("""CREATE TABLE Indices (Cd text, Name text)""")
+    conn.execute("""CREATE TABLE AssetsIndices (AssetCd text, IndexCd text)""")
+    conn.execute('''CREATE UNIQUE INDEX Idx_TimeSeries ON TimeSeries (Cd, Date)''')
     conn.commit()
     conn.close()
     return
@@ -116,13 +121,13 @@ def save_to_db(data, dbfilename="data/stocks.db"):
         create_db(dbfilename)
 
     conn = sqlite3.connect(dbfilename,
-        detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
+           detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
     c = conn.cursor()
 
     # Wrap in a try block in case there's a duplicate given our UNIQUE INDEX
     #     criteria above.
     try:
-        sql = "INSERT INTO stocks (symbol, date, open, high, low, close, volume, adjclose) VALUES (?, ?, ?, ?, ?, ?, ?, ?);"
+        sql = "INSERT INTO TimeSeries (Cd, Date, Open, High, Low, Close, Volume, AdjClose) VALUES (?, ?, ?, ?, ?, ?, ?, ?);"
         
         c.executemany(sql, data.tolist())
     except sqlite3.IntegrityError:
@@ -133,82 +138,6 @@ def save_to_db(data, dbfilename="data/stocks.db"):
     c.close()
     conn.close()
     return change_count
-
-def symbol_exists(symbol, dbfilename="data/stocks.db"):
-    """ Check for existence of symbol in specified dbfilename.  Returns a 
-        tuple of how many records, and the start and end dates of the data
-        available for the symbol.
-    """
-    
-    conn = sqlite3.connect(dbfilename, 
-        detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
-    sql = "SELECT symbol, date as 'date [datetime]' from stocks where symbol='%s';" % (symbol)
-    qry = conn.execute(sql)
-    recs = qry.fetchall()
-    schema = np.dtype({'names':['symbol', 'date'],
-                       'formats':['S8', 'M8[D]']})
-    table = np.array(recs, dtype=schema)
-
-    startdate = np.datetime64(table['date'][0])
-    enddate = np.datetime64(table['date'][-1])
-    return len(table), startdate, enddate
-    
-
-def all_symbols(dbfilename="data/stocks.db"):
-    """ Convenience function to return a list of all symbols in the 
-        database.
-    """
-    
-    conn = sqlite3.connect(dbfilename, 
-        detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
-    sql = "SELECT DISTINCT symbol from stocks;"
-    qry = conn.execute(sql)
-    recs = qry.fetchall()
-    reclist = [list(rec)[0] for rec in recs]
-    return reclist
-
-def populate_symbol_list(dbfilename="data/stocks.db", symbols=None):
-    """ Function to prepopulate a table with symbols where we don't have
-        to hammer the db every time.
-        Returns the number of records added.
-    """
-
-    if not os.path.exists(dbfilename):
-        create_db(dbfilename)
-
-    if symbols is None:
-        symbols = all_symbols(dbfilename=dbfilename)
-
-    dt = np.dtype({'names':['symbol', 'startdate', 'enddate', 'entries'],
-                   'formats':['S8', 'M8[D]', 'M8[D]', long]})
-    data = []
-
-    for symbol in symbols:
-        entries, startdate, enddate = symbol_exists(symbol, dbfilename=dbfilename)
-        data.append((symbol, startdate, enddate, entries))
-
-    data = np.array(data, dtype=dt)
-
-
-    conn = sqlite3.connect(dbfilename,
-        detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
-    c = conn.cursor()
-
-    # Wrap in a try block in case there's a duplicate given our UNIQUE INDEX
-    #     criteria above.
-    try:
-        sql = "INSERT INTO symbol_list (symbol, startdate, enddate, entries) VALUES (?, ?, ?, ?);"
-
-        c.executemany(sql, data.tolist())
-    except sqlite3.IntegrityError:
-        pass
-
-    conn.commit()
-    change_count = conn.total_changes
-    c.close()
-    conn.close()
-    return change_count
-
     
 def populate_db(symbols, startdate, enddate, dbfilename):
     """ Wrapper function to rifle through a list of symbols, pull the data,
@@ -243,7 +172,6 @@ def populate_db(symbols, startdate, enddate, dbfilename):
     else:
         symbollist = set(symbols)
     
-#    tot = float(len(symbollist)) #unused?
     count=0.0
     print "loading data ..."
     for symbol in list(symbollist):
@@ -260,7 +188,91 @@ def populate_db(symbols, startdate, enddate, dbfilename):
     print "Saved %s records for %s out of %s symbols" % (rec_count,
                                                          save_count,
                                                          len(symbollist))
-    print "Populating symbol table..."
+    
+def download_sp500(startdate, enddate, dbfilename):
+    
+    # Download list of tickers, company name and GICS Sectors from Wikipedia
+    # TODO: somebody please improve this
+    url = 'http://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
+    page = html.parse(url)
+    symbol = page.xpath('//table[@class="wikitable sortable"]/tr/td[1]/a/text()')
+    company = page.xpath('//table[@class="wikitable sortable"]/tr/td[2]/a/text()')
+    sector = page.xpath('//table[@class="wikitable sortable"]/tr/td[4]/text()')
+    
+    # If database doesn't exist, create it
+    if not os.path.exists(dbfilename):
+        create_db(dbfilename)    
+    
+    conn = sqlite3.connect(dbfilename, 
+           detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
+    c = conn.cursor()
+    
+    # Load data from Wikipedia into Load table
+    conn.execute("CREATE TABLE LoadAssets (Cd text, Name text, SectorName text)")
+    sql = "INSERT INTO LoadAssets (Cd, Name, SectorName) VALUES (?, ?, ?)"    
+    c.executemany(sql, zip(symbol, company, sector))
+    conn.commit()
+    
+    populate_db(symbol, startdate, enddate, dbfilename)
+    
+    # TODO: download with lxml from
+    # http://en.wikipedia.org/wiki/Global_Industry_Classification_Standard
+    # Note: Telecommunication Services is listed as Telecommunications Services
+    conn.execute("DELETE FROM GicsSectors")
+    conn.execute("INSERT INTO GicsSectors VALUES(10, 'Energy')")
+    conn.execute("INSERT INTO GicsSectors VALUES(15, 'Materials')")
+    conn.execute("INSERT INTO GicsSectors VALUES(20, 'Industrials')")
+    conn.execute("INSERT INTO GicsSectors VALUES(25, 'Consumer Discretionary')")
+    conn.execute("INSERT INTO GicsSectors VALUES(30, 'Consumer Staples')")
+    conn.execute("INSERT INTO GicsSectors VALUES(35, 'Health Care')")
+    conn.execute("INSERT INTO GicsSectors VALUES(40, 'Financials')")
+    conn.execute("INSERT INTO GicsSectors VALUES(45, 'Information Technology')")
+    conn.execute("INSERT INTO GicsSectors VALUES(50, 'Telecommunications Services')")
+    conn.execute("INSERT INTO GicsSectors VALUES(55, 'Utilities')")
+    
+    conn.execute("DELETE FROM Assets WHERE Cd IN (SELECT Cd FROM LoadAssets)")
+    
+    conn.execute("""
+    INSERT INTO Assets
+    SELECT l.Cd, l.Name, g.Id
+    FROM LoadAssets l
+    INNER JOIN GicsSectors g ON l.SectorName = g.Name""")
+    
+    conn.execute("DELETE FROM Indices WHERE Cd = '^GSPC' ")
+    conn.execute("INSERT INTO Indices VALUES('^GSPC', 'S&P 500')")
+    
+    conn.execute("DELETE FROM AssetsIndices WHERE IndexCd = '^GSPC' ")
+    conn.execute("INSERT INTO AssetsIndices SELECT Cd, '^GSPC' FROM LoadAssets")
+    
+    conn.execute("DROP TABLE LoadAssets")
+    conn.commit()
+   
+    c.close()
+    conn.close()
 
-    populate_symbol_list(dbfilename)
+
+# Create/Update sample database with S&P 500    
+if __name__ == '__main__': 
+   download_sp500('2012-1-1', '2012-12-02', 'TimeSeries.db')
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     

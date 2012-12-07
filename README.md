@@ -16,5 +16,6 @@ All this is based on open-source software that will work cross-platform (Windows
 Tripping Nemesis itself is a simple investment analyzer using historical time series from Yahoo! Finance.
 
 This project also tries to shed light on the discussion of general-purpose versus domain-specific languages to build scientific applications (see e.g. http://www.johndcook.com/blog/2012/04/02/why-scipy/):
+
 We believe that for building a fully-featured scientific application, Python is hard to beat.
 

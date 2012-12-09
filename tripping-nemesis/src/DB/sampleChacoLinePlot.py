@@ -6,10 +6,10 @@ from enable.component_editor import ComponentEditor
 from traits.api import HasTraits, Instance, Int, List, Str, Enum, Any, DelegatesTo
 from traitsui.api import Item, View
 from enable.api import Component, ComponentEditor, BaseTool
-
+from chaco.tools.cursor_tool import CursorTool, BaseCursorTool
 
 # Chaco imports
-from chaco.api import ArrayPlotData, Plot, PlotAxis
+from chaco.api import ArrayPlotData, Plot, PlotAxis, create_line_plot
 from chaco.scales.api import CalendarScaleSystem
 from chaco.scales_tick_generator import ScalesTickGenerator
 from chaco.tools.api import PanTool, ZoomTool, RangeSelection, \
@@ -88,6 +88,9 @@ class PlotApp(HasTraits):
                                   color="auto", line_width=2)[0]
         self.times_ds = renderer.index
         print('chaco: %s') % str(time.time() - tic)
+        
+      
+        
         
         # Tricky: need to set auto_handle_event on the RangeSelection
         # so that it passes left-clicks to the PanTool

@@ -8,7 +8,7 @@ from pylab import *
 ion()
 
 # SQLite Database
-db = 'TimeSeries.db'
+db = '../DB/TimeSeries.db'
 
 # Create a DataFrame from a SQL query 
 conn = sqlite3.connect(db, detect_types=sqlite3.PARSE_DECLTYPES)

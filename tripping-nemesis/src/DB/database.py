@@ -1,3 +1,7 @@
+"""Running this script creates a smaple database with the daily returns for the S&P 500
+with the start/end dates given at the end of the file"""
+
+
 # Few functions with minor changes taken from:
 # https://github.com/tvaught/experimental/tree/master/portfolio_metrics
 # TODO: indicate which functions

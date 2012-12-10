@@ -1,4 +1,4 @@
-"""Running this script creates a smaple database with the daily returns for the S&P 500
+"""Running this script creates a sample database with the daily returns for the S&P 500
 with the start/end dates given at the end of the file"""
 
 

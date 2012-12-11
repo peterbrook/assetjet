@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\src\GitHub\tripping-nemesis\tripping-nemesis\src\UI\tn_mainwindow.ui'
+# Form implementation generated from reading ui file 'c:\src\GitHub\tripping-nemesis\tripping-nemesis\src\UI\tn_mainwindow.browser.ui'
 #
-# Created: Tue Dec 11 09:21:16 2012
+# Created: Tue Dec 11 09:21:15 2012
 #      by: PyQt4 UI code generator 4.9.5
 #
 # WARNING! All changes made in this file will be lost!
@@ -25,11 +25,10 @@ class Ui_TrippingNemesis(object):
         self.horizontalLayout = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setMargin(0)
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
-        self.lstStockTickers = QtGui.QListWidget(self.horizontalLayoutWidget)
-        self.lstStockTickers.setObjectName(_fromUtf8("lstStockTickers"))
-        self.horizontalLayout.addWidget(self.lstStockTickers)
-        spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-        self.horizontalLayout.addItem(spacerItem)
+        self.webMain = QtWebKit.QWebView(self.horizontalLayoutWidget)
+        self.webMain.setUrl(QtCore.QUrl(_fromUtf8("about:blank")))
+        self.webMain.setObjectName(_fromUtf8("webMain"))
+        self.horizontalLayout.addWidget(self.webMain)
         self.listWidget_2 = QtGui.QListWidget(self.horizontalLayoutWidget)
         self.listWidget_2.setObjectName(_fromUtf8("listWidget_2"))
         self.horizontalLayout.addWidget(self.listWidget_2)
@@ -40,3 +39,4 @@ class Ui_TrippingNemesis(object):
     def retranslateUi(self, TrippingNemesis):
         TrippingNemesis.setWindowTitle(QtGui.QApplication.translate("TrippingNemesis", "Tripping Nemesis", None, QtGui.QApplication.UnicodeUTF8))
 
+from PyQt4 import QtWebKit

@@ -21,6 +21,8 @@ import numpy as np
 import datetime, time
 from urllib import urlopen
 
+defaultDbFileName = "C:\\src\\GitHub\\tripping-nemesis\\tripping-nemesis\\src\\DB\\data\\stocks.db"
+
 schema = np.dtype({'names':['symbol', 'date', 'open', 'high', 'low',
                        'close', 'volume', 'adjclose'],
                    'formats':['S8', 'M8[D]', float, float, float, float,
@@ -91,7 +93,7 @@ def get_yahoo_prices(symbol, startdate=None, enddate=None,
     
     return npdata
 
-def create_db(filename="test.db"):
+def create_db(filename=defaultDbFileName):
     """ Creates database with schema to hold stock data."""
     
     if os.path.exists(filename):
@@ -108,7 +110,7 @@ def create_db(filename="test.db"):
     return
 
 
-def save_to_db(data, dbfilename="data/stocks.db"):
+def save_to_db(data, dbfilename=defaultDbFileName):
     """ Utility function to save financial instrument price data to an SQLite
         database file."""
 
@@ -134,8 +136,8 @@ def save_to_db(data, dbfilename="data/stocks.db"):
     conn.close()
     return change_count
 
-def symbol_exists(symbol, dbfilename="data/stocks.db"):
-    """ Check for existence of symbol in specified dbfilename.  Returns a 
+def symbol_exists(symbol, dbfilename=defaultDbFileName):
+    """ Check for existence of symbol in specified dbfilename. Returns a 
         tuple of how many records, and the start and end dates of the data
         available for the symbol.
     """
@@ -154,7 +156,7 @@ def symbol_exists(symbol, dbfilename="data/stocks.db"):
     return len(table), startdate, enddate
     
 
-def all_symbols(dbfilename="data/stocks.db"):
+def all_symbols(dbfilename=defaultDbFileName):
     """ Convenience function to return a list of all symbols in the 
         database.
     """
@@ -167,17 +169,14 @@ def all_symbols(dbfilename="data/stocks.db"):
     reclist = [list(rec)[0] for rec in recs]
     return reclist
 
-def populate_symbol_list(dbfilename="data/stocks.db", symbols=None):
+def populate_symbol_list(symbols, dbfilename=defaultDbFileName):
     """ Function to prepopulate a table with symbols where we don't have
         to hammer the db every time.
         Returns the number of records added.
     """
-
+    
     if not os.path.exists(dbfilename):
         create_db(dbfilename)
-
-    if symbols is None:
-        symbols = all_symbols(dbfilename=dbfilename)
 
     dt = np.dtype({'names':['symbol', 'startdate', 'enddate', 'entries'],
                    'formats':['S8', 'M8[D]', 'M8[D]', long]})
@@ -185,10 +184,10 @@ def populate_symbol_list(dbfilename="data/stocks.db", symbols=None):
 
     for symbol in symbols:
         entries, startdate, enddate = symbol_exists(symbol, dbfilename=dbfilename)
+        print((symbol, startdate, enddate, entries))
         data.append((symbol, startdate, enddate, entries))
-
+    
     data = np.array(data, dtype=dt)
-
 
     conn = sqlite3.connect(dbfilename,
         detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
@@ -208,9 +207,8 @@ def populate_symbol_list(dbfilename="data/stocks.db", symbols=None):
     c.close()
     conn.close()
     return change_count
-
     
-def populate_db(symbols, startdate, enddate, dbfilename):
+def populate_db(symbols, startdate, enddate, dbfilename=defaultDbFileName):
     """ Wrapper function to rifle through a list of symbols, pull the data,
         and store it in a sqlite database file.
         

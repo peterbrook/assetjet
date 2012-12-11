@@ -28,7 +28,7 @@ import datetime, time
 from urllib import urlopen
 from lxml import html
 
-defaultDbFileName = 'TimeSeries.db'
+defaultDbFileName = '../DB/TimeSeries.db'
 
 schema = np.dtype({'names':['symbol', 'date', 'open', 'high', 'low',
                        'close', 'volume', 'adjclose'],
@@ -144,6 +144,19 @@ def save_to_db(data, dbfilename=defaultDbFileName):
     c.close()
     conn.close()
     return change_count
+
+def all_symbols(dbfilename=defaultDbFileName):
+    """ Convenience function to return a list of all symbols in the 
+        database.
+    """
+    
+    conn = sqlite3.connect(dbfilename, 
+        detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
+    sql = "SELECT Cd FROM Assets;"
+    qry = conn.execute(sql)
+    recs = qry.fetchall()
+    reclist = [list(rec)[0] for rec in recs]
+    return reclist
     
 def populate_db(symbols, startdate, enddate, dbfilename=defaultDbFileName):
     """ Wrapper function to rifle through a list of symbols, pull the data,

@@ -199,6 +199,7 @@ def download_sp500(startdate, enddate, dbfilename=defaultDbFileName):
     
     # Download list of tickers, company name and GICS Sectors from Wikipedia
     # TODO: somebody please improve this
+    # Note: BRK.B in Wikipedia is listed as BRK-B in Yahoo! Finance
     url = 'http://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
     page = html.parse(url)
     symbol = page.xpath('//table[@class="wikitable sortable"]/tr/td[1]/a/text()')

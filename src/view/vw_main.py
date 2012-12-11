@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'C:\src\GitHub\tripping-nemesis\resources\UI\vw_main.ui'
 #
-# Created: Tue Dec 11 20:53:48 2012
+# Created: Tue Dec 11 20:56:27 2012
 #      by: PyQt4 UI code generator 4.9.5
 #
 # WARNING! All changes made in this file will be lost!

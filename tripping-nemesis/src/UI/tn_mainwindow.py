@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\src\GitHub\tripping-nemesis\tripping-nemesis\src\UI\tn_mainwindow.ui'
+# Form implementation generated from reading ui file 'c:\src\GitHub\tripping-nemesis\tripping-nemesis\src\UI\tn_mainwindow.ui'
 #
-# Created: Wed Nov 28 09:52:05 2012
+# Created: Tue Dec 11 09:21:16 2012
 #      by: PyQt4 UI code generator 4.9.5
 #
 # WARNING! All changes made in this file will be lost!

@@ -6,8 +6,8 @@
 import os, sys
 from PyQt4 import QtGui, QtCore
 
-sys.path.append(os.curdir + "\\UI")
-sys.path.append(os.curdir + "\\DB")
+sys.path.append('../resources/UI')
+sys.path.append('../DB')
 
 from vw_main import Ui_Main
 from vw_chart import Ui_ChartView

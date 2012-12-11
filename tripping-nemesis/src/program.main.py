@@ -15,7 +15,15 @@ class MainForm(QtGui.QMainWindow, Ui_Main):
         
         # Go borderless so it looks the same no matter what platform? TBD
         #self.setWindowFlags(QtCore.Qt.FramelessWindowHint) 
+<<<<<<< HEAD
         self.setupUi(self)
+=======
+<<<<<<< HEAD
+        self.ui.setupUi(self)        
+=======
+        self.setupUi(self)
+>>>>>>> Binding to symbol list, chart popup
+>>>>>>> f603b51d879d749ada65ed0bbb576e7658990349
         self.model = QtGui.QStandardItemModel()
         
         #database.populate_symbol_list()

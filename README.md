@@ -1,18 +1,22 @@
-tripping-nemesis
-----------------
+# tripping-nemesis [code name]
 
-Tripping Nemesis is a proof-of-concept for a simple stock analyser written purely in PyQt4.
+Tripping Nemesis is a showcase application to proof that Python is great choice for building production-level scientific applications.
 
-Data is provided via the Yahoo Finance web API.
-	
-The main purpose of TN is to demonstrate that
+Trippig Nemesis is also a demo of the following state-of-the-art libraries:
 
-	-	PyQt is a viable platform for delivering quality software, with a minimum of fuss.
-	-	PyQt can deliver higher-quality components than other more widely subscribed development environments.
-	
-The [Win Python] package was used to develop this product.
+* sqlite3 (embedded database)
+* SQLAlchemy (object relational mapper)
+* lxml (web scraping)
+* NumPy/SciPy/pandas (data processing/scientific computing)
+* PyQt or PySide (tbd) (GUI)
+* Chaco (interactive charts)
+* Esky (deployment incl. auto-update)
 
-tripping-nemesis is licenced under the MIT license.
+All this is based on open-source software that will work cross-platform (Windows, Mac, Linux) out of the box.
 
+Tripping Nemesis itself is a simple investment analyzer using historical time series from Yahoo! Finance.
 
-	[Win Python] : http://code.google.com/p/winpython/
+This project also tries to shed light on the discussion of general-purpose versus domain-specific languages to build scientific applications (see e.g. http://www.johndcook.com/blog/2012/04/02/why-scipy/):
+
+We believe that for building a fully-featured scientific application, Python is hard to beat.
+

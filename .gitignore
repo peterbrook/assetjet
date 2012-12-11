@@ -1,4 +1,7 @@
+
+tripping-nemesis/src/UI/*.py
 *.py[cod]
+
 
 # C extensions
 *.so

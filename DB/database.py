@@ -28,9 +28,7 @@ import datetime, time
 from urllib import urlopen
 from lxml import html
 
-defaultDbFileName = "C:\\src\\GitHub\\tripping-nemesis\\tripping-nemesis\\src\\DB\\data\\stocks.db"
-
-defaultDbFileName = "C:\\src\\GitHub\\tripping-nemesis\\tripping-nemesis\\src\\DB\\data\\stocks.db"
+defaultDbFileName = 'TimeSeries.db'
 
 schema = np.dtype({'names':['symbol', 'date', 'open', 'high', 'low',
                        'close', 'volume', 'adjclose'],
@@ -146,78 +144,6 @@ def save_to_db(data, dbfilename=defaultDbFileName):
     c.close()
     conn.close()
     return change_count
-
-def symbol_exists(symbol, dbfilename=defaultDbFileName):
-    """ Check for existence of symbol in specified dbfilename. Returns a 
-        tuple of how many records, and the start and end dates of the data
-        available for the symbol.
-    """
-    
-    conn = sqlite3.connect(dbfilename, 
-        detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
-    sql = "SELECT symbol, date as 'date [datetime]' from stocks where symbol='%s';" % (symbol)
-    qry = conn.execute(sql)
-    recs = qry.fetchall()
-    schema = np.dtype({'names':['symbol', 'date'],
-                       'formats':['S8', 'M8[D]']})
-    table = np.array(recs, dtype=schema)
-
-    startdate = np.datetime64(table['date'][0])
-    enddate = np.datetime64(table['date'][-1])
-    return len(table), startdate, enddate
-    
-
-def all_symbols(dbfilename=defaultDbFileName):
-    """ Convenience function to return a list of all symbols in the 
-        database.
-    """
-    
-    conn = sqlite3.connect(dbfilename, 
-        detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
-    sql = "SELECT DISTINCT symbol from stocks;"
-    qry = conn.execute(sql)
-    recs = qry.fetchall()
-    reclist = [list(rec)[0] for rec in recs]
-    return reclist
-
-def populate_symbol_list(symbols, dbfilename=defaultDbFileName):
-    """ Function to prepopulate a table with symbols where we don't have
-        to hammer the db every time.
-        Returns the number of records added.
-    """
-    
-    if not os.path.exists(dbfilename):
-        create_db(dbfilename)
-
-    dt = np.dtype({'names':['symbol', 'startdate', 'enddate', 'entries'],
-                   'formats':['S8', 'M8[D]', 'M8[D]', long]})
-    data = []
-
-    for symbol in symbols:
-        entries, startdate, enddate = symbol_exists(symbol, dbfilename=dbfilename)
-        print((symbol, startdate, enddate, entries))
-        data.append((symbol, startdate, enddate, entries))
-    
-    data = np.array(data, dtype=dt)
-
-    conn = sqlite3.connect(dbfilename,
-        detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
-    c = conn.cursor()
-
-    # Wrap in a try block in case there's a duplicate given our UNIQUE INDEX
-    #     criteria above.
-    try:
-        sql = "INSERT INTO symbol_list (symbol, startdate, enddate, entries) VALUES (?, ?, ?, ?);"
-
-        c.executemany(sql, data.tolist())
-    except sqlite3.IntegrityError:
-        pass
-
-    conn.commit()
-    change_count = conn.total_changes
-    c.close()
-    conn.close()
-    return change_count
     
 def populate_db(symbols, startdate, enddate, dbfilename=defaultDbFileName):
     """ Wrapper function to rifle through a list of symbols, pull the data,
@@ -269,7 +195,7 @@ def populate_db(symbols, startdate, enddate, dbfilename=defaultDbFileName):
                                                          save_count,
                                                          len(symbollist))
     
-def download_sp500(startdate, enddate, dbfilename):
+def download_sp500(startdate, enddate, dbfilename=defaultDbFileName):
     
     # Download list of tickers, company name and GICS Sectors from Wikipedia
     # TODO: somebody please improve this
@@ -333,7 +259,7 @@ def download_sp500(startdate, enddate, dbfilename):
 
 # Create/Update sample database with S&P 500    
 if __name__ == '__main__': 
-   download_sp500('2012-1-1', '2012-12-02', 'TimeSeries.db')
+   download_sp500('2012-1-1', '2012-12-02')
     
     
     

@@ -273,7 +273,7 @@ def download_sp500(startdate, enddate, dbfilename=defaultDbFileName):
 
 # Create/Update sample database with S&P 500    
 if __name__ == '__main__': 
-   download_sp500('2012-1-1', '2012-12-02')
+   download_sp500('2012-1-1', '2012-12-02', 'TimeSeries.db')
     
     
     

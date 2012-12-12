@@ -1,11 +1,7 @@
 import pandas.io.sql as sql
 import sqlite3
 import numpy as np
-
-# Import Matplotlib in interactive mode
 import matplotlib.pyplot as plt
-from pylab import *
-ion()
 
 # SQLite Database
 db = '../DB/TimeSeries.db'

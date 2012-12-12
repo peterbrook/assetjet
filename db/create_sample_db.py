@@ -1,6 +1,6 @@
 """
 Run this script to create the TimeSeries.db sample database with all S&P500
-tickers as downloaded from Wikipedia and daily time series 
+tickers as downloaded from Wikipedia and daily time series from Yahoo! Finance
 """
 
 import os

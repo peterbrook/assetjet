@@ -1,6 +1,6 @@
 # tripping-nemesis [code name]
 
-Tripping Nemesis is a showcase application to proof that Python is great choice for building production-level scientific applications.
+Tripping Nemesis is a showcase application to prove that Python is a great choice for building production-level scientific applications.
 
 Trippig Nemesis is also a demo of the following state-of-the-art libraries:
 

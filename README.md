@@ -1,6 +1,6 @@
 # tripping-nemesis [code name]
 
-Tripping Nemesis is a showcase application to proof that Python is great choice for building production-level scientific applications.
+Tripping Nemesis is a showcase application to prove that Python is a great choice for building production-level scientific applications.
 
 Trippig Nemesis is also a demo of the following state-of-the-art libraries:
 
@@ -16,7 +16,7 @@ All this is based on open-source software that will work cross-platform (Windows
 
 Tripping Nemesis itself is a simple investment analyzer using historical time series from Yahoo! Finance.
 
-This project also tries to shed light on the discussion of general-purpose versus domain-specific languages to build scientific applications (see e.g. http://www.johndcook.com/blog/2012/04/02/why-scipy/):
+This project also tries to shed light on the discussion of general-purpose versus domain-specific languages to build scientific applications (see e.g. http://www.johndcook.com/blog/2012/04/02/why-scipy/ ):
 
 We believe that for building a fully-featured scientific application, Python is hard to beat.
 

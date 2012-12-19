@@ -4,43 +4,23 @@
     TODO: Refactor this so that it properly initialises and passes control to a Main Controller object
 """
 import os, sys
+
 from PyQt4 import QtGui, QtCore
 
-sys.path.append(os.curdir + "\\UI")
-sys.path.append(os.curdir + "\\DB")
+import cfg
+from controller import *
+from controller.MainController import MainController 
 
-from vw_main import Ui_Main
-from vw_chart import Ui_ChartView
-import database
+defaultDbFileName = None
 
-class MainForm(QtGui.QMainWindow, Ui_Main):
-    def __init__(self, parent=None):
-        super(MainForm, self).__init__(parent)
-        
-        # Go borderless so it looks the same no matter what platform? TBD
-        #self.setWindowFlags(QtCore.Qt.FramelessWindowHint) 
-        self.setupUi(self)
-        self.model = QtGui.QStandardItemModel()
-        
-        #database.populate_symbol_list()
-        tickers = database.all_symbols()
-
-        for i in range(0, len(tickers)):
-            
-            #liTicker = self.lstSymbols.model.item(i, 0)
-            liTicker = QtGui.QListWidgetItem(tickers[i])
-            self.lstSymbolList.addItem(liTicker)
-            
-#        self.view = QtGui.QListView()
-#        self.view.setModel(self.model)
-#        self.view.setDragDropMode(QtGui.QAbstractItemView.InternalMove)
-
-#        self.setCentralWidget(self.view)
-
+"""
+    Application entry point
+"""
 def main():
+    
     app = QtGui.QApplication(sys.argv)
-    mainForm = MainForm()
-    mainForm.show()
+    mainForm = MainController()
+    mainForm.Show()
     sys.exit(app.exec_())
     sys.exit()
 

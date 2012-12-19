@@ -30,8 +30,6 @@ from lxml import html
 
 defaultDbFileName = "C:\\src\\GitHub\\tripping-nemesis\\tripping-nemesis\\src\\DB\\data\\stocks.db"
 
-defaultDbFileName = "C:\\src\\GitHub\\tripping-nemesis\\tripping-nemesis\\src\\DB\\data\\stocks.db"
-
 schema = np.dtype({'names':['symbol', 'date', 'open', 'high', 'low',
                        'close', 'volume', 'adjclose'],
                    'formats':['S8', 'M8[D]', float, float, float, float,

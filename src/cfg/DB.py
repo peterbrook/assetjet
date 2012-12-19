@@ -14,5 +14,5 @@ FilePath = defaultDbFileName
 def GetEngine():
     connString = "sqlite:///:file:{0}".format(FilePath)
     print connString
-    return create_engine(connString, echo=True)
+    return create_engine(connString)
     

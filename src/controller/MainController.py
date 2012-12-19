@@ -7,11 +7,6 @@ from model import symbol
 
 class MainController(QtGui.QMainWindow):
             
-    def GetAllSymbols(self):
-        Session = orm.sessionmaker(bind=DB.GetEngine())        
-        session = Session()
-        return session.query(symbol.Symbol).all()
-
     def __init__(self, parent=None):
         super(QtGui.QMainWindow, self).__init__(parent)
             
@@ -26,4 +21,9 @@ class MainController(QtGui.QMainWindow):
             #liTicker = self.lstSymbols.model.item(i, 0)
             liTicker = QtGui.QListWidgetItem(tickers[i])
             self.ui.lstSymbolList.addItem(liTicker)
+
+    def GetAllSymbols(self):
+        Session = orm.sessionmaker(bind=DB.GetEngine())        
+        session = Session()
+        return session.query(symbol.Symbol).all()
                

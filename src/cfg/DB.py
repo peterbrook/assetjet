@@ -8,11 +8,11 @@ from sqlalchemy import create_engine
 import ConfigParser
 config = ConfigParser.ConfigParser()
 config.readfp(open('app.cfg'))
-defaultDbFileName = config.get('Database', 'filePath')
+defaultDbFileName = str(config.get('Database', 'filePath'))
 FilePath = defaultDbFileName
 
 def GetEngine():
-    connString = "sqlite:///:file:{0}".format(FilePath)
+    connString = "sqlite:///{0}".format(FilePath)
     print connString
     return create_engine(connString)
     

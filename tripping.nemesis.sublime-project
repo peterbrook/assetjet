@@ -1,0 +1,23 @@
+{
+	"folders":
+	[
+		{
+			"path": ".git"
+		},
+		{
+			"path": "DB"
+		},
+		{
+			"path": "resources"
+		},
+		{
+			"path": "src"
+		},
+		{
+			"path": "sandbox"
+		},
+		{
+			"path": "tests"
+		}
+	]
+}

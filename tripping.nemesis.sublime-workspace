@@ -27,7 +27,7 @@
 			"file": "src/cfg/DB.py",
 			"settings":
 			{
-				"buffer_size": 427,
+				"buffer_size": 426,
 				"line_ending": "Windows"
 			}
 		},
@@ -43,7 +43,7 @@
 			"file": "src/controller/MainController.py",
 			"settings":
 			{
-				"buffer_size": 891,
+				"buffer_size": 1221,
 				"line_ending": "Windows"
 			}
 		},
@@ -59,15 +59,27 @@
 	"build_system": "Packages/Python/Python.sublime-build",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 380.0,
 		"selected_items":
 		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			]
 		],
-		"width": 392.0
+		"width": 400.0
 	},
 	"console":
 	{
-		"height": 0.0
+		"height": 125.0
 	},
 	"distraction_free":
 	{
@@ -198,7 +210,7 @@
 					"file": "src/cfg/DB.py",
 					"settings":
 					{
-						"buffer_size": 427,
+						"buffer_size": 426,
 						"regions":
 						{
 						},
@@ -252,15 +264,15 @@
 					"file": "src/controller/MainController.py",
 					"settings":
 					{
-						"buffer_size": 891,
+						"buffer_size": 1221,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								258,
-								267
+								0,
+								0
 							]
 						],
 						"settings":
@@ -366,6 +378,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 267.0,
+	"side_bar_width": 156.0,
 	"status_bar_visible": true
 }

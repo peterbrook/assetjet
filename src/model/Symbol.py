@@ -6,7 +6,7 @@ from cfg import DB
 from sqlalchemy.orm import sessionmaker
 
 class Symbol(ModelBase):
-    __tablename__ = 'symbol'
+    __tablename__ = 'symbol_list'
 
     symbol = Column(String, primary_key=True)
     startdate = Column(String)

@@ -4,7 +4,10 @@
 """
 import os, sys
 from PyQt4 import QtGui, QtCore
-from controller.main_controller import MainController 
+
+sys.path.append('..')
+
+from src.controller.main_controller import MainController 
 """
     Application entry point
 """

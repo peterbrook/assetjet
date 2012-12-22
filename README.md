@@ -10,7 +10,7 @@ Tripping Nemesis is also a demo of the following state-of-the-art libraries:
 * NumPy/SciPy/pandas (data processing/scientific computing)
 * PyQt or PySide (tbd) (GUI)
 * Chaco (interactive charts)
-* Esky (deployment incl. auto-update)
+* cx_Freeze and Esky (packaging and auto-update)
 
 All this is based on open-source software that will work cross-platform (Windows, Mac, Linux) out of the box.
 

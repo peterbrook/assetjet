@@ -4,14 +4,14 @@
 """
 import os, sys
 from PyQt4 import QtGui, QtCore
-from controller.MainController import MainController 
+from controller.main_controller import MainController 
 """
     Application entry point
 """
 def main():
     app = QtGui.QApplication(sys.argv)
-    mainForm = MainController()
-    mainForm.Show()
+    main_form = MainController()
+    main_form.Show()
     sys.exit(app.exec_())
     sys.exit()
 

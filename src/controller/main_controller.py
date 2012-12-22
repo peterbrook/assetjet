@@ -1,6 +1,6 @@
 from PyQt4 import QtGui
 from view.vw_main import Ui_Main
-from cfg import DB
+from cfg import db
 import sqlalchemy.orm as orm
 
 from model import symbol
@@ -26,7 +26,7 @@ class MainController(QtGui.QMainWindow):
             super(QtGui.QMainWindow, self).show()
 
     def GetAllSymbols(self):
-        Session = orm.sessionmaker(bind=DB.GetEngine())        
+        Session = orm.sessionmaker(bind=db.GetEngine())        
         session = Session()
         return session.query(symbol.Symbol).all()
 

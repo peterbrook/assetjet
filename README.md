@@ -8,7 +8,7 @@ Tripping Nemesis is also a demo of the following state-of-the-art libraries:
 * SQLAlchemy (object relational mapper)
 * lxml (web scraping)
 * NumPy/SciPy/pandas (data processing/scientific computing)
-* PyQt or PySide (tbd) (GUI)
+* PySide (GUI)
 * Chaco (interactive charts)
 * cx_Freeze and Esky (packaging and auto-update)
 

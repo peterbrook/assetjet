@@ -13,7 +13,7 @@ for root, subFolders, files in os.walk(rootDir):
 
 for uiFile, outFile in fileList:
     print "Building: {0} to: {1}".format(uiFile, outFile)
-    cmd = "pyuic4 -o {0} {1}".format(outFile, uiFile)    
+    cmd = "pyside-uic -o {0} {1}".format(outFile, uiFile)    
     os.system(cmd)
 
 print "Done"

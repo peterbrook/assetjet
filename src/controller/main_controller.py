@@ -1,4 +1,4 @@
-from PyQt4 import QtGui
+from PySide import QtGui
 from src.view.vw_main import Ui_Main
 from src.cfg import db
 import sqlalchemy.orm as orm
@@ -10,7 +10,7 @@ class MainController(QtGui.QMainWindow):
     eventsInitialised = False
             
     def __init__(self, parent=None):
-        super(QtGui.QMainWindow, self).__init__(parent)
+        super(MainController, self).__init__(parent)
             
     def Show(self):
         # Go borderless so it looks the same no matter what platform? TBD

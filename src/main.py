@@ -3,7 +3,7 @@
     Program Entry Point
 """
 import os, sys
-from PyQt4 import QtGui, QtCore
+from PySide import QtGui, QtCore
 
 sys.path.append('..')
 

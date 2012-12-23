@@ -1,36 +1,31 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\src\GitHub\tripping-nemesis\resources\UI\vw_main.ui'
+# Form implementation generated from reading ui file 'C:\DEV\GitHub\tripping-nemesis\resources\ui\vw_main.ui'
 #
-# Created: Tue Dec 11 20:56:27 2012
-#      by: PyQt4 UI code generator 4.9.5
+# Created: Sun Dec 23 22:48:30 2012
+#      by: pyside-uic 0.2.14 running on PySide 1.1.2
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt4 import QtCore, QtGui
-
-try:
-    _fromUtf8 = QtCore.QString.fromUtf8
-except AttributeError:
-    _fromUtf8 = lambda s: s
+from PySide import QtCore, QtGui
 
 class Ui_Main(object):
     def setupUi(self, Main):
-        Main.setObjectName(_fromUtf8("Main"))
+        Main.setObjectName("Main")
         Main.resize(734, 581)
         self.centralwidget = QtGui.QWidget(Main)
-        self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
+        self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayoutWidget = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(10, 70, 711, 471))
-        self.horizontalLayoutWidget.setObjectName(_fromUtf8("horizontalLayoutWidget"))
+        self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
         self.horizontalLayout = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
-        self.horizontalLayout.setMargin(0)
-        self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
         self.lstSymbolList = QtGui.QListWidget(self.horizontalLayoutWidget)
         self.lstSymbolList.setDragEnabled(True)
         self.lstSymbolList.setDragDropMode(QtGui.QAbstractItemView.DragOnly)
         self.lstSymbolList.setAlternatingRowColors(True)
-        self.lstSymbolList.setObjectName(_fromUtf8("lstSymbolList"))
+        self.lstSymbolList.setObjectName("lstSymbolList")
         self.horizontalLayout.addWidget(self.lstSymbolList)
         spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.horizontalLayout.addItem(spacerItem)
@@ -41,28 +36,28 @@ class Ui_Main(object):
         self.trvwSelectedSymbols.setAlternatingRowColors(True)
         self.trvwSelectedSymbols.setSelectionMode(QtGui.QAbstractItemView.MultiSelection)
         self.trvwSelectedSymbols.setSelectionBehavior(QtGui.QAbstractItemView.SelectItems)
-        self.trvwSelectedSymbols.setObjectName(_fromUtf8("trvwSelectedSymbols"))
-        self.trvwSelectedSymbols.headerItem().setText(0, _fromUtf8("1"))
+        self.trvwSelectedSymbols.setObjectName("trvwSelectedSymbols")
+        self.trvwSelectedSymbols.headerItem().setText(0, "1")
         self.horizontalLayout.addWidget(self.trvwSelectedSymbols)
         self.groupBox = QtGui.QGroupBox(self.centralwidget)
         self.groupBox.setGeometry(QtCore.QRect(10, 10, 711, 51))
-        self.groupBox.setObjectName(_fromUtf8("groupBox"))
+        self.groupBox.setObjectName("groupBox")
         self.dtStartDate = QtGui.QDateEdit(self.groupBox)
         self.dtStartDate.setGeometry(QtCore.QRect(160, 20, 110, 22))
-        self.dtStartDate.setObjectName(_fromUtf8("dtStartDate"))
+        self.dtStartDate.setObjectName("dtStartDate")
         self.btnAnalyse = QtGui.QPushButton(self.groupBox)
         self.btnAnalyse.setGeometry(QtCore.QRect(620, 20, 75, 23))
-        self.btnAnalyse.setObjectName(_fromUtf8("btnAnalyse"))
+        self.btnAnalyse.setObjectName("btnAnalyse")
         self.dtEndDate = QtGui.QDateEdit(self.groupBox)
         self.dtEndDate.setGeometry(QtCore.QRect(400, 20, 110, 22))
-        self.dtEndDate.setObjectName(_fromUtf8("dtEndDate"))
+        self.dtEndDate.setObjectName("dtEndDate")
         Main.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(Main)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 734, 21))
-        self.menubar.setObjectName(_fromUtf8("menubar"))
+        self.menubar.setObjectName("menubar")
         Main.setMenuBar(self.menubar)
         self.statusbar = QtGui.QStatusBar(Main)
-        self.statusbar.setObjectName(_fromUtf8("statusbar"))
+        self.statusbar.setObjectName("statusbar")
         Main.setStatusBar(self.statusbar)
 
         self.retranslateUi(Main)

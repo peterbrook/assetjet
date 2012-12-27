@@ -3,7 +3,7 @@ from src.view.vw_main import Ui_Main
 from src.cfg import db
 import sqlalchemy.orm as orm
 
-from src.model import symbol
+from src.model import asset
 
 class MainController(QtGui.QMainWindow):
 
@@ -21,14 +21,14 @@ class MainController(QtGui.QMainWindow):
 
         for i in range(0, len(tickers)):            
             #liTicker = self.lstSymbols.model.item(i, 0)
-            liTicker = QtGui.QListWidgetItem(tickers[i].symbol)
+            liTicker = QtGui.QListWidgetItem(tickers[i].name)
             self.ui.lstSymbolList.addItem(liTicker)
             super(QtGui.QMainWindow, self).show()
 
     def GetAllSymbols(self):
         Session = orm.sessionmaker(bind=db.GetEngine())        
         session = Session()
-        return session.query(symbol.Symbol).all()
+        return session.query(asset.Asset).all()
 
 """
     def InitialiseEvents(self):

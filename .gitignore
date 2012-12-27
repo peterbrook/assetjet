@@ -3,8 +3,7 @@ tripping-nemesis/src/UI/*.py
 *.py[cod]
 *.pyc
 
-# Config files
-*.cfg
+
 
 # C extensions
 *.so

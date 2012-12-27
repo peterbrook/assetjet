@@ -19,7 +19,7 @@ if sys.platform == 'win32':
     base = 'Win32GUI'
 
 setup(  name = 'tripping-nemesis',
-        version = tn.__version__,
+        version = '0.1',
         description = 'tripping-nemesis is a stock analyzer',
         options = {'build_exe': build_exe_options},
         executables = [Executable('./tn/main.py', base=base)])

@@ -5,10 +5,11 @@ Tripping Nemesis is a showcase application to prove that Python is a great choic
 Tripping Nemesis is also a demo of the following state-of-the-art libraries:
 
 * sqlite3 (embedded database)
+* Alembic (database migration)
 * SQLAlchemy (object relational mapper)
 * lxml (web scraping)
 * NumPy/SciPy/pandas (data processing/scientific computing)
-* PySide (GUI)
+* Qt and PySide (GUI)
 * Chaco (interactive charts)
 * cx_Freeze and Esky (packaging and auto-update)
 

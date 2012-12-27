@@ -2,7 +2,7 @@ import os
 
 rootDir = os.getcwd()
 print ("Current path is: ", rootDir)
-outDir = os.path.join(rootDir, "src\\view")
+outDir = os.path.join(rootDir, "tn\\view")
 
 fileList = []
 for root, subFolders, files in os.walk(rootDir):

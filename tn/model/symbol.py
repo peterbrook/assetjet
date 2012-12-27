@@ -2,7 +2,7 @@
 from sqlalchemy import Column, Integer, String
 from datetime import date
 from base import ModelBase
-from src.cfg import db
+from tn.cfg import db
 from sqlalchemy.orm import sessionmaker
 
 class Symbol(ModelBase):

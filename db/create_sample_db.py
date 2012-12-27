@@ -11,12 +11,16 @@ import database
 def download_sp500(startdate, enddate, dbfilename):
     
     # Download list of tickers, company name and GICS Sectors from Wikipedia
-    # TODO: somebody please improve this
     url = 'http://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
     page = html.parse(url)
     symbol = page.xpath('//table[@class="wikitable sortable"]/tr/td[1]/a/text()')
     company = page.xpath('//table[@class="wikitable sortable"]/tr/td[2]/a/text()')
     sector = page.xpath('//table[@class="wikitable sortable"]/tr/td[4]/text()')
+    
+    # Add the index itself
+    symbol.append('^GSPC')    
+    company.append('S&P 500')    
+    sector.append(None)    
     
     # Since Dec-12, BRK.B Yahoo! Finance lists BRK.B as BRK-B
     if 'BRK.B' in symbol: symbol[symbol.index('BRK.B')]='BRK-B'
@@ -58,13 +62,7 @@ def download_sp500(startdate, enddate, dbfilename):
     INSERT INTO Assets
     SELECT l.Cd, l.Name, g.Id
     FROM LoadAssets l
-    INNER JOIN GicsSectors g ON l.SectorName = g.Name""")
-    
-    conn.execute("DELETE FROM Indices WHERE Cd = '^GSPC' ")
-    conn.execute("INSERT INTO Indices VALUES('^GSPC', 'S&P 500')")
-    
-    conn.execute("DELETE FROM AssetsIndices WHERE IndexCd = '^GSPC' ")
-    conn.execute("INSERT INTO AssetsIndices SELECT Cd, '^GSPC' FROM LoadAssets")
+    LEFT JOIN GicsSectors g ON l.SectorName = g.Name""")
     
     conn.execute("DROP TABLE LoadAssets")
     conn.commit()
@@ -74,4 +72,4 @@ def download_sp500(startdate, enddate, dbfilename):
 
 # Create/Update sample database with S&P 500    
 if __name__ == '__main__': 
-   download_sp500('2012-1-1', '2012-12-12', 'TimeSeries.db')
+   download_sp500('2012-01-01', '2012-12-12', 'TimeSeries.db')

@@ -105,8 +105,6 @@ def create_db(filename=defaultDbFileName):
     conn.execute('''CREATE TABLE TimeSeries (Cd text, Date timestamp, Open float, High float, Low float, Close float, Volume float, AdjClose float)''')       
     conn.execute("""CREATE TABLE Assets (Cd text, Name text, GicsSectorId int)""")
     conn.execute("""CREATE TABLE GicsSectors (Id int, Name text)""")
-    conn.execute("""CREATE TABLE Indices (Cd text, Name text)""")
-    conn.execute("""CREATE TABLE AssetsIndices (AssetCd text, IndexCd text)""")
     conn.execute('''CREATE UNIQUE INDEX Idx_TimeSeries ON TimeSeries (Cd, Date)''')
     conn.commit()
     conn.close()

@@ -6,6 +6,7 @@ includefiles = []
 includes = ['lxml.etree', 'lxml._elementpath',
             'gzip', 'numpy.core._mx_datetime_parser']
 build_exe_options = {'packages': ['os', 'sqlalchemy.dialects.sqlite'],
+                     'icon': './resources/Pie-chart.ico',
                      'excludes': ['tkinter'],
                      'includes': includes,
                      'include_files': includefiles}
@@ -20,4 +21,4 @@ setup(  name = 'tripping-nemesis',
         version = '0.1',
         description = 'tripping-nemesis is a stock analyzer',
         options = {'build_exe': build_exe_options},
-        executables = [Executable('src/main.py', base=base)])
+        executables = [Executable('./src/main.py', base=base)])

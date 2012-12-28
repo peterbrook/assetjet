@@ -7,7 +7,7 @@ from PySide import QtGui, QtCore
 
 sys.path.append('..')
 
-from tn.controller.main_controller import MainController 
+from assetjet.controller.main_controller import MainController 
 """
     Application entry point
 """

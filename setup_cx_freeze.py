@@ -1,6 +1,6 @@
 import sys
 from cx_Freeze import setup, Executable
-import tn
+
 
 # Dependencies are automatically detected, but it might need fine tuning.
 includefiles = []

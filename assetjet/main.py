@@ -3,11 +3,12 @@
     Program Entry Point
 """
 import os, sys
-from PySide import QtGui, QtCore
+from PySide import QtCore, QtGui
+from log import log
 
 sys.path.append('..')
 
-from assetjet.controller.main_controller import MainController 
+from controller.main_controller import MainController 
 """
     Application entry point
 """

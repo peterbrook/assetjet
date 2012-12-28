@@ -1,4 +1,4 @@
-
+.metadata
 tripping-nemesis/src/UI/*.py
 *.py[cod]
 *.pyc
@@ -42,3 +42,7 @@ nosetests.xml
 
 # SQLite Database
 *.db
+.metadata
+/assetjet/logfiles
+logfiles
+.settings

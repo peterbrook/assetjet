@@ -22,4 +22,4 @@ setup(  name = 'tripping-nemesis',
         version = '0.1',
         description = 'tripping-nemesis is a stock analyzer',
         options = {'build_exe': build_exe_options},
-        executables = [Executable('./tn/trippingnemesis.py', base=base)])
+        executables = [Executable('./tn/trippingnemesis.py', base=base, targetName="AssetJet.exe")])

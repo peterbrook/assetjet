@@ -18,4 +18,4 @@ class Asset(ModelBase):
         self.gicssectorid = gicssectorid
     
     def __repr__(self):
-        return "<Symbol('%s','%s', '%s', '%s')>" % (self.cd, self.name, self.gicssectorid)
+        return "<Asset('%s','%s', '%s')>" % (self.cd, self.name, self.gicssectorid)

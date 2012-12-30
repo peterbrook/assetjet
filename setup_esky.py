@@ -3,7 +3,7 @@ from esky.bdist_esky import Executable
 from distutils.core import setup
 from glob import glob
 
-subversion = 2
+subversion = 4
 
 if sys.platform in ['win32','cygwin','win64']:
 

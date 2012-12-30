@@ -3,6 +3,7 @@
 	<name>assetjet.test</name>
 	<comment></comment>
 	<projects>
+		<project>assetjet</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

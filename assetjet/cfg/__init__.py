@@ -1,1 +1,1 @@
-__all__  = [ "DB", "log" ]
+__all__  = [ "DB", "log", "cfg" ]

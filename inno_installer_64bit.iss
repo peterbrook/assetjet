@@ -1,44 +1,33 @@
+#define AppName "AssetJet"
+#define AppID "{7F040C1B-7DA1-43BA-B98B-346B8CACAE8B}"
+
 [Setup]
+AppId={{#AppID}
 PrivilegesRequired=none
-AppName=AssetJet
-AppVersion=0.1.0
-; install in AppData\Local if no admin rights, otherwise in Program folder
-;DefaultDirName={code:DefDirRoot}\AssetJet
-DisableDirPage=yes
-DefaultDirName={localappdata}\AssetJet
-DisableProgramGroupPage=yes
-DefaultGroupName=AssetJet
+AppName={#AppName}
+AppVersion=0.1.1
+UninstallDisplayName={#AppName}
 UninstallDisplayIcon={app}\AssetJet.exe
+DefaultDirName={localappdata}\{#AppName}
+DisableDirPage=yes
+DefaultGroupName={#AppName}
+DisableProgramGroupPage=yes
 Compression=lzma2
 SolidCompression=yes
-SetupIconFile=".\resources\Pie-chart.ico"
-OutputBaseFilename=AssetJetSetup64bit
+OutputBaseFilename=AssetJet Setup (64bit)
 OutputDir=.\dist
-; Only allow installation on 64bit systems and into 64bit folder
 ArchitecturesAllowed=x64
-ArchitecturesInstallIn64BitMode=x64
 LicenseFile=LICENSE.txt
 
 [Files]
 Source: ".\dist\AssetJet\*.*"; DestDir: "{app}"; Flags: recursesubdirs
-;Source: ".\dist\AssetJet-0.1.0.win-amd64\appdata\AssetJet-0.1.2.win-amd64\*.*"; DestDir: "{app}\appdata\AssetJet-0.1.2.win-amd64"; Flags: ignoreversion
-;Source: ".\dist\AssetJet-0.1.0.win-amd64\appdata\AssetJet-0.1.2.win-amd64\esky-files\*.*"; DestDir: "{app}\appdata\AssetJet-0.1.2.win-amd64\esky-files"; Flags: ignoreversion
 
-
+[Dirs]
+Name: "{app}\appdata"
 
 [Icons]
-Name: "{group}\AssetJet"; Filename: "{app}\AssetJet.exe"
+Name: "{group}\{#AppName}"; Filename: "{app}\AssetJet.exe"
 
-[Code]
-function IsRegularUser(): Boolean;
-begin
-Result := not (IsAdminLoggedOn or IsPowerUserLoggedOn);
-end;
-
-function DefDirRoot(Param: String): String;
-begin
-if IsRegularUser then
-Result := ExpandConstant('{localappdata}')
-else
-Result := ExpandConstant('{pf}')
-end;
+[UninstallDelete]
+; Needed as the program folder gets changed through the Esky updates
+Type: filesandordirs; Name: "{app}"

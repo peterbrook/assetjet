@@ -29,7 +29,7 @@
     <widget class="QDateEdit" name="dtStartDate">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>280</x>
        <y>20</y>
        <width>110</width>
        <height>22</height>

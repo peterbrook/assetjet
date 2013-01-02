@@ -30,4 +30,4 @@ Name: "{group}\{#AppName}"; Filename: "{app}\AssetJet.exe"
 
 [UninstallDelete]
 ; Needed as the program folder gets changed through the Esky updates
-Type: filesandordirs; Name: "{app}"
+Type: filesandordirs; Name: "{app}\appdata"

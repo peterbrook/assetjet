@@ -3,7 +3,8 @@ from esky.bdist_esky import Executable
 from distutils.core import setup
 from glob import glob
 
-subversion = 4
+subversion = 5
+
 
 if sys.platform in ['win32','cygwin','win64']:
 
@@ -28,7 +29,7 @@ if sys.platform in ['win32','cygwin','win64']:
                  "includes": ['lxml.etree', 'lxml._elementpath',
                               'gzip', 'numpy.core._mx_datetime_parser'],
                  #  forcibly exclude some other modules
-                 "excludes": ["tkinter"],
+                 "excludes": ['tkinter', 'pydoc'],
                  #  force esky to freeze the app using py2exe
                  "freezer_module": "cx_freeze",
                  #  tweak the options used by cx_freezer

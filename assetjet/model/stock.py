@@ -1,8 +1,8 @@
 from sqlalchemy import Column, Integer, String
 from datetime import date
-import ModelBase
+import base
 
-class StockDaily(ModelBase.Base):
+class StockDaily(base.ModelBase):
     __tablename__ = 'stock'
 
     symbol = Column(String, primary_key=True)

@@ -4,18 +4,16 @@
 """
 import os, sys
 from PySide import QtCore, QtGui
-from log import log
 from controller.main_controller import MainController 
 import esky
 
 sys.path.append('..')
-from assetjet.controller.main_controller import MainController 
 
 ###
 # TODO: Very quick POC for Esky - needs to be refactored into silent update in
 # a background thread...
 if getattr(sys,"frozen",False):
-    try:
+    try:        
         frozenapp = esky.Esky(sys.executable,"http://localhost:8000")
         new_version = frozenapp.find_update()
         if(new_version != None):

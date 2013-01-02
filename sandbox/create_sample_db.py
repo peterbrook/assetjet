@@ -72,4 +72,4 @@ def download_sp500(startdate, enddate, dbfilename):
 
 # Create/Update sample database with S&P 500    
 if __name__ == '__main__': 
-   download_sp500('2012-01-01', '2012-12-12', 'assetjet.db')
+   download_sp500('2012-01-01', '2012-12-12', '..\\DB\\data\\assetjet.db')

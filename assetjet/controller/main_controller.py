@@ -1,9 +1,9 @@
 from PySide import QtGui
-from assetjet.view.vw_main import Ui_Main
-from assetjet.cfg import db
+from view.vw_main import Ui_Main
+from cfg import db
 import sqlalchemy.orm as orm
 
-from assetjet.model import asset
+from model import asset
 
 class MainController(QtGui.QMainWindow):
 

@@ -2,7 +2,7 @@
 from sqlalchemy import Column, Integer, String
 from datetime import date
 from base import ModelBase
-from assetjet.cfg import db
+from cfg import db
 from sqlalchemy.orm import sessionmaker
 
 class Asset(ModelBase):

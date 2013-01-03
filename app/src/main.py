@@ -1,9 +1,9 @@
 """
-AssetJet
-Program Entry Point
+    {copyright}
+    AssetJet
+    Program Entry Point
 """
 import os, sys
-
 from PySide import QtCore, QtGui
 from assetjet.log import log
 
@@ -11,15 +11,14 @@ def main():
     from assetjet.controller.main_controller import MainController 
     from assetjet.cfg import cfg
     from assetjet.util import updater
-    print(cfg.root)
-    
+        
     upd = updater.Updater(cfg.root.UpdateUrl)
     upd.setDaemon(daemonic=True)
     upd.start()
     
     app = QtGui.QApplication(sys.argv)
-    main_form = MainController()
-    main_form.Show()
+    mainForm = MainController()
+    mainForm.Show()
     sys.exit(app.exec_())
     sys.exit()
 

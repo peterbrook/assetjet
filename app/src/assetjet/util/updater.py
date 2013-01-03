@@ -5,10 +5,7 @@ Created on 2 Jan 2013
 '''
 import sys, os
 import esky
-import Queue
 import threading
-import urllib2
-import time
 from assetjet.cfg import cfg    
    
 class Updater(threading.Thread):
@@ -22,8 +19,7 @@ class Updater(threading.Thread):
         threading.Thread.__init__(self)
         self.url = url
         
-    def run(self):
-        
+    def run(self):        
         if getattr(sys,"frozen",False):
             try:        
                 frozenapp = esky.Esky(sys.executable, self.url)
@@ -37,4 +33,3 @@ class Updater(threading.Thread):
                 print "ERROR UPDATING APP:", e
             frozenapp.cleanup()   
                
-        

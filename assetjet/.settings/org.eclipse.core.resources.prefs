@@ -1,7 +1,0 @@
-eclipse.preferences.version=1
-encoding//src/assetjet/cfg/db.py=utf-8
-encoding//src/assetjet/controller/base.py=utf-8
-encoding//src/assetjet/log/log.py=utf-8
-encoding//src/assetjet/model/base.py=utf-8
-encoding//src/assetjet/view/__init__.py=utf-8
-encoding//src/assetjet/view/vw_main.py=utf-8

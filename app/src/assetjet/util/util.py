@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, inspect
 
 """
     Convenience function to return the root of the application in the 
@@ -12,10 +12,9 @@ def getBaseDir():
     if getattr(sys,"frozen",False):
         return os.path.dirname(os.path.abspath(sys.executable))
     else:
-        # Customize this to point to the directory of the main.py script.
-        return "C:\\src\\GitHub\\assetjet\\assetjet\\"
-        #return os.path.dirname(os.path.abspath(sys.argv[0]))
-    
+        thisdir = os.path.dirname(inspect.getfile(inspect.currentframe()))
+        return os.path.realpath(os.path.join(thisdir, '..', '..'))
+
     
 if __name__ == "__main__":
     print sys.executable

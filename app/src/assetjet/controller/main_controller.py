@@ -30,11 +30,11 @@ class MainController(QtGui.QMainWindow):
         session = Session()
         return session.query(asset.Asset).all()
 
-"""
+
     def InitialiseEvents(self):
-        self.connect(self.ui.lstSymbolList, SIGNAL("doubleClicked()", self.AddSymbol)
+        self.connect(self.ui.lstSymbolList, SIGNAL("doubleClicked()", self.AddSymbol))
         
     def AddSymbol(self):
+        QtGui.QMessageBox.critical("Hello")
         pass
-"""        
                

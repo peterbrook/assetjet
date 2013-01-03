@@ -13,7 +13,7 @@ def getBaseDir():
         return os.path.dirname(os.path.abspath(sys.executable))
     else:
         # Customize this to point to the directory of the main.py script.
-        return "C:\\src\\GitHub\\assetjet\\assetjet\\"
+        return "C:\\src\\GitHub\\assetjet\\app\\"
         #return os.path.dirname(os.path.abspath(sys.argv[0]))
     
     

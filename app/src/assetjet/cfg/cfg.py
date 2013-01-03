@@ -14,15 +14,6 @@ class Cfg(ConfigParser.ConfigParser):
         self.UpdateUrl = str(cfgFile.get('Updates', 'url'))    
         
 
-root = Cfg()
-    
-def __init__():
-    config = ConfigParser.ConfigParser()
-    config.readfp(open(os.path.join(util.getBaseDir(), 'app.cfg')))
-    root = Cfg(config)
-    
-
-if __name__ == "__main__":
-    __init__()
-
-
+config = ConfigParser.ConfigParser()
+config.readfp(open(os.path.join(util.getBaseDir(), 'app.cfg')))
+root = Cfg(config)

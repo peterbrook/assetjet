@@ -12,7 +12,7 @@ __logDir = 'logfiles'
 __logFile = 'assetjet'
 
 def getLogFileName(logLevel):
-    return os.path.join(util.getBaseDir(), __logDir, __logFile + '.' + logLevel + '.log.txt')
+    return os.path.join(os.path.dirname(util.getBaseDir()), __logDir, __logFile + '.' + logLevel + '.log.txt')
 
 # create ____loggerwith 'spam_application'
 __logger= logging.getLogger('')

@@ -15,5 +15,5 @@ class Cfg(ConfigParser.ConfigParser):
         
 
 config = ConfigParser.ConfigParser()
-config.readfp(open(os.path.join(util.getBaseDir(), 'app.cfg')))
+config.readfp(open(os.path.join(os.path.dirname(util.getBaseDir()), 'app.cfg')))
 root = Cfg(config)

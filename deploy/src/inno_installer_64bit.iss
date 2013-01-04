@@ -17,10 +17,10 @@ SolidCompression=yes
 OutputBaseFilename=AssetJet Setup (64bit)
 OutputDir=.\dist
 ArchitecturesAllowed=x64
-LicenseFile=LICENSE.txt
+LicenseFile=..\..\LICENSE.txt
 
 [Files]
-Source: "..\dist\AssetJet\*.*"; DestDir: "{app}"; Flags: recursesubdirs
+Source: ".\dist\AssetJet\*.*"; DestDir: "{app}"; Flags: recursesubdirs
 
 [Dirs]
 Name: "{app}\appdata"

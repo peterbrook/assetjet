@@ -6,6 +6,16 @@ tripping-nemesis/src/UI/*.py
 # Config files
 *.cfg
 
+# SQLite Database
+*.db
+.metadata
+/assetjet/logfiles
+logfiles
+.settings
+
+
+
+
 # C extensions
 *.so
 
@@ -35,14 +45,3 @@ nosetests.xml
 # Translations
 *.mo
 
-# Mr Developer
-.mr.developer.cfg
-.project
-.pydevproject
-
-# SQLite Database
-*.db
-.metadata
-/assetjet/logfiles
-logfiles
-.settings

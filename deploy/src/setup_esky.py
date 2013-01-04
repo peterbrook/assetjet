@@ -6,10 +6,10 @@ from deploy import package
 
 
 if sys.platform in ['win32','cygwin','win64']:
-	#    data_files = [("images", glob(r'.\images\*.*'))]
-	#  We can customise the executable's creation by passing an instance
+    #data_files = [("images", glob(r'.\images\*.*'))]
+    #  We can customise the executable's creation by passing an instance
     #  of Executable() instead of just the script name.
-    example = Executable("../../assetjet/main.py",
+    example = Executable("../../app/src/main.py",
                         icon='../../resources/Pie-chart.ico',
                         gui_only=True,
                         name="AssetJet.exe"

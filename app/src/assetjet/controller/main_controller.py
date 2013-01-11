@@ -17,7 +17,7 @@ class MainController(QtGui.QMainWindow):
         
         self.ui = Ui_Main()
         self.ui.setupUi(self)
-
+        self.ui.webView.url = 'C:\\src\\github\\assetjet\\app\\src\\assetjet\\view\\vw_main.htm'
         super(QtGui.QMainWindow, self).show()
 
         """

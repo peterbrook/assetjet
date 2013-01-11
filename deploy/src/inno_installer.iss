@@ -1,22 +1,24 @@
-#define AppName "AssetJet"
+; This script must be called from the command line including all definitions:
+; iscc "dAppName=MyAppName" <other definitions/options> inno_installer.iss
+
 #define AppID "{7F040C1B-7DA1-43BA-B98B-346B8CACAE8B}"
 
 [Setup]
 AppId={{#AppID}
 PrivilegesRequired=none
 AppName={#AppName}
-AppVersion=0.1.1
+AppVersion={#Version}
 UninstallDisplayName={#AppName}
-UninstallDisplayIcon={app}\AssetJet.exe
+UninstallDisplayIcon={app}\{#AppName}.exe
 DefaultDirName={localappdata}\{#AppName}
 DisableDirPage=yes
 DefaultGroupName={#AppName}
 DisableProgramGroupPage=yes
 Compression=lzma2
 SolidCompression=yes
-OutputBaseFilename=AssetJet Setup (64bit)
+OutputBaseFilename={#OutputBaseFilename}
 OutputDir=.\dist
-ArchitecturesAllowed=x64
+ArchitecturesAllowed={#ArchitecturesAllowed}
 LicenseFile=..\..\LICENSE.txt
 
 [Files]
@@ -26,7 +28,7 @@ Source: ".\dist\AssetJet\*.*"; DestDir: "{app}"; Flags: recursesubdirs
 Name: "{app}\appdata"
 
 [Icons]
-Name: "{group}\{#AppName}"; Filename: "{app}\AssetJet.exe"
+Name: "{group}\{#AppName}"; Filename: "{app}\{#AppName}.exe"
 
 [UninstallDelete]
 ; Needed as the program folder gets changed through the Esky updates

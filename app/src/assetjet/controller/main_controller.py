@@ -17,14 +17,18 @@ class MainController(QtGui.QMainWindow):
         
         self.ui = Ui_Main()
         self.ui.setupUi(self)
+
+        super(QtGui.QMainWindow, self).show()
+
+        """
         tickers = self.GetAllSymbols()
 
         for i in range(0, len(tickers)):            
             #liTicker = self.lstSymbols.model.item(i, 0)
             liTicker = QtGui.QListWidgetItem(tickers[i].name)
             self.ui.lstSymbolList.addItem(liTicker)
-            super(QtGui.QMainWindow, self).show()
-
+        """
+        
     def GetAllSymbols(self):
         Session = orm.sessionmaker(bind=db.GetEngine())        
         session = Session()

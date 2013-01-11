@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\DEV\GitHub\tripping-nemesis\resources\ui\vw_chart.ui'
+# Form implementation generated from reading ui file 'C:\src\github\assetjet\resources\ui\vw_chart.ui'
 #
-# Created: Sun Dec 23 22:48:29 2012
+# Created: Fri Jan 11 13:04:58 2013
 #      by: pyside-uic 0.2.14 running on PySide 1.1.2
 #
 # WARNING! All changes made in this file will be lost!

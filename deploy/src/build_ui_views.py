@@ -1,10 +1,11 @@
 import os
 
-rootDir = os.getcwd()
+rootDir = 'C:\\src\\github\\assetjet'
 print ("Current path is: ", rootDir)
 outDir = os.path.join(rootDir, "tn\\view")
-
+outDir = 'C:\\src\\github\\assetjet\\app\\src\\assetjet\\view'
 fileList = []
+
 for root, subFolders, files in os.walk(rootDir):
     for file in files:
         if file.endswith(".ui"):
@@ -13,7 +14,7 @@ for root, subFolders, files in os.walk(rootDir):
 
 for uiFile, outFile in fileList:
     print "Building: {0} to: {1}".format(uiFile, outFile)
-    cmd = "pyside-uic -o {0} {1}".format(outFile, uiFile)    
+    cmd = "pyside-uic -o {0} {1}".format(outFile, uiFile)
     os.system(cmd)
 
 print "Done"

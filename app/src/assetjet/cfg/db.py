@@ -17,7 +17,7 @@ def GetEngine():
         connString = "sqlite:///{0}".format(cfg.root.DbFileName)
         return create_engine(connString)
     else:
-        raise Exception("File {0} does not exist", cfg.root.DbFileName)
+        raise Exception("File {0} does not exist".format(cfg.root.DbFileName))
 
 
     

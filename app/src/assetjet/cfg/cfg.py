@@ -11,7 +11,7 @@ if not os.path.exists(os.path.join(location, fileName)):
     config.add_section('Database')
     config.set('Database', 'filePath', r'C:\assetjet.db')
     config.add_section('Updates')
-    config.set('Updates', 'url', r'www.assetjet.com/downloads')
+    config.set('Updates', 'url', r'http://www.assetjet.com/prod/downloads')
     
     with open(os.path.join(location, fileName), 'w') as configfile:
         config.write(configfile)

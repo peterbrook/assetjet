@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'C:\src\github\assetjet\resources\ui\vw_chart.ui'
 #
-# Created: Fri Jan 11 13:04:58 2013
+# Created: Mon Jan 14 00:02:47 2013
 #      by: pyside-uic 0.2.14 running on PySide 1.1.2
 #
 # WARNING! All changes made in this file will be lost!

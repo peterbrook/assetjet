@@ -1,1 +1,1 @@
-__all__ = [ 'util', 'updater' ]
+__all__ = [ 'util', 'updater', 'local_server' ]

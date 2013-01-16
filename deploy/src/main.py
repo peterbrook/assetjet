@@ -30,8 +30,8 @@ import build_inno_setup
 
 ################################ SETTINGS #####################################
 environment = 'DEV' # Set to 'DEV' or 'PROD'
-createInstaller = True
-pushToServer = True # push esky zip file, patch files and installer onto server
+createInstaller = False
+pushToServer = False # push esky zip file, patch files and installer onto server
 ###############################################################################
 
 # Name of Application

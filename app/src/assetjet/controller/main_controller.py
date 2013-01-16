@@ -21,10 +21,9 @@ class MainController(QtGui.QMainWindow):
         
         self.ui = Ui_Main()
         self.ui.setupUi(self)
-        mainPath = os.path.join(util.getBaseDir(), 'assetjet', 'web', 'main.html')
+        mainPath = os.path.join(util.getBaseDir(), 'web', 'main.html')
         print mainPath
                             
-        mainUrl = QtCore.QUrl('file://C:\src\github\assetjet\app\src\assetjet\view\vw_main.htm')
         mainUrl = QtCore.QUrl.fromLocalFile(mainPath)
         print mainUrl
         #self.ui.webView.load(QtCore.QUrl('file://C:\src\github\assetjet\app\src\assetjet\view\vw_main.htm'))

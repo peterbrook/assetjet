@@ -3,8 +3,15 @@ from esky.bdist_esky import Executable
 from distutils.core import setup
 import assetjet
 from main import exeName, appName
+from glob import glob
 
 if sys.platform in ['win32','cygwin','win64']:
+    
+    # TODO: add folder contents recursively
+    data_files = [("web", glob('../../app/src/web/*.*')),
+                  ("web/res", glob('../../app/src/web/res/*.*'))
+                  ]
+    
     # We can customise the executable's creation by passing an instance
     # of Executable() instead of just the script name.
     exe = Executable('../../app/src/main.py',
@@ -14,6 +21,7 @@ if sys.platform in ['win32','cygwin','win64']:
                     )
 
     setup(
+      data_files = data_files,
       name = appName,
       version = assetjet.__version__,
       scripts = [exe],

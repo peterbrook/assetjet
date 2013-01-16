@@ -5,6 +5,8 @@
 """
 import os, sys
 from PySide import QtCore, QtGui
+from PySide.QtNetwork import *
+from PySide.QtWebKit import QWebView,QWebPage
 from assetjet.log import log
 from assetjet.controller.main_controller import MainController 
 from assetjet.cfg import cfg

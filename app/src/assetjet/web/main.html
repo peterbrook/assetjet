@@ -6,20 +6,15 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+        <title>AssetJet Main UI</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-
-        <link rel="stylesheet" href="res/css/bootstrap.min.css">
-        <style>
-            body {
-                padding-top: 60px;
-                padding-bottom: 40px;
-            }
-        </style>
-        <link rel="stylesheet" href="res/css/bootstrap-responsive.min.css">
-        <link rel="stylesheet" href="res/css/main.css">
-
+    
+        <link href="res/kendoui/styles/kendo.common.min.css" rel="stylesheet">
+        <link href="res/kendoui/styles/kendo.default.min.css" rel="stylesheet">
+        <link href="res/css/bootstrap.min.css" rel="stylesheet" >
+        <link href="res/css/bootstrap-responsive.min.css" rel="stylesheet" >
+        <link href="res/css/main.css" rel="stylesheet" >
         <script src="res/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -37,10 +32,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Project name</a>
+                    <a class="brand" href="#">Asset Jet</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li class="active"><a href="#">Home</a></li>
+                            <li class="active"><a href="#">File</a></li>
                             <li><a href="#about">About</a></li>
                             <li><a href="#contact">Contact</a></li>
                             <li class="dropdown">
@@ -57,7 +52,7 @@
                             </li>
                         </ul>
                         <form class="navbar-form pull-right">
-                            <input class="span2" type="text" placeholder="Email">
+                            <input class="span2" type="text" placeholder="Username">
                             <input class="span2" type="password" placeholder="Password">
                             <button type="submit" class="btn">Sign in</button>
                         </form>
@@ -68,46 +63,61 @@
 
         <div class="container">
 
-            <!-- Main hero unit for a primary marketing message or call to action -->
-            <div class="hero-unit">
-                <h1>Hello, world!</h1>
-                <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-                <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-            </div>
+            <hr>
 
-            <!-- Example row of columns -->
-            <div class="row">
-                <div class="span4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
-                </div>
-                <div class="span4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
-               </div>
-                <div class="span4">
-                    <h2>Heading</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
-                </div>
+            <div class="left">
+
+                <div id="listView"></div>
+                <script type="text/x-kendo-tmpl" id="template">
+                    <div class="product">
+                        <img src="../../content/web/foods/${ProductID}.jpg" alt="${ProductName} image" />
+                        <h3>${ProductName}</h3>
+                        <p>${kendo.toString(UnitPrice, "c")}</p>
+                    </div>
+                </script>
+
+
+
+
             </div>
 
             <hr>
 
             <footer>
-                <p>&copy; Company 2012</p>
+                <p>&copy; Mel And Felix 2013</p>
             </footer>
 
         </div> <!-- /container -->
 
-        <script>window.jQuery || document.write('<script src="res/js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+        <script src="res/kendoui/js/jquery.min.js"></script>
+        <script src="res/kendoui/js/kendo.web.min.js"></script>
 
         <script src="res/js/vendor/bootstrap.min.js"></script>
 
         <script src="res/js/plugins.js"></script>
         <script src="res/js/main.js"></script>
+        <script>
+            $(document).ready(function() {
+                var dataSource = new kendo.data.DataSource({
+                        transport: {
+                            read: {
+                                url: "http://127.0.0.1/services/Symbols/GetAll.ajs",
+                                dataType: "jsonp"
+                            }
+                        },
+                        pageSize: 15
+                    });
+
+                $("#pager").kendoPager({
+                    dataSource: dataSource
+                });
+
+                $("#listView").kendoListView({
+                    dataSource: dataSource,
+                    template: kendo.template($("#template").html())
+                });
+            });
+        </script>
 
     </body>
 </html>

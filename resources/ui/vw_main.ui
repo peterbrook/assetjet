@@ -6,36 +6,45 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>734</width>
-    <height>581</height>
+    <width>775</width>
+    <height>589</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>AssetJet</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWebView" name="webView">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>9</y>
-      <width>721</width>
-      <height>531</height>
-     </rect>
-    </property>
-    <property name="url">
-     <url>
-      <string>http://www.google.ch/</string>
-     </url>
-    </property>
-   </widget>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gridLayout" rowstretch="0">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+      <item row="0" column="0">
+       <widget class="QWebView" name="webView">
+        <property name="minimumSize">
+         <size>
+          <width>709</width>
+          <height>519</height>
+         </size>
+        </property>
+        <property name="url">
+         <url>
+          <string>http://www.google.ch/</string>
+         </url>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>734</width>
+     <width>775</width>
      <height>21</height>
     </rect>
    </property>

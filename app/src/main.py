@@ -15,7 +15,7 @@ def main():
         
     upd = updater.Updater(cfg.root.UpdateUrl)
     upd.daemon=True
-    upd.start()
+    #upd.start()
     
     srv = local_server.LocalServer(cfg.root.UpdateUrl)
     srv.daemon=True

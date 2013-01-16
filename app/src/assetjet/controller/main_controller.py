@@ -21,7 +21,7 @@ class MainController(QtGui.QMainWindow):
         
         self.ui = Ui_Main()
         self.ui.setupUi(self)
-        mainPath = os.path.join(util.getBaseDir(), 'assetjet', 'webres', 'index.html')
+        mainPath = os.path.join(util.getBaseDir(), 'assetjet', 'web', 'main.html')
         print mainPath
                             
         mainUrl = QtCore.QUrl('file://C:\src\github\assetjet\app\src\assetjet\view\vw_main.htm')
@@ -33,6 +33,7 @@ class MainController(QtGui.QMainWindow):
         self.ui.webView.url = mainUrl
         print(self.ui.webView.url)
         super(QtGui.QMainWindow, self).show()
+        super(QtGui.QMainWindow, self).setWindowState(QtCore.Qt.WindowMaximized)
 
         """
         tickers = self.GetAllSymbols()

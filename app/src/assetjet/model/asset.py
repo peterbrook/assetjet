@@ -4,6 +4,7 @@ from datetime import date
 from base import ModelBase
 from assetjet.cfg import db
 from sqlalchemy.orm import sessionmaker
+import json
 
 class Asset(ModelBase):
     __tablename__ = 'assets'
@@ -18,4 +19,5 @@ class Asset(ModelBase):
         self.gicssectorid = gicssectorid
     
     def __repr__(self):
-        return "<Asset('%s','%s', '%s')>" % (self.cd, self.name, self.gicssectorid)
+        return json.JSONEncoder().encode(self.__dict__) 
+        #return "<Asset('%s','%s', '%s')>" % (self.cd, self.name, self.gicssectorid)

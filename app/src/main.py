@@ -32,6 +32,5 @@ def main():
 
 if __name__ == '__main__':
     log.Debug("Initialising app")
-    main()
-       
+    main()       
     

@@ -11,6 +11,7 @@ __version__ = "0.6"
 __all__ = ["SimpleHTTPRequestHandler"]
 
 import os
+import subprocess
 import posixpath
 import BaseHTTPServer
 import urllib
@@ -83,6 +84,11 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             print path
             if path.endswith(".ajs"):
                 print("In WS caller")
+                callerPath = path.replace(".ajs", ".py")
+                print callerPath
+                f = subprocess.check_output(callerPath)
+                print f
+                
             
         ctype = self.guess_type(path)
         try:

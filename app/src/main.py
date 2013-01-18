@@ -70,5 +70,8 @@ def main():
 if __name__ == '__main__':
     log.Debug("Initialising app")
     main()       
+<<<<<<< HEAD
 >>>>>>> master
+=======
+>>>>>>> First steps towards working web service
     

@@ -1,17 +1,29 @@
-'''
-Created on 16 Jan 2013
+"""Simple HTTP Server.
 
-@author: Mel
-'''
-import string,cgi,time
-from os import curdir, sep
-from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
-import sys, os
-import SimpleHTTPServer
+This module builds on BaseHTTPServer by implementing the standard GET
+and HEAD requests in a fairly straightforward manner.
+
+"""
+
+
+__version__ = "0.6"
+
+__all__ = ["SimpleHTTPRequestHandler"]
+
+import os
+import subprocess
+import posixpath
 import BaseHTTPServer
-from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
-import SocketServer
-import threading
+import urllib
+import cgi
+import sys
+import shutil
+import mimetypes
+try:
+    from cStringIO import StringIO
+except ImportError:
+    from StringIO import StringIO
+
 
 class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 
@@ -68,6 +80,16 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
                     break
             else:
                 return self.list_directory(path)
+        else:
+            print path
+            if path.endswith(".ajs"):
+                print("In WS caller")
+                callerPath = path.replace(".ajs", ".py")
+                print callerPath
+                f = subprocess.check_output(callerPath)
+                print f
+                
+            
         ctype = self.guess_type(path)
         try:
             # Always read in binary mode. Opening files in text mode may cause
@@ -197,6 +219,7 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         '.py': 'text/plain',
         '.c': 'text/plain',
         '.h': 'text/plain',
+        '.ajs': 'application/json',
         })
 
 

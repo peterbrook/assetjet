@@ -18,7 +18,7 @@ def main():
     upd.daemon=True
     upd.start()
     
-    # Initialilse web server to server HTML to WebView
+    # Initialise web server to server HTML to WebView
     srv = local_server.LocalServer(cfg.root.UpdateUrl)
     srv.daemon=True
     srv.start()

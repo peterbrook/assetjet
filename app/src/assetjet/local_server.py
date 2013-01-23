@@ -1,9 +1,8 @@
 '''
     Created on 2 Jan 2013
-
     @author: Mel
 '''
-import string,cgi,time
+import string, cgi, time
 from os import curdir, sep
 import os
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
@@ -12,9 +11,7 @@ from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 import SocketServer
 import threading
 import sys
-
-sys.path.append('..')
-from assetjet.util import web
+import web
    
 class LocalServer(threading.Thread):
     """
@@ -35,17 +32,17 @@ class LocalServer(threading.Thread):
         self.port = port
 
     def run(self):        
-        handler = web.SimpleHTTPRequestHandler
-        httpd = HTTPServer((self.host, self.port), handler)
-        print "Server initialised at Address:", httpd.server_address
-        httpd.serve_forever()
-
+        urls = (
+                '/', 'index'
+                )
+        app = web.application(urls, globals())
+        app.run()  
+        print "Server initialised :"
+        
 def main():
     try:
-        #server = HTTPServer(('', 80), SimpleHandler)
-        server = HTTPServer(('', 80), web.SimpleHTTPRequestHandler)
-        print 'Started httpserver...'
-        server.serve_forever()
+        server = LocalServer()
+        server.run()
     except KeyboardInterrupt:
         print '^C received, shutting down server'
         server.socket.close()
@@ -53,3 +50,11 @@ def main():
 if __name__ == '__main__':
     main()
 
+"""
+#from assetjet.util import web
+    def run(self):        
+        handler = web.SimpleHTTPRequestHandler
+        httpd = HTTPServer((self.host, self.port), handler)
+        print "Server initialised at Address:", httpd.server_address
+        httpd.serve_forever()
+"""

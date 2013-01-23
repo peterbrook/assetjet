@@ -33,7 +33,7 @@ class LocalServer(threading.Thread):
 
     def run(self):        
         urls = (
-                '/', 'index'
+                '/services/Symbols/GetAll', 'services.Symbols.GetAll'
                 )
         app = web.application(urls, globals())
         app.run()  

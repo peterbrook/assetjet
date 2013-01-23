@@ -1,12 +1,12 @@
 
 from sqlalchemy import Column, Integer, String
 from datetime import date
-from base import ModelBase
+import base 
 from assetjet.cfg import db
 from sqlalchemy.orm import sessionmaker
 import json
 
-class Asset(ModelBase):
+class Asset(base.ModelBase):
     __tablename__ = 'assets'
 
     cd = Column(String, primary_key=True)
@@ -20,4 +20,5 @@ class Asset(ModelBase):
     
     def __repr__(self):
         return json.JSONEncoder().encode(self.__dict__) 
+    
         #return "<Asset('%s','%s', '%s')>" % (self.cd, self.name, self.gicssectorid)

@@ -21,8 +21,9 @@ class MainController(QtGui.QMainWindow):
         
         self.ui = Ui_Main()
         self.ui.setupUi(self)
-        mainPath = os.path.join(util.getBaseDir(), 'assetjet', 'web', 'main.html')
+        mainPath = os.path.join(util.getBaseDir(), 'web', 'main.html')
         mainUrl = QtCore.QUrl.fromLocalFile(mainPath)
+        print mainUrl
         self.ui.webView.load(mainUrl)
         self.ui.webView.url = mainUrl
         super(QtGui.QMainWindow, self).show()
@@ -36,17 +37,5 @@ class MainController(QtGui.QMainWindow):
             liTicker = QtGui.QListWidgetItem(tickers[i].name)
             self.ui.lstSymbolList.addItem(liTicker)
         """
-        
-    def GetAllSymbols(self):
-        Session = orm.sessionmaker(bind=db.GetEngine())        
-        session = Session()
-        return session.query(asset.Asset).all()
 
-
-    def InitialiseEvents(self):
-        self.connect(self.ui.lstSymbolList, SIGNAL("doubleClicked()", self.AddSymbol))
-        
-    def AddSymbol(self):
-        QtGui.QMessageBox.critical("Hello")
-        pass
                

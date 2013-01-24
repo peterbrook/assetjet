@@ -6,7 +6,7 @@ from assetjet.cfg import db
 from sqlalchemy.orm import sessionmaker
 import json
 
-class Asset(base.ModelBase):
+class Asset(base.ModelBase, base.ajModel):
     __tablename__ = 'assets'
 
     cd = Column(String, primary_key=True)

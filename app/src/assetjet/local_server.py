@@ -19,6 +19,7 @@ class LocalServer(threading.Thread):
     """
     host = "127.0.0.1"
     port = 8000
+    app = None
 
     def __init__(self, host=None, port=None):
         threading.Thread.__init__(self)
@@ -32,20 +33,40 @@ class LocalServer(threading.Thread):
         self.port = port
 
     def run(self):        
+        web.config.debug = True
         urls = (
                 '/services/Symbols/GetAll', 'services.Symbols.GetAll'
                 )
-        app = web.application(urls, globals())
-        app.run()  
-        print "Server initialised :"
+        self.app = web.application(urls, globals())
+        print self.app
+        print self.app.request
+        self.app.run()
+        
+        #app.runsimple(server_address=('127.0.0.1', 8080))
         
 def main():
     try:
+        web.config.debug = True
+        urls = (
+                '/', 'index.html'
+                '/services/Symbols/GetAll', 'services.Symbols.GetAll'
+                )   
+        app = web.application(urls, globals())
+        print app
+        print app.request
+        app.run()
+        
+        
+        
+        
+        """
         server = LocalServer()
-        server.run()
+        server.start()
+        print "Started"
+        """
+        
     except KeyboardInterrupt:
         print '^C received, shutting down server'
-        server.socket.close()
 
 if __name__ == '__main__':
     main()

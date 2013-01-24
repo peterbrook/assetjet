@@ -24,12 +24,9 @@ class GetAll:
         Session = orm.sessionmaker(bind=db.GetEngine())        
         session = Session()
         assets = session.query(asset.Asset).all()
-
         dict = {}
-        
         for aItem in assets:
-            dict[aItem.cd] = (aItem.cd, aItem.name, aItem.gicssectorid)
-        
+            dict[aItem.cd] = (aItem.cd, aItem.name, aItem.gicssectorid)        
         return json.dumps(dict)
     
 if __name__ == "__main__":

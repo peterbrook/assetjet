@@ -2,6 +2,10 @@
     Created on 2 Jan 2013
     @author: Mel
 '''
+import sys
+sys.path.append('..')
+sys.path.append('.')
+
 import string, cgi, time
 from os import curdir, sep
 import os
@@ -16,8 +20,11 @@ from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.response import Response
 
-import assetjet.services
-from assetjet.services import Symbols
+#from services import Symbols
+#import services.Symbols
+
+import services
+from services.Symbols import GetAll
 
 
 class LocalServer(threading.Thread):
@@ -39,12 +46,12 @@ class LocalServer(threading.Thread):
             port = 8000
         self.port = port
 
-    def run(self):        
+    def run(self):
         host = '127.0.0.1'
         port = 80
         config = Configurator()
-        config.add_route('symbols.GetAll', '/symbols/GetAll/{name}')
-        config.add_view(Symbols.GetAll, route_name='symbols.GetAll')
+        config.add_route('symbols.GetAll', '/symbols/GetAll/')
+        config.add_view(GetAll.GET, route_name='symbols.GetAll')
         app = config.make_wsgi_app()
         server = make_server(host, port, app)
         print ("Serving on:", host, port)

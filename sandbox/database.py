@@ -102,7 +102,7 @@ def create_db(filename=defaultDbFileName):
     
     conn = sqlite3.connect(filename, 
            detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
-    conn.execute('''CREATE TABLE TimeSeries (Cd text, Date timestamp, Open float, High float, Low float, Close float, Volume float, AdjClose float)''')       
+    conn.execute('''CREATE TABLE TimeSeries (Cd text, Date date, Open float, High float, Low float, Close float, Volume float, AdjClose float)''')       
     conn.execute("""CREATE TABLE Assets (Cd text, Name text, GicsSectorId int)""")
     conn.execute("""CREATE TABLE GicsSectors (Id int, Name text)""")
     conn.execute('''CREATE UNIQUE INDEX Idx_TimeSeries ON TimeSeries (Cd, Date)''')

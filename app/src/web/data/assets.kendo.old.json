@@ -1,0 +1,2507 @@
+[
+        {
+            "SymbolCode": "MMM", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "3M Co."
+        }, 
+        {
+            "SymbolCode": "ABT", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Abbott Laboratories"
+        }, 
+        {
+            "SymbolCode": "ANF", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Abercrombie & Fitch Company A"
+        }, 
+        {
+            "SymbolCode": "ACE", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "ACE Limited"
+        }, 
+        {
+            "SymbolCode": "ACN", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Accenture"
+        }, 
+        {
+            "SymbolCode": "ADBE", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Adobe Systems Inc"
+        }, 
+        {
+            "SymbolCode": "ADT", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "ADT Corp"
+        }, 
+        {
+            "SymbolCode": "AMD", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Advanced Micro Devices"
+        }, 
+        {
+            "SymbolCode": "AES", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "AES Corp"
+        }, 
+        {
+            "SymbolCode": "AET", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Aetna Inc"
+        }, 
+        {
+            "SymbolCode": "AFL", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "AFLAC Inc"
+        }, 
+        {
+            "SymbolCode": "A", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Agilent Technologies Inc"
+        }, 
+        {
+            "SymbolCode": "GAS", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "AGL Resources Inc."
+        }, 
+        {
+            "SymbolCode": "APD", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Air Products & Chemicals Inc"
+        }, 
+        {
+            "SymbolCode": "ARG", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Airgas Inc"
+        }, 
+        {
+            "SymbolCode": "AKAM", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Akamai Technologies Inc"
+        }, 
+        {
+            "SymbolCode": "AA", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Alcoa Inc"
+        }, 
+        {
+            "SymbolCode": "ALXN", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Alexion Pharmaceuticals"
+        }, 
+        {
+            "SymbolCode": "ATI", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Allegheny Technologies Inc"
+        }, 
+        {
+            "SymbolCode": "AGN", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Allergan Inc"
+        }, 
+        {
+            "SymbolCode": "ALL", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Allstate Corp"
+        }, 
+        {
+            "SymbolCode": "ALTR", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Altera Corp"
+        }, 
+        {
+            "SymbolCode": "MO", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Altria Group Inc"
+        }, 
+        {
+            "SymbolCode": "AMZN", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Amazon.com Inc"
+        }, 
+        {
+            "SymbolCode": "AEE", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "Ameren Corp"
+        }, 
+        {
+            "SymbolCode": "AEP", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "American Electric Power"
+        }, 
+        {
+            "SymbolCode": "AXP", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "American Express Co"
+        }, 
+        {
+            "SymbolCode": "AIG", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "American Intl Group Inc"
+        }, 
+        {
+            "SymbolCode": "AMT", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "American Tower Corp A"
+        }, 
+        {
+            "SymbolCode": "AMP", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Ameriprise Financial"
+        }, 
+        {
+            "SymbolCode": "ABC", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "AmerisourceBergen Corp"
+        }, 
+        {
+            "SymbolCode": "AMGN", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Amgen Inc"
+        }, 
+        {
+            "SymbolCode": "APH", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Amphenol Corp A"
+        }, 
+        {
+            "SymbolCode": "APC", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Anadarko Petroleum Corp"
+        }, 
+        {
+            "SymbolCode": "ADI", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Analog Devices Inc"
+        }, 
+        {
+            "SymbolCode": "AON", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Aon plc"
+        }, 
+        {
+            "SymbolCode": "APA", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Apache Corporation"
+        }, 
+        {
+            "SymbolCode": "AIV", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Apartment Investment & Mgmt"
+        }, 
+        {
+            "SymbolCode": "APOL", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Apollo Group Inc"
+        }, 
+        {
+            "SymbolCode": "AAPL", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Apple Inc."
+        }, 
+        {
+            "SymbolCode": "AMAT", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Applied Materials Inc"
+        }, 
+        {
+            "SymbolCode": "ADM", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Archer-Daniels-Midland Co"
+        }, 
+        {
+            "SymbolCode": "AIZ", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Assurant Inc"
+        }, 
+        {
+            "SymbolCode": "T", 
+            "SymbolGisSector": 50, 
+            "SymbolName": "AT&T Inc"
+        }, 
+        {
+            "SymbolCode": "ADSK", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Autodesk Inc"
+        }, 
+        {
+            "SymbolCode": "ADP", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Automatic Data Processing"
+        }, 
+        {
+            "SymbolCode": "AN", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "AutoNation Inc"
+        }, 
+        {
+            "SymbolCode": "AZO", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "AutoZone Inc"
+        }, 
+        {
+            "SymbolCode": "AVB", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "AvalonBay Communities, Inc."
+        }, 
+        {
+            "SymbolCode": "AVY", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Avery Dennison Corp"
+        }, 
+        {
+            "SymbolCode": "AVP", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Avon Products"
+        }, 
+        {
+            "SymbolCode": "BHI", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Baker Hughes Inc"
+        }, 
+        {
+            "SymbolCode": "BLL", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Ball Corp"
+        }, 
+        {
+            "SymbolCode": "BAC", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Bank of America Corp"
+        }, 
+        {
+            "SymbolCode": "BK", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "The Bank of New York Mellon Corp."
+        }, 
+        {
+            "SymbolCode": "BCR", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Bard (C.R.) Inc."
+        }, 
+        {
+            "SymbolCode": "BAX", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Baxter International Inc."
+        }, 
+        {
+            "SymbolCode": "BBT", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "BB&T Corporation"
+        }, 
+        {
+            "SymbolCode": "BEAM", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Beam Inc."
+        }, 
+        {
+            "SymbolCode": "BDX", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Becton Dickinson"
+        }, 
+        {
+            "SymbolCode": "BBBY", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Bed Bath & Beyond"
+        }, 
+        {
+            "SymbolCode": "BMS", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Bemis Company"
+        }, 
+        {
+            "SymbolCode": "BRK-B", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Berkshire Hathaway"
+        }, 
+        {
+            "SymbolCode": "BBY", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Best Buy Co. Inc."
+        }, 
+        {
+            "SymbolCode": "BIG", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Big Lots Inc."
+        }, 
+        {
+            "SymbolCode": "BIIB", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "BIOGEN IDEC Inc."
+        }, 
+        {
+            "SymbolCode": "BLK", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "BlackRock"
+        }, 
+        {
+            "SymbolCode": "HRB", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Block H&R"
+        }, 
+        {
+            "SymbolCode": "BMC", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "BMC Software"
+        }, 
+        {
+            "SymbolCode": "BA", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Boeing Company"
+        }, 
+        {
+            "SymbolCode": "BWA", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "BorgWarner"
+        }, 
+        {
+            "SymbolCode": "BXP", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Boston Properties"
+        }, 
+        {
+            "SymbolCode": "BSX", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Boston Scientific"
+        }, 
+        {
+            "SymbolCode": "BMY", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Bristol-Myers Squibb"
+        }, 
+        {
+            "SymbolCode": "BRCM", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Broadcom Corporation"
+        }, 
+        {
+            "SymbolCode": "BF.B", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Brown-Forman Corporation"
+        }, 
+        {
+            "SymbolCode": "CHRW", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "C. H. Robinson Worldwide"
+        }, 
+        {
+            "SymbolCode": "CA", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "CA, Inc."
+        }, 
+        {
+            "SymbolCode": "CVC", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Cablevision Systems Corp."
+        }, 
+        {
+            "SymbolCode": "COG", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Cabot Oil & Gas"
+        }, 
+        {
+            "SymbolCode": "CAM", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Cameron International Corp."
+        }, 
+        {
+            "SymbolCode": "CPB", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Campbell Soup"
+        }, 
+        {
+            "SymbolCode": "COF", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Capital One Financial"
+        }, 
+        {
+            "SymbolCode": "CAH", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Cardinal Health Inc."
+        }, 
+        {
+            "SymbolCode": "CFN", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Carefusion"
+        }, 
+        {
+            "SymbolCode": "KMX", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Carmax Inc"
+        }, 
+        {
+            "SymbolCode": "CCL", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Carnival Corp."
+        }, 
+        {
+            "SymbolCode": "CAT", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Caterpillar Inc."
+        }, 
+        {
+            "SymbolCode": "CBG", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "CBRE Group"
+        }, 
+        {
+            "SymbolCode": "CBS", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "CBS Corp."
+        }, 
+        {
+            "SymbolCode": "CELG", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Celgene Corp."
+        }, 
+        {
+            "SymbolCode": "CNP", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "CenterPoint Energy"
+        }, 
+        {
+            "SymbolCode": "CTL", 
+            "SymbolGisSector": 50, 
+            "SymbolName": "CenturyLink Inc"
+        }, 
+        {
+            "SymbolCode": "CERN", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Cerner"
+        }, 
+        {
+            "SymbolCode": "CF", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "CF Industries Holdings Inc"
+        }, 
+        {
+            "SymbolCode": "SCHW", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Charles Schwab"
+        }, 
+        {
+            "SymbolCode": "CHK", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Chesapeake Energy"
+        }, 
+        {
+            "SymbolCode": "CVX", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Chevron Corp."
+        }, 
+        {
+            "SymbolCode": "CMG", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Chipotle Mexican Grill"
+        }, 
+        {
+            "SymbolCode": "CB", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Chubb Corp."
+        }, 
+        {
+            "SymbolCode": "CI", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "CIGNA Corp."
+        }, 
+        {
+            "SymbolCode": "CINF", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Cincinnati Financial"
+        }, 
+        {
+            "SymbolCode": "CTAS", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Cintas Corporation"
+        }, 
+        {
+            "SymbolCode": "CSCO", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Cisco Systems"
+        }, 
+        {
+            "SymbolCode": "C", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Citigroup Inc."
+        }, 
+        {
+            "SymbolCode": "CTXS", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Citrix Systems"
+        }, 
+        {
+            "SymbolCode": "CLF", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Cliffs Natural Resources"
+        }, 
+        {
+            "SymbolCode": "CLX", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "The Clorox Company"
+        }, 
+        {
+            "SymbolCode": "CME", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "CME Group Inc."
+        }, 
+        {
+            "SymbolCode": "CMS", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "CMS Energy"
+        }, 
+        {
+            "SymbolCode": "COH", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Coach Inc."
+        }, 
+        {
+            "SymbolCode": "KO", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Coca Cola Co."
+        }, 
+        {
+            "SymbolCode": "CCE", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Coca-Cola Enterprises"
+        }, 
+        {
+            "SymbolCode": "CTSH", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Cognizant Technology Solutions"
+        }, 
+        {
+            "SymbolCode": "CL", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Colgate-Palmolive"
+        }, 
+        {
+            "SymbolCode": "CMCSA", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Comcast Corp."
+        }, 
+        {
+            "SymbolCode": "CMA", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Comerica Inc."
+        }, 
+        {
+            "SymbolCode": "CSC", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Computer Sciences Corp."
+        }, 
+        {
+            "SymbolCode": "CAG", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "ConAgra Foods Inc."
+        }, 
+        {
+            "SymbolCode": "COP", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "ConocoPhillips"
+        }, 
+        {
+            "SymbolCode": "CNX", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "CONSOL Energy Inc."
+        }, 
+        {
+            "SymbolCode": "ED", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "Consolidated Edison"
+        }, 
+        {
+            "SymbolCode": "STZ", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Constellation Brands"
+        }, 
+        {
+            "SymbolCode": "GLW", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Corning Inc."
+        }, 
+        {
+            "SymbolCode": "COST", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Costco Co."
+        }, 
+        {
+            "SymbolCode": "CVH", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Coventry Health Care Inc."
+        }, 
+        {
+            "SymbolCode": "COV", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Covidien plc"
+        }, 
+        {
+            "SymbolCode": "CCI", 
+            "SymbolGisSector": 50, 
+            "SymbolName": "Crown Castle International Corp."
+        }, 
+        {
+            "SymbolCode": "CSX", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "CSX Corp."
+        }, 
+        {
+            "SymbolCode": "CMI", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Cummins Inc."
+        }, 
+        {
+            "SymbolCode": "CVS", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "CVS Caremark Corp."
+        }, 
+        {
+            "SymbolCode": "DHI", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "D. R. Horton"
+        }, 
+        {
+            "SymbolCode": "DHR", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Danaher Corp."
+        }, 
+        {
+            "SymbolCode": "DRI", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Darden Restaurants"
+        }, 
+        {
+            "SymbolCode": "DVA", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "DaVita Inc."
+        }, 
+        {
+            "SymbolCode": "DF", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Dean Foods"
+        }, 
+        {
+            "SymbolCode": "DE", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Deere & Co."
+        }, 
+        {
+            "SymbolCode": "DELL", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Dell Inc."
+        }, 
+        {
+            "SymbolCode": "DLPH", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Delphi Automotive"
+        }, 
+        {
+            "SymbolCode": "DNR", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Denbury Resources Inc."
+        }, 
+        {
+            "SymbolCode": "XRAY", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Dentsply International"
+        }, 
+        {
+            "SymbolCode": "DVN", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Devon Energy Corp."
+        }, 
+        {
+            "SymbolCode": "DO", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Diamond Offshore Drilling"
+        }, 
+        {
+            "SymbolCode": "DTV", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "DirecTV"
+        }, 
+        {
+            "SymbolCode": "DFS", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Discover Financial Services"
+        }, 
+        {
+            "SymbolCode": "DISCA", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Discovery Communications"
+        }, 
+        {
+            "SymbolCode": "DG", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Dollar General"
+        }, 
+        {
+            "SymbolCode": "DLTR", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Dollar Tree"
+        }, 
+        {
+            "SymbolCode": "D", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "Dominion Resources"
+        }, 
+        {
+            "SymbolCode": "DOV", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Dover Corp."
+        }, 
+        {
+            "SymbolCode": "DOW", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Dow Chemical"
+        }, 
+        {
+            "SymbolCode": "DPS", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Dr Pepper Snapple Group"
+        }, 
+        {
+            "SymbolCode": "DTE", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "DTE Energy Co."
+        }, 
+        {
+            "SymbolCode": "DD", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Du Pont (E.I.)"
+        }, 
+        {
+            "SymbolCode": "DUK", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "Duke Energy"
+        }, 
+        {
+            "SymbolCode": "DNB", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Dun & Bradstreet"
+        }, 
+        {
+            "SymbolCode": "ETFC", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "E-Trade"
+        }, 
+        {
+            "SymbolCode": "EMN", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Eastman Chemical"
+        }, 
+        {
+            "SymbolCode": "ETN", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Eaton Corp."
+        }, 
+        {
+            "SymbolCode": "EBAY", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "eBay Inc."
+        }, 
+        {
+            "SymbolCode": "ECL", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Ecolab Inc."
+        }, 
+        {
+            "SymbolCode": "EIX", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "Edison Int'l"
+        }, 
+        {
+            "SymbolCode": "EW", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Edwards Lifesciences"
+        }, 
+        {
+            "SymbolCode": "EA", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Electronic Arts"
+        }, 
+        {
+            "SymbolCode": "EMC", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "EMC Corp."
+        }, 
+        {
+            "SymbolCode": "EMR", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Emerson Electric"
+        }, 
+        {
+            "SymbolCode": "ESV", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Ensco plc"
+        }, 
+        {
+            "SymbolCode": "ETR", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "Entergy Corp."
+        }, 
+        {
+            "SymbolCode": "EOG", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "EOG Resources"
+        }, 
+        {
+            "SymbolCode": "EQT", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "EQT Corporation"
+        }, 
+        {
+            "SymbolCode": "EFX", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Equifax Inc."
+        }, 
+        {
+            "SymbolCode": "EQR", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Equity Residential"
+        }, 
+        {
+            "SymbolCode": "EL", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Estee Lauder Cos."
+        }, 
+        {
+            "SymbolCode": "EXC", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "Exelon Corp."
+        }, 
+        {
+            "SymbolCode": "EXPE", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Expedia Inc."
+        }, 
+        {
+            "SymbolCode": "EXPD", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Expeditors Int'l"
+        }, 
+        {
+            "SymbolCode": "ESRX", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Express Scripts"
+        }, 
+        {
+            "SymbolCode": "XOM", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Exxon Mobil Corp."
+        }, 
+        {
+            "SymbolCode": "FFIV", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "F5 Networks"
+        }, 
+        {
+            "SymbolCode": "FDO", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Family Dollar Stores"
+        }, 
+        {
+            "SymbolCode": "FAST", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Fastenal Co"
+        }, 
+        {
+            "SymbolCode": "FII", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Federated Investors Inc."
+        }, 
+        {
+            "SymbolCode": "FDX", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "FedEx Corporation"
+        }, 
+        {
+            "SymbolCode": "FIS", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Fidelity National Information Services"
+        }, 
+        {
+            "SymbolCode": "FITB", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Fifth Third Bancorp"
+        }, 
+        {
+            "SymbolCode": "FHN", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "First Horizon National"
+        }, 
+        {
+            "SymbolCode": "FSLR", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "First Solar Inc"
+        }, 
+        {
+            "SymbolCode": "FE", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "FirstEnergy Corp"
+        }, 
+        {
+            "SymbolCode": "FISV", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Fiserv Inc"
+        }, 
+        {
+            "SymbolCode": "FLIR", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "FLIR Systems"
+        }, 
+        {
+            "SymbolCode": "FLS", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Flowserve Corporation"
+        }, 
+        {
+            "SymbolCode": "FLR", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Fluor Corp."
+        }, 
+        {
+            "SymbolCode": "FMC", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "FMC Corporation"
+        }, 
+        {
+            "SymbolCode": "FTI", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "FMC Technologies Inc."
+        }, 
+        {
+            "SymbolCode": "F", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Ford Motor"
+        }, 
+        {
+            "SymbolCode": "FRX", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Forest Laboratories"
+        }, 
+        {
+            "SymbolCode": "FOSL", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Fossil, Inc."
+        }, 
+        {
+            "SymbolCode": "BEN", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Franklin Resources"
+        }, 
+        {
+            "SymbolCode": "FCX", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Freeport-McMoran Cp & Gld"
+        }, 
+        {
+            "SymbolCode": "FTR", 
+            "SymbolGisSector": 50, 
+            "SymbolName": "Frontier Communications"
+        }, 
+        {
+            "SymbolCode": "GME", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "GameStop Corp."
+        }, 
+        {
+            "SymbolCode": "GCI", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Gannett Co."
+        }, 
+        {
+            "SymbolCode": "GPS", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Gap (The)"
+        }, 
+        {
+            "SymbolCode": "GRMN", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Garmin Ltd."
+        }, 
+        {
+            "SymbolCode": "GD", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "General Dynamics"
+        }, 
+        {
+            "SymbolCode": "GE", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "General Electric"
+        }, 
+        {
+            "SymbolCode": "GIS", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "General Mills"
+        }, 
+        {
+            "SymbolCode": "GPC", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Genuine Parts"
+        }, 
+        {
+            "SymbolCode": "GNW", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Genworth Financial Inc."
+        }, 
+        {
+            "SymbolCode": "GILD", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Gilead Sciences"
+        }, 
+        {
+            "SymbolCode": "GS", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Goldman Sachs Group"
+        }, 
+        {
+            "SymbolCode": "GT", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Goodyear Tire & Rubber"
+        }, 
+        {
+            "SymbolCode": "GOOG", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Google Inc."
+        }, 
+        {
+            "SymbolCode": "GWW", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Grainger (W.W.) Inc."
+        }, 
+        {
+            "SymbolCode": "HAL", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Halliburton Co."
+        }, 
+        {
+            "SymbolCode": "HOG", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Harley-Davidson"
+        }, 
+        {
+            "SymbolCode": "HAR", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Harman Int'l Industries"
+        }, 
+        {
+            "SymbolCode": "HRS", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Harris Corporation"
+        }, 
+        {
+            "SymbolCode": "HIG", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Hartford Financial Svc.Gp."
+        }, 
+        {
+            "SymbolCode": "HAS", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Hasbro Inc."
+        }, 
+        {
+            "SymbolCode": "HCP", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "HCP Inc."
+        }, 
+        {
+            "SymbolCode": "HCN", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Health Care REIT"
+        }, 
+        {
+            "SymbolCode": "HNZ", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Heinz (H.J.)"
+        }, 
+        {
+            "SymbolCode": "HP", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Helmerich & Payne"
+        }, 
+        {
+            "SymbolCode": "HES", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Hess Corporation"
+        }, 
+        {
+            "SymbolCode": "HPQ", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Hewlett-Packard"
+        }, 
+        {
+            "SymbolCode": "HD", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Home Depot"
+        }, 
+        {
+            "SymbolCode": "HON", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Honeywell Int'l Inc."
+        }, 
+        {
+            "SymbolCode": "HRL", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Hormel Foods Corp."
+        }, 
+        {
+            "SymbolCode": "HSP", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Hospira Inc."
+        }, 
+        {
+            "SymbolCode": "HST", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Host Hotels & Resorts"
+        }, 
+        {
+            "SymbolCode": "HCBK", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Hudson City Bancorp"
+        }, 
+        {
+            "SymbolCode": "HUM", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Humana Inc."
+        }, 
+        {
+            "SymbolCode": "HBAN", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Huntington Bancshares"
+        }, 
+        {
+            "SymbolCode": "ITW", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Illinois Tool Works"
+        }, 
+        {
+            "SymbolCode": "IR", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Ingersoll-Rand PLC"
+        }, 
+        {
+            "SymbolCode": "TEG", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "Integrys Energy Group Inc."
+        }, 
+        {
+            "SymbolCode": "INTC", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Intel Corp."
+        }, 
+        {
+            "SymbolCode": "ICE", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "IntercontinentalExchange Inc."
+        }, 
+        {
+            "SymbolCode": "IBM", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "International Bus. Machines"
+        }, 
+        {
+            "SymbolCode": "IFF", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "International Flav/Frag"
+        }, 
+        {
+            "SymbolCode": "IGT", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "International Game Technology"
+        }, 
+        {
+            "SymbolCode": "IP", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "International Paper"
+        }, 
+        {
+            "SymbolCode": "IPG", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Interpublic Group"
+        }, 
+        {
+            "SymbolCode": "INTU", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Intuit Inc."
+        }, 
+        {
+            "SymbolCode": "ISRG", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Intuitive Surgical Inc."
+        }, 
+        {
+            "SymbolCode": "IVZ", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Invesco Ltd."
+        }, 
+        {
+            "SymbolCode": "IRM", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Iron Mountain Incorporated"
+        }, 
+        {
+            "SymbolCode": "JBL", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Jabil Circuit"
+        }, 
+        {
+            "SymbolCode": "JEC", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Jacobs Engineering Group"
+        }, 
+        {
+            "SymbolCode": "JDSU", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "JDS Uniphase Corp."
+        }, 
+        {
+            "SymbolCode": "JNJ", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Johnson & Johnson"
+        }, 
+        {
+            "SymbolCode": "JCI", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Johnson Controls"
+        }, 
+        {
+            "SymbolCode": "JOY", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Joy Global Inc."
+        }, 
+        {
+            "SymbolCode": "JPM", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "JPMorgan Chase & Co."
+        }, 
+        {
+            "SymbolCode": "JNPR", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Juniper Networks"
+        }, 
+        {
+            "SymbolCode": "K", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Kellogg Co."
+        }, 
+        {
+            "SymbolCode": "KEY", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "KeyCorp"
+        }, 
+        {
+            "SymbolCode": "KMB", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Kimberly-Clark"
+        }, 
+        {
+            "SymbolCode": "KIM", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Kimco Realty"
+        }, 
+        {
+            "SymbolCode": "KMI", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Kinder Morgan"
+        }, 
+        {
+            "SymbolCode": "KLAC", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "KLA-Tencor Corp."
+        }, 
+        {
+            "SymbolCode": "KSS", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Kohl's Corp."
+        }, 
+        {
+            "SymbolCode": "KRFT", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Kraft Foods Group"
+        }, 
+        {
+            "SymbolCode": "KR", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Kroger Co."
+        }, 
+        {
+            "SymbolCode": "LLL", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "L-3 Communications Holdings"
+        }, 
+        {
+            "SymbolCode": "LH", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Laboratory Corp. of America Holding"
+        }, 
+        {
+            "SymbolCode": "LRCX", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Lam Research"
+        }, 
+        {
+            "SymbolCode": "LM", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Legg Mason"
+        }, 
+        {
+            "SymbolCode": "LEG", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Leggett & Platt"
+        }, 
+        {
+            "SymbolCode": "LEN", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Lennar Corp."
+        }, 
+        {
+            "SymbolCode": "LUK", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Leucadia National Corp."
+        }, 
+        {
+            "SymbolCode": "LIFE", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Life Technologies"
+        }, 
+        {
+            "SymbolCode": "LLY", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Lilly (Eli) & Co."
+        }, 
+        {
+            "SymbolCode": "LTD", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Limited Brands Inc."
+        }, 
+        {
+            "SymbolCode": "LNC", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Lincoln National"
+        }, 
+        {
+            "SymbolCode": "LLTC", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Linear Technology Corp."
+        }, 
+        {
+            "SymbolCode": "LMT", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Lockheed Martin Corp."
+        }, 
+        {
+            "SymbolCode": "L", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Loews Corp."
+        }, 
+        {
+            "SymbolCode": "LO", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Lorillard Inc."
+        }, 
+        {
+            "SymbolCode": "LOW", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Lowe's Cos."
+        }, 
+        {
+            "SymbolCode": "LSI", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "LSI Corporation"
+        }, 
+        {
+            "SymbolCode": "LYB", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "LyondellBasell"
+        }, 
+        {
+            "SymbolCode": "MTB", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "M&T Bank Corp."
+        }, 
+        {
+            "SymbolCode": "M", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Macy's Inc."
+        }, 
+        {
+            "SymbolCode": "MRO", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Marathon Oil Corp."
+        }, 
+        {
+            "SymbolCode": "MPC", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Marathon Petroleum"
+        }, 
+        {
+            "SymbolCode": "MAR", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Marriott Int'l."
+        }, 
+        {
+            "SymbolCode": "MMC", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Marsh & McLennan"
+        }, 
+        {
+            "SymbolCode": "MAS", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Masco Corp."
+        }, 
+        {
+            "SymbolCode": "MA", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Mastercard Inc."
+        }, 
+        {
+            "SymbolCode": "MAT", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Mattel Inc."
+        }, 
+        {
+            "SymbolCode": "MKC", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "McCormick & Co."
+        }, 
+        {
+            "SymbolCode": "MCD", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "McDonald's Corp."
+        }, 
+        {
+            "SymbolCode": "MHP", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "McGraw-Hill"
+        }, 
+        {
+            "SymbolCode": "MCK", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "McKesson Corp."
+        }, 
+        {
+            "SymbolCode": "MJN", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Mead Johnson"
+        }, 
+        {
+            "SymbolCode": "MWV", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "MeadWestvaco Corporation"
+        }, 
+        {
+            "SymbolCode": "MDT", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Medtronic Inc."
+        }, 
+        {
+            "SymbolCode": "MRK", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Merck & Co."
+        }, 
+        {
+            "SymbolCode": "MET", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "MetLife Inc."
+        }, 
+        {
+            "SymbolCode": "PCS", 
+            "SymbolGisSector": 50, 
+            "SymbolName": "MetroPCS Communications Inc."
+        }, 
+        {
+            "SymbolCode": "MCHP", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Microchip Technology"
+        }, 
+        {
+            "SymbolCode": "MU", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Micron Technology"
+        }, 
+        {
+            "SymbolCode": "MSFT", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Microsoft Corp."
+        }, 
+        {
+            "SymbolCode": "MOLX", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Molex Inc."
+        }, 
+        {
+            "SymbolCode": "TAP", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Molson Coors Brewing Company"
+        }, 
+        {
+            "SymbolCode": "MDLZ", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Mondelez International"
+        }, 
+        {
+            "SymbolCode": "MON", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Monsanto Co."
+        }, 
+        {
+            "SymbolCode": "MNST", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Monster Beverage"
+        }, 
+        {
+            "SymbolCode": "MCO", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Moody's Corp"
+        }, 
+        {
+            "SymbolCode": "MS", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Morgan Stanley"
+        }, 
+        {
+            "SymbolCode": "MOS", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "The Mosaic Company"
+        }, 
+        {
+            "SymbolCode": "MSI", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Motorola Solutions Inc."
+        }, 
+        {
+            "SymbolCode": "MUR", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Murphy Oil"
+        }, 
+        {
+            "SymbolCode": "MYL", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Mylan Inc."
+        }, 
+        {
+            "SymbolCode": "NBR", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Nabors Industries Ltd."
+        }, 
+        {
+            "SymbolCode": "NDAQ", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "NASDAQ OMX Group"
+        }, 
+        {
+            "SymbolCode": "NOV", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "National Oilwell Varco Inc."
+        }, 
+        {
+            "SymbolCode": "NTAP", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "NetApp"
+        }, 
+        {
+            "SymbolCode": "NFLX", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "NetFlix Inc."
+        }, 
+        {
+            "SymbolCode": "NWL", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Newell Rubbermaid Co."
+        }, 
+        {
+            "SymbolCode": "NFX", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Newfield Exploration Co"
+        }, 
+        {
+            "SymbolCode": "NEM", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Newmont Mining Corp. (Hldg. Co.)"
+        }, 
+        {
+            "SymbolCode": "NWSA", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "News Corporation"
+        }, 
+        {
+            "SymbolCode": "NEE", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "NextEra Energy Resources"
+        }, 
+        {
+            "SymbolCode": "NKE", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "NIKE Inc."
+        }, 
+        {
+            "SymbolCode": "NI", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "NiSource Inc."
+        }, 
+        {
+            "SymbolCode": "NE", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Noble Corp"
+        }, 
+        {
+            "SymbolCode": "NBL", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Noble Energy Inc"
+        }, 
+        {
+            "SymbolCode": "JWN", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Nordstrom"
+        }, 
+        {
+            "SymbolCode": "NSC", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Norfolk Southern Corp."
+        }, 
+        {
+            "SymbolCode": "NTRS", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Northern Trust Corp."
+        }, 
+        {
+            "SymbolCode": "NOC", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Northrop Grumman Corp."
+        }, 
+        {
+            "SymbolCode": "NU", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "Northeast Utilities"
+        }, 
+        {
+            "SymbolCode": "NRG", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "NRG Energy"
+        }, 
+        {
+            "SymbolCode": "NUE", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Nucor Corp."
+        }, 
+        {
+            "SymbolCode": "NVDA", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Nvidia Corporation"
+        }, 
+        {
+            "SymbolCode": "NYX", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "NYSE Euronext"
+        }, 
+        {
+            "SymbolCode": "ORLY", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "O'Reilly Automotive"
+        }, 
+        {
+            "SymbolCode": "OXY", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Occidental Petroleum"
+        }, 
+        {
+            "SymbolCode": "OMC", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Omnicom Group"
+        }, 
+        {
+            "SymbolCode": "OKE", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "ONEOK"
+        }, 
+        {
+            "SymbolCode": "ORCL", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Oracle Corp."
+        }, 
+        {
+            "SymbolCode": "OI", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Owens-Illinois Inc"
+        }, 
+        {
+            "SymbolCode": "PCAR", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "PACCAR Inc."
+        }, 
+        {
+            "SymbolCode": "PLL", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Pall Corp."
+        }, 
+        {
+            "SymbolCode": "PH", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Parker-Hannifin"
+        }, 
+        {
+            "SymbolCode": "PDCO", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Patterson Companies"
+        }, 
+        {
+            "SymbolCode": "PAYX", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Paychex Inc."
+        }, 
+        {
+            "SymbolCode": "BTU", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Peabody Energy"
+        }, 
+        {
+            "SymbolCode": "JCP", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Penney (J.C.)"
+        }, 
+        {
+            "SymbolCode": "PNR", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Pentair Ltd."
+        }, 
+        {
+            "SymbolCode": "PBCT", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "People's United Bank"
+        }, 
+        {
+            "SymbolCode": "POM", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "Pepco Holdings Inc."
+        }, 
+        {
+            "SymbolCode": "PEP", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "PepsiCo Inc."
+        }, 
+        {
+            "SymbolCode": "PKI", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "PerkinElmer"
+        }, 
+        {
+            "SymbolCode": "PRGO", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Perrigo"
+        }, 
+        {
+            "SymbolCode": "PETM", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "PetSmart, Inc."
+        }, 
+        {
+            "SymbolCode": "PFE", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Pfizer Inc."
+        }, 
+        {
+            "SymbolCode": "PCG", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "PG&E Corp."
+        }, 
+        {
+            "SymbolCode": "PM", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Philip Morris International"
+        }, 
+        {
+            "SymbolCode": "PSX", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Phillips 66"
+        }, 
+        {
+            "SymbolCode": "PNW", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "Pinnacle West Capital"
+        }, 
+        {
+            "SymbolCode": "PXD", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Pioneer Natural Resources"
+        }, 
+        {
+            "SymbolCode": "PBI", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Pitney-Bowes"
+        }, 
+        {
+            "SymbolCode": "PCL", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Plum Creek Timber Co."
+        }, 
+        {
+            "SymbolCode": "PNC", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "PNC Financial Services"
+        }, 
+        {
+            "SymbolCode": "RL", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Polo Ralph Lauren Corp."
+        }, 
+        {
+            "SymbolCode": "PPG", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "PPG Industries"
+        }, 
+        {
+            "SymbolCode": "PPL", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "PPL Corp."
+        }, 
+        {
+            "SymbolCode": "PX", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Praxair Inc."
+        }, 
+        {
+            "SymbolCode": "PCP", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Precision Castparts"
+        }, 
+        {
+            "SymbolCode": "PCLN", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Priceline.com Inc"
+        }, 
+        {
+            "SymbolCode": "PFG", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Principal Financial Group"
+        }, 
+        {
+            "SymbolCode": "PG", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Procter & Gamble"
+        }, 
+        {
+            "SymbolCode": "PGR", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Progressive Corp."
+        }, 
+        {
+            "SymbolCode": "PLD", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "ProLogis"
+        }, 
+        {
+            "SymbolCode": "PRU", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Prudential Financial"
+        }, 
+        {
+            "SymbolCode": "PEG", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "Public Serv. Enterprise Inc."
+        }, 
+        {
+            "SymbolCode": "PSA", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Public Storage"
+        }, 
+        {
+            "SymbolCode": "PHM", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Pulte Homes Inc."
+        }, 
+        {
+            "SymbolCode": "QEP", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "QEP Resources"
+        }, 
+        {
+            "SymbolCode": "PWR", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Quanta Services Inc."
+        }, 
+        {
+            "SymbolCode": "QCOM", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "QUALCOMM Inc."
+        }, 
+        {
+            "SymbolCode": "DGX", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Quest Diagnostics"
+        }, 
+        {
+            "SymbolCode": "RRC", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Range Resources Corp."
+        }, 
+        {
+            "SymbolCode": "RTN", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Raytheon Co."
+        }, 
+        {
+            "SymbolCode": "RHT", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Red Hat Inc."
+        }, 
+        {
+            "SymbolCode": "RF", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Regions Financial Corp."
+        }, 
+        {
+            "SymbolCode": "RSG", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Republic Services Inc"
+        }, 
+        {
+            "SymbolCode": "RAI", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Reynolds American Inc."
+        }, 
+        {
+            "SymbolCode": "RHI", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Robert Half International"
+        }, 
+        {
+            "SymbolCode": "ROK", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Rockwell Automation Inc."
+        }, 
+        {
+            "SymbolCode": "COL", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Rockwell Collins"
+        }, 
+        {
+            "SymbolCode": "ROP", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Roper Industries"
+        }, 
+        {
+            "SymbolCode": "ROST", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Ross Stores Inc."
+        }, 
+        {
+            "SymbolCode": "RDC", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Rowan Cos."
+        }, 
+        {
+            "SymbolCode": "R", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Ryder System"
+        }, 
+        {
+            "SymbolCode": "SWY", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Safeway Inc."
+        }, 
+        {
+            "SymbolCode": "SAI", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "SAIC"
+        }, 
+        {
+            "SymbolCode": "CRM", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Salesforce.com"
+        }, 
+        {
+            "SymbolCode": "SNDK", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "SanDisk Corporation"
+        }, 
+        {
+            "SymbolCode": "SCG", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "SCANA Corp"
+        }, 
+        {
+            "SymbolCode": "SLB", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Schlumberger Ltd."
+        }, 
+        {
+            "SymbolCode": "SNI", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Scripps Networks Interactive Inc."
+        }, 
+        {
+            "SymbolCode": "STX", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Seagate Technology"
+        }, 
+        {
+            "SymbolCode": "SEE", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Sealed Air Corp.(New)"
+        }, 
+        {
+            "SymbolCode": "SRE", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "Sempra Energy"
+        }, 
+        {
+            "SymbolCode": "SHW", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Sherwin-Williams"
+        }, 
+        {
+            "SymbolCode": "SIAL", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Sigma-Aldrich"
+        }, 
+        {
+            "SymbolCode": "SPG", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Simon Property Group Inc"
+        }, 
+        {
+            "SymbolCode": "SLM", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "SLM Corporation"
+        }, 
+        {
+            "SymbolCode": "SJM", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Smucker (J.M.)"
+        }, 
+        {
+            "SymbolCode": "SNA", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Snap-On Inc."
+        }, 
+        {
+            "SymbolCode": "SO", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "Southern Co."
+        }, 
+        {
+            "SymbolCode": "LUV", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Southwest Airlines"
+        }, 
+        {
+            "SymbolCode": "SWN", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Southwestern Energy"
+        }, 
+        {
+            "SymbolCode": "SE", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Spectra Energy Corp."
+        }, 
+        {
+            "SymbolCode": "S", 
+            "SymbolGisSector": 50, 
+            "SymbolName": "Sprint Nextel Corp."
+        }, 
+        {
+            "SymbolCode": "STJ", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "St Jude Medical"
+        }, 
+        {
+            "SymbolCode": "SWK", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Stanley Black & Decker"
+        }, 
+        {
+            "SymbolCode": "SPLS", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Staples Inc."
+        }, 
+        {
+            "SymbolCode": "SBUX", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Starbucks Corp."
+        }, 
+        {
+            "SymbolCode": "HOT", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Starwood Hotels & Resorts"
+        }, 
+        {
+            "SymbolCode": "STT", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "State Street Corp."
+        }, 
+        {
+            "SymbolCode": "SRCL", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Stericycle Inc"
+        }, 
+        {
+            "SymbolCode": "SYK", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Stryker Corp."
+        }, 
+        {
+            "SymbolCode": "STI", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "SunTrust Banks"
+        }, 
+        {
+            "SymbolCode": "SYMC", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Symantec Corp."
+        }, 
+        {
+            "SymbolCode": "SYY", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Sysco Corp."
+        }, 
+        {
+            "SymbolCode": "TROW", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "T. Rowe Price Group"
+        }, 
+        {
+            "SymbolCode": "TGT", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Target Corp."
+        }, 
+        {
+            "SymbolCode": "TEL", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "TE Connectivity Ltd."
+        }, 
+        {
+            "SymbolCode": "TE", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "TECO Energy"
+        }, 
+        {
+            "SymbolCode": "THC", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Tenet Healthcare Corp."
+        }, 
+        {
+            "SymbolCode": "TDC", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Teradata Corp."
+        }, 
+        {
+            "SymbolCode": "TER", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Teradyne Inc."
+        }, 
+        {
+            "SymbolCode": "TSO", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Tesoro Petroleum Co."
+        }, 
+        {
+            "SymbolCode": "TXN", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Texas Instruments"
+        }, 
+        {
+            "SymbolCode": "TXT", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Textron Inc."
+        }, 
+        {
+            "SymbolCode": "HSY", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "The Hershey Company"
+        }, 
+        {
+            "SymbolCode": "TRV", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "The Travelers Companies Inc."
+        }, 
+        {
+            "SymbolCode": "TMO", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Thermo Fisher Scientific"
+        }, 
+        {
+            "SymbolCode": "TIF", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Tiffany & Co."
+        }, 
+        {
+            "SymbolCode": "TWX", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Time Warner Inc."
+        }, 
+        {
+            "SymbolCode": "TWC", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Time Warner Cable Inc."
+        }, 
+        {
+            "SymbolCode": "TJX", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "TJX Companies Inc."
+        }, 
+        {
+            "SymbolCode": "TMK", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Torchmark Corp."
+        }, 
+        {
+            "SymbolCode": "TSS", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Total System Services"
+        }, 
+        {
+            "SymbolCode": "TRIP", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "TripAdvisor"
+        }, 
+        {
+            "SymbolCode": "TSN", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Tyson Foods"
+        }, 
+        {
+            "SymbolCode": "TYC", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Tyco International"
+        }, 
+        {
+            "SymbolCode": "USB", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "U.S. Bancorp"
+        }, 
+        {
+            "SymbolCode": "UNP", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Union Pacific"
+        }, 
+        {
+            "SymbolCode": "UNH", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "United Health Group Inc."
+        }, 
+        {
+            "SymbolCode": "UPS", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "United Parcel Service"
+        }, 
+        {
+            "SymbolCode": "X", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "United States Steel Corp."
+        }, 
+        {
+            "SymbolCode": "UTX", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "United Technologies"
+        }, 
+        {
+            "SymbolCode": "UNM", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Unum Group"
+        }, 
+        {
+            "SymbolCode": "URBN", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Urban Outfitters"
+        }, 
+        {
+            "SymbolCode": "VFC", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "V.F. Corp."
+        }, 
+        {
+            "SymbolCode": "VLO", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Valero Energy"
+        }, 
+        {
+            "SymbolCode": "VAR", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Varian Medical Systems"
+        }, 
+        {
+            "SymbolCode": "VTR", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Ventas Inc"
+        }, 
+        {
+            "SymbolCode": "VRSN", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Verisign Inc."
+        }, 
+        {
+            "SymbolCode": "VZ", 
+            "SymbolGisSector": 50, 
+            "SymbolName": "Verizon Communications"
+        }, 
+        {
+            "SymbolCode": "VIAB", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Viacom Inc."
+        }, 
+        {
+            "SymbolCode": "V", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Visa Inc."
+        }, 
+        {
+            "SymbolCode": "VNO", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Vornado Realty Trust"
+        }, 
+        {
+            "SymbolCode": "VMC", 
+            "SymbolGisSector": 15, 
+            "SymbolName": "Vulcan Materials"
+        }, 
+        {
+            "SymbolCode": "WMT", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Wal-Mart Stores"
+        }, 
+        {
+            "SymbolCode": "WAG", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Walgreen Co."
+        }, 
+        {
+            "SymbolCode": "DIS", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Walt Disney Co."
+        }, 
+        {
+            "SymbolCode": "WPO", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Washington Post Co B"
+        }, 
+        {
+            "SymbolCode": "WM", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Waste Management Inc."
+        }, 
+        {
+            "SymbolCode": "WAT", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Waters Corporation"
+        }, 
+        {
+            "SymbolCode": "WPI", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Watson Pharmaceuticals"
+        }, 
+        {
+            "SymbolCode": "WLP", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "WellPoint Inc."
+        }, 
+        {
+            "SymbolCode": "WFC", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Wells Fargo"
+        }, 
+        {
+            "SymbolCode": "WDC", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Western Digital"
+        }, 
+        {
+            "SymbolCode": "WU", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Western Union Co"
+        }, 
+        {
+            "SymbolCode": "WY", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Weyerhaeuser Corp."
+        }, 
+        {
+            "SymbolCode": "WHR", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Whirlpool Corp."
+        }, 
+        {
+            "SymbolCode": "WFM", 
+            "SymbolGisSector": 30, 
+            "SymbolName": "Whole Foods Market"
+        }, 
+        {
+            "SymbolCode": "WMB", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "Williams Cos."
+        }, 
+        {
+            "SymbolCode": "WIN", 
+            "SymbolGisSector": 50, 
+            "SymbolName": "Windstream Corporation"
+        }, 
+        {
+            "SymbolCode": "WEC", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "Wisconsin Energy Corporation"
+        }, 
+        {
+            "SymbolCode": "WPX", 
+            "SymbolGisSector": 10, 
+            "SymbolName": "WPX Energy, Inc."
+        }, 
+        {
+            "SymbolCode": "WYN", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Wyndham Worldwide"
+        }, 
+        {
+            "SymbolCode": "WYNN", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Wynn Resorts Ltd"
+        }, 
+        {
+            "SymbolCode": "XEL", 
+            "SymbolGisSector": 55, 
+            "SymbolName": "Xcel Energy Inc"
+        }, 
+        {
+            "SymbolCode": "XRX", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Xerox Corp."
+        }, 
+        {
+            "SymbolCode": "XLNX", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Xilinx Inc"
+        }, 
+        {
+            "SymbolCode": "XL", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "XL Capital"
+        }, 
+        {
+            "SymbolCode": "XYL", 
+            "SymbolGisSector": 20, 
+            "SymbolName": "Xylem Inc."
+        }, 
+        {
+            "SymbolCode": "YHOO", 
+            "SymbolGisSector": 45, 
+            "SymbolName": "Yahoo Inc."
+        }, 
+        {
+            "SymbolCode": "YUM", 
+            "SymbolGisSector": 25, 
+            "SymbolName": "Yum! Brands Inc"
+        }, 
+        {
+            "SymbolCode": "ZMH", 
+            "SymbolGisSector": 35, 
+            "SymbolName": "Zimmer Holdings"
+        }, 
+        {
+            "SymbolCode": "ZION", 
+            "SymbolGisSector": 40, 
+            "SymbolName": "Zions Bancorp"
+        }, 
+        {
+            "SymbolCode": "^GSPC", 
+            "SymbolGisSector": null, 
+            "SymbolName": "S&P 500"
+        }
+    ]

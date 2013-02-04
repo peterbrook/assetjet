@@ -9,21 +9,11 @@
         <title>AssetJet Main UI</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-    
-        <link href="res/kendoui/styles/kendo.common.min.css" rel="stylesheet">
-        <link href="res/kendoui/styles/kendo.default.min.css" rel="stylesheet">
-        <link href="res/css/bootstrap.min.css" rel="stylesheet" >
-        <link href="res/css/bootstrap-responsive.min.css" rel="stylesheet" >
-        <link href="res/css/main.css" rel="stylesheet" >
-        <script src="res/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet" >
+        <link href="css/bootstrap-responsive.min.css" rel="stylesheet" >
+        <link href="css/main.css" rel="stylesheet" >
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
-
-        <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
-
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
@@ -60,63 +50,81 @@
                 </div>
             </div>
         </div>
-
         <div class="container">
-
-            <hr>
-
+            <hr />
             <div class="left">
-
+                <div id="single_symbol_select">
+                    <input id="autocomplete" class="left_input"></input>
+                    <input id="autocomplete_trigger" type="button" class="left_input" value="Press Me"></input>
+                </div>
                 <div id="listView"></div>
-                <script type="text/x-kendo-tmpl" id="template">
-                    <div class="symbol">
-                        <p>${SymbolName}</p>
-                        <p>${SymbolDescription}</p>
-                    </div>
-                </script>
-
-
-
-
             </div>
-
             <hr>
-
             <footer>
                 <p>&copy; Mel And Felix 2013</p>
             </footer>
-
         </div> <!-- /container -->
-
+<!--
         <script src="res/kendoui/js/jquery.min.js"></script>
-        <script src="res/kendoui/js/kendo.web.min.js"></script>
+        <!--<script src="res/kendoui/js/kendo.web.min.js"></script>
+        <script src="res/kendoui/src/js/kendo.web.js"></script>
+        <script src="res/highcharts/highcharts.js"></script>
+-->
 
-        <script src="res/js/vendor/bootstrap.min.js"></script>
+        <script src="js/lib/jquery.js"></script>
+        <script src="js/lib/jquery.jsonp.js"></script>
+        <script src="js/lib/modernizr-min.js"></script>
+        <script src="js/lib/bootstrap-min.js"></script>
+        <script src="js/lib/underscore-min.js"></script>
+        <script src="js/lib/backbone-min.js"></script>
 
-        <script src="res/js/plugins.js"></script>
-        <script src="res/js/main.js"></script>
+        <script src="js/aj.main.js" type="text/javascript"></script>
+
         <script>
+
             $(document).ready(function() {
-                var dataSource = new kendo.data.DataSource({
-                        transport: {
-                            read: {
-                                url: "http://0.0.0.0:8080/services/Symbols/GetAll",
-                                dataType: "jsonp"
-                            }
-                        },
-                        pageSize: 15
-                    });
-
-                $("#pager").kendoPager({
-                    dataSource: dataSource
+                //var symbolUrl = "file:///C:/src/GitHub/assetjet/app/src/web/data/assets.kendo.old.json";
+                //var symbols = AJ.curl(symbolUrl);
+                symbolUrl = "http://127.0.0.1/services/Symbols/GetAll/";
+                var symbols;
+                onJsonpCallback = function(data){
+                        symbols = data;
+                        console.log(data);
+                    };
+                    
+                $.jsonp({
+                    type: "GET"
+                ,    url: symbolUrl
+                ,    cache: false
+                ,    crossDomain: true
+                ,    dataType: "jsonp"
+                ,    success: function(data){
+                        symbols = data;
+                        console.log(data);
+                    }
+                ,    error: function(result, status){
+                        console.log(result);
+                        console.log(status);
+                    }
+                ,   callbackParameter: onJsonpCallback
                 });
-
-                $("#listView").kendoListView({
-                    dataSource: dataSource,
-                    template: kendo.template($("#template").html())
+                var _trigger = $("#autocomplete_trigger");
+                _trigger.click(function(e){
+                    var ticker = "AAPL";
+                    var startDate = new Date();
+                    var endDate = new Date();
+                    startDate.setMonth(endDate.getMonth() - 12);
+                    var period = "d";
+                    var callback = function(data){
+                        var dataStr = new String(data);
+                        var lines = dataStr.split('\n');
+                        data = lines;
+                        console.log(data);
+                    };
+                    var ydata = AJ.getYahooData(ticker, startDate, endDate, period, callback);
+                    console.log(ydata);
                 });
             });
         </script>
-
     </body>
 </html>

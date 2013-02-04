@@ -21,14 +21,21 @@ from pyramid.view import view_config
 from pyramid.response import Response
 
 
+#@view_config(route_name="services/Symbols/GetAll/", renderer="json")
+@view_config(route_name="services/Symbols/GetAll/")
 def GET(request):
-        Session = orm.sessionmaker(bind=db.GetEngine())        
-        session = Session()
-        assets = session.query(asset.Asset).all()
-        dict = {}
-        for aItem in assets:
-            dict[aItem.cd] = (aItem.cd, aItem.name, aItem.gicssectorid)        
-        return Response(json.dumps(dict))
+    Session = orm.sessionmaker(bind=db.GetEngine())        
+    session = Session()
+    assets = session.query(asset.Asset).all()
+    dict = {}
+    dict['success'] = True
+    assetsList = []
+    for aItem in assets:
+        assetsList.append({'SymbolCode': aItem.cd, 'SymbolName': aItem.name, 'SymbolGisSector': aItem.gicssectorid})
+    dict['assets'] = assetsList
+
+    strResp = json.dumps(dict)
+    return Response(str("onJsonpCallback(" + strResp  + ");"))
     
 class GetAll:
     
@@ -44,3 +51,4 @@ class GetAll:
 if __name__ == "__main__":
     all = GetAll().GET()
     print "retrieved objects"
+    

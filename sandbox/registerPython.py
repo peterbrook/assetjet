@@ -17,6 +17,7 @@ from _winreg import *
 # tweak as necessary
 version = sys.version[:3]
 installpath = sys.prefix
+installpath = "D:\WinPython\python-2.7.3.amd64"
 
 regpath = "SOFTWARE\\Python\\Pythoncore\\%s\\" % (version)
 installkey = "InstallPath"
@@ -30,6 +31,7 @@ def RegisterPy():
         reg = OpenKey(HKEY_LOCAL_MACHINE, regpath)
     except EnvironmentError:
         try:
+            print "No Key Found, attempting to register"
             reg = CreateKey(HKEY_LOCAL_MACHINE, regpath)
             SetValue(reg, installkey, REG_SZ, installpath)
             SetValue(reg, pythonkey, REG_SZ, pythonpath)

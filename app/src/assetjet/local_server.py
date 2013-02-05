@@ -39,6 +39,7 @@ class LocalServer(threading.Thread):
     def run(self):
         config = Configurator()
         config.add_route('services/Symbols/GetAll/', 'services/Symbols/GetAll/')
+        config.add_route('services/Prices/GetByTicker/', 'services/Prices/GetByTicker/{ticker}/{startDate}/{endDate}/{period}/')
         #config.add_view(services.Symbols.GetAll.GET, route_name='services/Symbols/GetAll', renderer="json")
         #config.include(routing.ServiceRouting, route_prefix='services')
         config.scan('services')

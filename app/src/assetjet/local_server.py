@@ -33,7 +33,7 @@ class LocalServer(threading.Thread):
         self.host = host
         
         if port is None:
-            port = 80
+            port = 8080
         self.port = port
 
     def run(self):

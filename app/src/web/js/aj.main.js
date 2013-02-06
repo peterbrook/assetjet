@@ -18,7 +18,7 @@
 	}
 	var AJ = root.AJ = {
 		VERSION : "0.1",
-		rootUrl :"127.0.0.1:80"
+		rootUrl :"http://127.0.0.1:8080"
 	};
 
 	// String convenience functions
@@ -74,7 +74,7 @@
 			(period || "d")
 		);
 		
-		rootUrl = "http://localhost/services/Prices/GetByTicker/ticker={0}&startDate={1}&endDate={2}&period={3}"
+		rootUrl = AJ.rootUrl + "/services/Prices/GetByTicker/ticker={0}&startDate={1}&endDate={2}&period={3}"
 		var queryUrl = String.format(
 			rootUrl,
 			symbol,

@@ -85,7 +85,7 @@
             $(document).ready(function() {
                 //var symbolUrl = "file:///C:/src/GitHub/assetjet/app/src/web/data/assets.kendo.old.json";
                 //var symbols = AJ.curl(symbolUrl);
-                symbolUrl = "http://127.0.0.1/services/Symbols/GetAll/";
+                symbolUrl = AJ.rootUrl + "/services/Symbols/GetAll/";
                 var symbols;
                 onJsonpCallback = function(data){
                         symbols = data;

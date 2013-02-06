@@ -11,7 +11,7 @@ import numpy as np
 from datetime import date, datetime
 from assetjet.cfg import db
 import sqlalchemy.orm as orm
-import json
+import simplejson as json
 import web
 import assetjet.model
 from assetjet.model import asset
@@ -178,4 +178,4 @@ if __name__ == "__main__":
     
     # Get rebased prices
     closePrices, seriesbegin = getAdjClosePrices(tickers, startdate, enddate)
-    pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100)
+    pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100, asjson=True)

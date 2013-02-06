@@ -22,7 +22,7 @@ from pyramid.response import Response
 
 
 #@view_config(route_name="services/Symbols/GetAll/", renderer="json")
-@view_config(route_name="services/Symbols/GetAll/")
+@view_config(route_name="services.Symbols.GetAll")
 def GET(request):
     Session = orm.sessionmaker(bind=db.GetEngine())        
     session = Session()

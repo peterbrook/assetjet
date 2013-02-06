@@ -4,6 +4,11 @@ Created on 5 Feb 2013
 @author: Mel
 '''
 
+from pandas import DataFrame
+import pandas as pd
+import sqlite3
+import numpy as np
+from datetime import date, datetime
 from assetjet.cfg import db
 import sqlalchemy.orm as orm
 import json
@@ -12,19 +17,27 @@ import assetjet.model
 from assetjet.model import asset
 from pyramid.view import view_config
 from pyramid.response import Response
+from datetime import datetime
+from datetime import time
+from urllib2 import *
+import numpy as np
 
 
 #@view_config(route_name="services/Symbols/GetAll/", renderer="json")
-@view_config(route_name="services/Prices/GetByTicker/")
+@view_config(route_name="services.Prices.GetByTicker")
 def GET(request):
-    ticker = request.GET('ticker')
-    prices = get_yahoo_prices(ticker)
-    strResp = json.dumps(prices)
-    return Response(str("onJsonpCallback(" + strResp  + ");"))
-
+    ticker = request.params['ticker']
+    startDate = request.params['startDate']
+    endDate = request.params['endDate']
+    period = request.params['period']
+    
+    closePrices, seriesbegin = getAdjClosePrices([ ticker ], startDate, endDate)
+    pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100, asjson=True)
+    return Response(str("onJsonpCallback(" + pricesRebased  + ");"))
 
 def get_yahoo_prices(symbol, startdate=None, enddate=None,
                      period='d', datefmt="%Y-%m-%d"):
+    
     """ Utility function to pull price data from Yahoo Finance site.
     
         Parameters:
@@ -87,3 +100,67 @@ def get_yahoo_prices(symbol, startdate=None, enddate=None,
     npdata = np.array(data, dtype=schema)
     
     return npdata
+
+def getPricesRebased(prices, startdates, base=100, asjson=False, frequency=None):
+    """ Returns a pandas dataframe (in json format if asjson=True) with prices
+        rebased to base, optionally with a new frequency:
+        e.g. 'D','M', 'W-FRI' for daily, end of month or friday-weekly data
+    """
+    # Returns    
+    returns = prices.pct_change()
+    # Rebasing
+    pricesRebased = (1 + returns).cumprod()
+    # requires NumPy 1.7 !! (1.6 doesn't translate datetime correctly)
+    for col in pricesRebased:
+        pricesRebased.ix[seriesbegin.ix[col,0],col] = 1 
+    pricesRebased = pricesRebased * base
+    if frequency:
+        pricesRebased = pricesRebased.asfreq(frequency, method='ffill')    
+    if tojson:
+        # dataframe to_json() method is still pending, therefore:
+        return tojson(pricesRebased.reset_index())
+        
+    else:        
+        return pricesRebased 
+    
+def tojson(df):
+    """
+    convert a pandas data frame into a JSON object
+    """     
+    d = [ 
+        dict([
+            (colname, row[i]) 
+            for i,colname in enumerate(df.columns)
+        ])
+        for row in df.values
+    ]
+    # json cannot deal with datetime objects, therefore convert into string
+    dthandler = lambda obj: obj.isoformat() if isinstance(obj, datetime) else None
+    return json.dumps(d, default=dthandler, indent=4 * ' ')
+
+def getAdjClosePrices(tickers, startdate, enddate):
+    """ returns a ready to use pandas DataFrame and a Series with the startDate
+    """
+    Session = orm.sessionmaker(bind=db.GetEngine())        
+    session = Session()
+    conn = db.GetEngine().connect()
+    # Query
+    conn.execute("""CREATE TEMP TABLE Tickers (Cd Text)""")
+    conn.execute("""INSERT INTO Tickers VALUES(?)""", zip(tickers))
+    
+    rows = conn.execute("""SELECT ts.Cd, Date, AdjClose
+                      FROM TimeSeries ts
+                      INNER JOIN Tickers t ON ts.Cd = t.Cd
+                      WHERE Date >= ? AND Date <= ?""", (startdate, enddate))
+    
+    # Create a pandas DataFrame
+    pricesRaw = DataFrame(rows, columns=zip(*rows.description)[0])
+    pricesRaw.Date = pd.to_datetime(pricesRaw.Date) # convert date to datetime
+    seriesbegin = pricesRaw[['Cd','Date']].groupby('Cd').min()
+    # Pivot DataFrame
+    prices = pricesRaw.pivot('Date', 'Cd', 'AdjClose')
+
+    # Close DB and Cursor
+    conn.close()
+    return prices,   seriesbegin
+    

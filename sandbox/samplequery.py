@@ -68,7 +68,6 @@ def getPricesRebased(prices, startdates, base=100, asjson=False, frequency=None)
     if tojson:
         # dataframe to_json() method is still pending, therefore:
         return tojson(pricesRebased.reset_index())
-        
     else:        
         return pricesRebased 
     
@@ -86,7 +85,7 @@ if __name__ == '__main__':
     closePrices, seriesbegin = getAdjClosePrices(tickersSmall, startdate, enddate)
     pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100, asjson=True)
     
-    # Matplotlib (for testing only): interactive mode
+# Matplotlib (for testing only): interactive mode
 #    import matplotlib.pyplot as plt
 #    import pylab
 #    pylab.ion()

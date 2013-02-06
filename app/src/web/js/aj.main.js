@@ -71,7 +71,16 @@
 			symbol,
 			startDate.getMonth(), startDate.getDay(), startDate.getFullYear(), 
 			endDate.getMonth(), endDate.getDay(), endDate.getFullYear(),
-			"d"
+			(period || "d")
+		);
+		
+		rootUrl = "http://localhost/services/Prices/GetByTicker/ticker={0}&startDate={1}&endDate={2}&period={3}"
+		var queryUrl = String.format(
+			rootUrl,
+			symbol,
+			startDate, 
+			endDate,
+			(period || "d")
 		);
 
 		var data;

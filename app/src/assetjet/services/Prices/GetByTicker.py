@@ -116,7 +116,7 @@ def getPricesRebased(prices, startdates, base=100, asjson=False, frequency=None)
     pricesRebased = pricesRebased * base
     if frequency:
         pricesRebased = pricesRebased.asfreq(frequency, method='ffill')    
-    if tojson:
+    if asjson:
         # dataframe to_json() method is still pending, therefore:
         return tojson(pricesRebased.reset_index())
         
@@ -148,13 +148,20 @@ def getAdjClosePrices(tickers, startdate, enddate):
     conn.execute("""CREATE TEMP TABLE Tickers (Cd Text)""")
     conn.execute("""INSERT INTO Tickers VALUES(?)""", zip(tickers))
     
-    rows = conn.execute("""SELECT ts.Cd, Date, AdjClose
+    result = conn.execute("""SELECT ts.Cd, Date, AdjClose
                       FROM TimeSeries ts
                       INNER JOIN Tickers t ON ts.Cd = t.Cd
                       WHERE Date >= ? AND Date <= ?""", (startdate, enddate))
+    rows = result.fetchall()
+    
+    
+    schema = np.dtype({'names':[result.keys()[0], result.keys()[1], result.keys()[2]],
+                       'formats':['S8', 'M8[D]', float]})    
+    
+    data = np.fromiter((tuple (row) for row in rows), dtype=schema)             
     
     # Create a pandas DataFrame
-    pricesRaw = DataFrame(rows, columns=zip(*rows.description)[0])
+    pricesRaw = DataFrame.from_records(data)
     pricesRaw.Date = pd.to_datetime(pricesRaw.Date) # convert date to datetime
     seriesbegin = pricesRaw[['Cd','Date']].groupby('Cd').min()
     # Pivot DataFrame
@@ -162,5 +169,13 @@ def getAdjClosePrices(tickers, startdate, enddate):
 
     # Close DB and Cursor
     conn.close()
-    return prices,   seriesbegin
+    return prices, seriesbegin
     
+if __name__ == "__main__":
+    tickers = ['^GSPC','MMM', 'ACE', 'ABT', 'ANF', 'ACN', 'ADBE', 'ADT', 'AMD', 'AES', 'AET']
+    startdate = '2008-01-01'
+    enddate = date.today()
+    
+    # Get rebased prices
+    closePrices, seriesbegin = getAdjClosePrices(tickers, startdate, enddate)
+    pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100)

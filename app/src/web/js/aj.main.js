@@ -17,8 +17,8 @@
 		return;
 	}
 	var AJ = root.AJ = {
-		VERSION : "0.1",
-		rootUrl :"http://127.0.0.1:8080"
+		VERSION : "0.1"
+	,	rootUrl :"http://127.0.0.1:8080"
 	};
 
 	// String convenience functions
@@ -29,6 +29,20 @@
 	    	s = s.replace(reg, arguments[i + 1]);
 	  	}
 		return s;
+	};
+	// String convenience functions
+	String.prototype.format = function() {
+		var s = this;
+		console.log(this);
+	  	for (var i = 0; i < arguments.length; i++) {       
+	    	var reg = new RegExp("\\{" + i + "\\}", "gm");             
+	    	s = s.replace(reg, arguments[i]);
+	  	}
+		return s;
+	};
+
+	Date.prototype.simpleFormat = function(){
+		return "{0}{1}{2}".format(this.getFullYear(), this.getMonth(), this.getDay()); 
 	};
 		
 	AJ.getCSV = function(url){
@@ -74,12 +88,12 @@
 			(period || "d")
 		);
 		
-		rootUrl = AJ.rootUrl + "/services/Prices/GetByTicker/ticker={0}&startDate={1}&endDate={2}&period={3}"
-		var queryUrl = String.format(
+		rootUrl = AJ.rootUrl + "/services/Prices/GetByTicker/?ticker={0}&startDate={1}&endDate={2}&period={3}"
+		queryUrl = String.format(
 			rootUrl,
 			symbol,
-			startDate, 
-			endDate,
+			startDate.simpleFormat(), 
+			endDate.simpleFormat(),
 			(period || "d")
 		);
 

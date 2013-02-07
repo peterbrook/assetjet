@@ -27,14 +27,11 @@ import dateutil.parser
 #@view_config(route_name="services/Symbols/GetAll/", renderer="json")
 @view_config(route_name="services.Prices.GetByTicker")
 def GET(request):
-    ticker = request.params['ticker']
-    startDate = dateutil.parser.parse(request.params['startDate'])
-    endDate = dateutil.parser.parse(request.params['endDate'])
-    period = request.params['period']
+    ticker = request.GET.get('ticker')
+    startDate = dateutil.parser.parse(request.GET.get('startDate'))
+    endDate = dateutil.parser.parse(request.GET.get('endDate'))
+    period = request.GET.get('period')
     callbackParam = "_jqjsp"
-    
-    print (ticker, startDate, endDate, period)
-    
     closePrices, seriesbegin = getAdjClosePrices([ ticker ], startDate, endDate)
     pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100, asjson=True)
     return Response(str("_jqjsp(" + pricesRebased  + ");"))

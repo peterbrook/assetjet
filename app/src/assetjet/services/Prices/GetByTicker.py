@@ -31,12 +31,13 @@ def GET(request):
     startDate = dateutil.parser.parse(request.params['startDate'])
     endDate = dateutil.parser.parse(request.params['endDate'])
     period = request.params['period']
+    callbackParam = "_jqjsp"
     
     print (ticker, startDate, endDate, period)
     
     closePrices, seriesbegin = getAdjClosePrices([ ticker ], startDate, endDate)
     pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100, asjson=True)
-    return Response(str("onJsonpCallback(" + pricesRebased  + ");"))
+    return Response(str("_jqjsp(" + pricesRebased  + ");"))
 
 def get_yahoo_prices(symbol, startdate=None, enddate=None,
                      period='d', datefmt="%Y-%m-%d"):

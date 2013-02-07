@@ -33,7 +33,6 @@
 	// String convenience functions
 	String.prototype.format = function() {
 		var s = this;
-		console.log(this);
 	  	for (var i = 0; i < arguments.length; i++) {       
 	    	var reg = new RegExp("\\{" + i + "\\}", "gm");             
 	    	s = s.replace(reg, arguments[i]);
@@ -41,8 +40,12 @@
 		return s;
 	};
 
-	Date.prototype.simpleFormat = function(){
-		return "{0}{1}{2}".format(this.getFullYear(), this.getMonth(), this.getDay()); 
+	Date.prototype.isoFormat = function(){
+		return "{0}-{1}-{2}T{3}:{4}:{5}.{6}".format(
+			this.getFullYear(), this.getMonth(), this.getDay(), 
+			this.getHours(), this.getMinutes(), this.getSeconds(), 
+			this.getMilliseconds()
+		); 
 	};
 		
 	AJ.getCSV = function(url){
@@ -87,43 +90,28 @@
 			endDate.getMonth(), endDate.getDay(), endDate.getFullYear(),
 			(period || "d")
 		);
-		
+			
 		rootUrl = AJ.rootUrl + "/services/Prices/GetByTicker/?ticker={0}&startDate={1}&endDate={2}&period={3}"
 		queryUrl = String.format(
 			rootUrl,
 			symbol,
-			startDate.simpleFormat(), 
-			endDate.simpleFormat(),
+			startDate.isoFormat(), 
+			endDate.isoFormat(),
 			(period || "d")
 		);
-
-		var data;
-		//data = AJ.curl(queryUrl);
-		//return data;
-
-		$.ajax({
-	         url:    	queryUrl,
-	         async:   	false,
-	         dataType: 	"text",
-	         success: 	function(result) {
-	         				console.log(result);
-	                      	if(result.isOk == false){
-	                        	alert(result.message);
-	                      	}else{
-	                      		data = result;
-	                      	}
-	                  	},
-	         complete: 	function(result, status) {
-	         				console.log(result);
-	         				console.log(status);
-	                      	if(result.isOk == false){
-	                        	alert(result.message);
-	                      	}else{
-	                      		data = result;
-	                      	}
-							return data;
-	                  	}
+		var response;
+		$.jsonp({
+	        url:    	queryUrl
+	    ,	async: 		false
+        ,   success: 	function(data){
+        		response = data;
+            }
+        ,   error: 		function(result, status){
+                console.log(result);
+                console.log(status);
+            }
 	    });          
+	    return response;
 	};
 
 })(window, $, _, Backbone);

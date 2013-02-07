@@ -87,10 +87,6 @@
                 //var symbols = AJ.curl(symbolUrl);
                 symbolUrl = AJ.rootUrl + "/services/Symbols/GetAll/";
                 var symbols;
-                onJsonpCallback = function(data){
-                        symbols = data;
-                        console.log(data);
-                    };
                     
                 $.jsonp({
                     type: "GET"
@@ -100,29 +96,49 @@
                 ,    dataType: "jsonp"
                 ,    success: function(data){
                         symbols = data;
-                        console.log(data);
                     }
-                ,    error: function(result, status){
+                ,   error: function(result, status){
                         console.log(result);
                         console.log(status);
                     }
-                ,   callbackParameter: "onJsonpCallback"
                 });
                 var _trigger = $("#autocomplete_trigger");
                 _trigger.click(function(e){
-                    var ticker = "AAPL";
+                    var symbol = "AAPL";
                     var startDate = new Date();
                     var endDate = new Date();
                     startDate.setMonth(endDate.getMonth() - 12);
                     var period = "d";
                     var callback = function(data){
-                        var dataStr = new String(data);
-                        var lines = dataStr.split('\n');
-                        data = lines;
                         console.log(data);
                     };
-                    var ydata = AJ.getYahooData(ticker, startDate, endDate, period, callback);
-                    console.log(ydata);
+                    rootUrl = AJ.rootUrl + "/services/Prices/GetByTicker/?ticker={0}&startDate={1}&endDate={2}&period={3}"
+                    queryUrl = String.format(
+                        rootUrl,
+                        symbol,
+                        startDate.isoFormat(), 
+                        endDate.isoFormat(),
+                        (period || "d")
+                    );
+
+                    var jsonpDone = function(data){
+                        console.log(data);
+                    }
+
+                    var response;
+                    $.jsonp({
+                        url:        queryUrl
+                    ,   async:      false
+                    ,   success:    function(data){
+                            console.log(data);
+                        }
+                    ,   error:      function(result, status){
+                            console.log(result);
+                            console.log(status);
+                        }
+                    });          
+                    //var data = AJ.getYahooData(ticker, startDate, endDate, period, callback);
+                    //console.log(data);
                 });
             });
         </script>

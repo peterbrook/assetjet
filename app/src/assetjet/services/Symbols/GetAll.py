@@ -35,7 +35,7 @@ def GET(request):
     dict['assets'] = assetsList
 
     strResp = json.dumps(dict)
-    return Response(str("onJsonpCallback(" + strResp  + ");"))
+    return Response(str("_jqjsp(" + strResp  + ");"))
     
 class GetAll:
     

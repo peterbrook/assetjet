@@ -59,6 +59,12 @@
                 </div>
                 <div id="listView"></div>
             </div>
+            <div id="chart_container">
+                <p id="chart">
+
+                </p>
+
+            </div>
             <hr>
             <footer>
                 <p>&copy; Mel And Felix 2013</p>
@@ -121,16 +127,13 @@
                         (period || "d")
                     );
 
-                    var jsonpDone = function(data){
-                        console.log(data);
-                    }
-
                     var response;
                     $.jsonp({
                         url:        queryUrl
                     ,   async:      false
                     ,   success:    function(data){
                             console.log(data);
+                            $("#chart").text(JSON.stringify(data));
                         }
                     ,   error:      function(result, status){
                             console.log(result);

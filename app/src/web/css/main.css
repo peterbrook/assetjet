@@ -13,6 +13,14 @@
 	border: #000000;
 	border: 1 1 1 1;
 }
+#chart_container{
+	width: 800px;
+	border: #000000;
+	border: 1 1 1 1;
+	min-height: 600px;
+	max-height: 600px;
+	background-color: #f1f1f1;
+}
 
 
 

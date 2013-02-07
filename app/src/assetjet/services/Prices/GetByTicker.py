@@ -11,7 +11,8 @@ import numpy as np
 from datetime import date, datetime
 from assetjet.cfg import db
 import sqlalchemy.orm as orm
-import simplejson as json
+#import simplejson as json
+import json
 import web
 import assetjet.model
 from assetjet.model import asset
@@ -21,15 +22,17 @@ from datetime import datetime
 from datetime import time
 from urllib2 import *
 import numpy as np
-
+import dateutil.parser
 
 #@view_config(route_name="services/Symbols/GetAll/", renderer="json")
 @view_config(route_name="services.Prices.GetByTicker")
 def GET(request):
     ticker = request.params['ticker']
-    startDate = request.params['startDate']
-    endDate = request.params['endDate']
+    startDate = dateutil.parser.parse(request.params['startDate'])
+    endDate = dateutil.parser.parse(request.params['endDate'])
     period = request.params['period']
+    
+    print (ticker, startDate, endDate, period)
     
     closePrices, seriesbegin = getAdjClosePrices([ ticker ], startDate, endDate)
     pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100, asjson=True)
@@ -86,9 +89,7 @@ def get_yahoo_prices(symbol, startdate=None, enddate=None,
     data = []
     
     for line in lines[1:]:
-        
         items = line.strip().split(',')
-        
         if len(items)!=7:
             # skip bad data for now
             continue
@@ -102,6 +103,7 @@ def get_yahoo_prices(symbol, startdate=None, enddate=None,
     return npdata
 
 def getPricesRebased(prices, startdates, base=100, asjson=False, frequency=None):
+
     """ Returns a pandas dataframe (in json format if asjson=True) with prices
         rebased to base, optionally with a new frequency:
         e.g. 'D','M', 'W-FRI' for daily, end of month or friday-weekly data
@@ -112,7 +114,7 @@ def getPricesRebased(prices, startdates, base=100, asjson=False, frequency=None)
     pricesRebased = (1 + returns).cumprod()
     # requires NumPy 1.7 !! (1.6 doesn't translate datetime correctly)
     for col in pricesRebased:
-        pricesRebased.ix[seriesbegin.ix[col,0],col] = 1 
+        pricesRebased.ix[startdates.ix[col,0],col] = 1 
     pricesRebased = pricesRebased * base
     if frequency:
         pricesRebased = pricesRebased.asfreq(frequency, method='ffill')    
@@ -134,9 +136,13 @@ def tojson(df):
         ])
         for row in df.values
     ]
+    
     # json cannot deal with datetime objects, therefore convert into string
-    dthandler = lambda obj: obj.isoformat() if isinstance(obj, datetime) else None
-    return json.dumps(d, default=dthandler, indent=4 * ' ')
+    dthandler = lambda obj: obj.isoformat() if isinstance(obj, datetime) else obj
+    
+    return json.dumps(d, default=dthandler, indent=4)
+
+    #return json.dumps(d, indent=4)
 
 def getAdjClosePrices(tickers, startdate, enddate):
     """ returns a ready to use pandas DataFrame and a Series with the startDate
@@ -151,31 +157,28 @@ def getAdjClosePrices(tickers, startdate, enddate):
     result = conn.execute("""SELECT ts.Cd, Date, AdjClose
                       FROM TimeSeries ts
                       INNER JOIN Tickers t ON ts.Cd = t.Cd
-                      WHERE Date >= ? AND Date <= ?""", (startdate, enddate))
+                      WHERE ts.Date >= ? AND ts.Date <= ?""", (startdate, enddate))
     rows = result.fetchall()
-    
-    
-    schema = np.dtype({'names':[result.keys()[0], result.keys()[1], result.keys()[2]],
-                       'formats':['S8', 'M8[D]', float]})    
-    
-    data = np.fromiter((tuple (row) for row in rows), dtype=schema)             
-    
+
     # Create a pandas DataFrame
-    pricesRaw = DataFrame.from_records(data)
-    pricesRaw.Date = pd.to_datetime(pricesRaw.Date) # convert date to datetime
+    pricesRaw = DataFrame.from_records(rows, columns=['Cd', 'Date', 'AdjClose'])
+    
+    #pricesRaw.Date = pd.to_datetime(pricesRaw.Date)
     seriesbegin = pricesRaw[['Cd','Date']].groupby('Cd').min()
     # Pivot DataFrame
-    prices = pricesRaw.pivot('Date', 'Cd', 'AdjClose')
+    prices = pricesRaw.pivot(index='Date', columns='Cd', values='AdjClose')
 
     # Close DB and Cursor
     conn.close()
     return prices, seriesbegin
     
 if __name__ == "__main__":
-    tickers = ['^GSPC','MMM', 'ACE', 'ABT', 'ANF', 'ACN', 'ADBE', 'ADT', 'AMD', 'AES', 'AET']
-    startdate = '2008-01-01'
+    tickers = ['AAPL','MMM', 'ACE', 'ABT', 'ANF', 'ACN', 'ADBE', 'ADT', 'AMD', 'AES', 'AET']
+    startdate = '2011-01-01'
     enddate = date.today()
     
     # Get rebased prices
     closePrices, seriesbegin = getAdjClosePrices(tickers, startdate, enddate)
     pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100, asjson=True)
+    print pricesRebased
+

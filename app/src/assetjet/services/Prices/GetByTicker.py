@@ -163,8 +163,8 @@ def getAdjClosePrices(tickers, startdate, enddate):
 
     # Create a pandas DataFrame
     pricesRaw = DataFrame.from_records(rows, columns=['Cd', 'Date', 'AdjClose'])
-    
-    #pricesRaw.Date = pd.to_datetime(pricesRaw.Date)
+    # Convert Date strings into datetime so pandas can do time series stuff
+    pricesRaw.Date = pd.to_datetime(pricesRaw.Date)
     seriesbegin = pricesRaw[['Cd','Date']].groupby('Cd').min()
     # Pivot DataFrame
     prices = pricesRaw.pivot(index='Date', columns='Cd', values='AdjClose')
@@ -180,6 +180,6 @@ if __name__ == "__main__":
     
     # Get rebased prices
     closePrices, seriesbegin = getAdjClosePrices(tickers, startdate, enddate)
-    pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100, asjson=True)
-    print pricesRebased
+    pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100, asjson=False, frequency='M')
+#    print pricesRebased
 

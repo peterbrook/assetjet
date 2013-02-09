@@ -51,6 +51,8 @@
     pip install lxml
 ```
 
+For cx_Freeze, download the source tarball, unzip and run `python setup.py install`
+
 ## [6] Upgrades
     brew upgrade <packagename>
     pip install <packagename> --upgrade

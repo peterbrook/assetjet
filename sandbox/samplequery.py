@@ -3,7 +3,7 @@ import pandas as pd
 import sqlite3
 import numpy as np
 from datetime import date, datetime
-import simplejson as json
+import json as json
 
 def tojson(df):
     """
@@ -18,13 +18,13 @@ def tojson(df):
     ]
     # json cannot deal with datetime objects, therefore convert into string
     dthandler = lambda obj: obj.isoformat() if isinstance(obj, datetime) else None
-    return json.dumps(d, default=dthandler, indent=4 * ' ')
+    return json.dumps(d, default=dthandler, indent=4)
 
 def getAdjClosePrices(tickers, startdate, enddate):
     """ returns a ready to use pandas DataFrame and a Series with the startDate
     """
     # Open DB Connection, TODO: switch to SQLAlchemy 
-    db = 'C:/assetjet.db'
+    db = '/Users/Felix/assetjet.db'
     conn = sqlite3.connect(db, detect_types=sqlite3.PARSE_DECLTYPES)
     cursor = conn.cursor()    
     
@@ -65,7 +65,7 @@ def getPricesRebased(prices, startdates, base=100, asjson=False, frequency=None)
     pricesRebased = pricesRebased * base
     if frequency:
         pricesRebased = pricesRebased.asfreq(frequency, method='ffill')    
-    if tojson:
+    if asjson:
         # dataframe to_json() method is still pending, therefore:
         return tojson(pricesRebased.reset_index())
     else:        
@@ -83,7 +83,7 @@ if __name__ == '__main__':
     
     # Get rebased prices
     closePrices, seriesbegin = getAdjClosePrices(tickersSmall, startdate, enddate)
-    pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100, asjson=True)
+    pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100, asjson=False)
     
 # Matplotlib (for testing only): interactive mode
 #    import matplotlib.pyplot as plt

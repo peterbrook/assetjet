@@ -1,5 +1,4 @@
 .metadata
-tripping-nemesis/src/UI/*.py
 *.py[cod]
 *.pyc
 
@@ -13,7 +12,8 @@ tripping-nemesis/src/UI/*.py
 logfiles
 .settings
 
-
+# Mac
+*.DS_Store
 
 
 # C extensions

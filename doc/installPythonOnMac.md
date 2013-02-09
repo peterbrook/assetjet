@@ -52,9 +52,9 @@ pip uninstall <packagename>
 rmvirtualenv <virutalenvname>
 
 ## [8] Links/Sources
-http://mxcl.github.com/homebrew/
-http://www.virtualenv.org/
-http://www.pip-installer.org/
-http://www.thisisthegreenroom.com/2011/installing-python-numpy-scipy-matplotlib-and-ipython-on-lion/
+http://mxcl.github.com/homebrew
+http://www.virtualenv.org
+http://www.pip-installer.org
+http://www.thisisthegreenroom.com/2011/installing-python-numpy-scipy-matplotlib-and-ipython-on-lion
 https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python
 https://github.com/samueljohn/homebrew-python

@@ -6,8 +6,8 @@
 * Under Xcode/Preferences, install the Command Line Tools. You may have to repeat the last step after every Xcode update. 
 
 ## [2] Homebrew
-* Install Homebrew by pasting the following at a Terminal prompt:
-ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+* Install Homebrew by pasting the following at a Terminal prompt:  
+`ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"`
 * Run `brew update`
 * Run "brew doctor" and google/fix all the messages
 * You may have to edit the path order "sudo vi /etc/paths" to make sure that "usr/local/bin" appears before "/usr/bin" (google vim commands)

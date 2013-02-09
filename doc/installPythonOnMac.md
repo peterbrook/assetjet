@@ -1,4 +1,4 @@
-# How to install the AssetJet Python Environment with scientific packages on a Mac (Mountain Lion)
+# How to install Python with scientific packages on a Mac (Mountain Lion)
 
 ## [1] Xcode
 * Install Xcode from the AppStore.
@@ -7,31 +7,38 @@
 
 ## [2] Homebrew
 * Install Homebrew by pasting the following at a Terminal prompt:  
-
 `ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"`
 * Run `brew update`
 * Run `brew doctor` and google/fix all the messages
-* You may have to edit the path order `sudo vi /etc/paths` to make sure that `usr/local/bin` appears before `/usr/bin` (google vim commands)
+* You may have to edit the path order by running `sudo vi /etc/paths` to make sure that `usr/local/bin` (the location of the brewed Python) appears before `/usr/bin` (if unfamiliar with vim: google vim commands)
 
 ## [3] Python
 `brew install python --framework --universal`
 
 ## [4] Optional: virtualenv/virtualenvwrapper
+* untested, since installing numpy/scipy on a mac almost certainly fails with the standard pip install
+
+```
     pip install virtualenv
     pip install virtualenvwrapper
     source /usr/local/share/python/virtualenvwrapper.sh
     mkvirtualenv <virtualenvname>
     workon <virtualenvname>
+````
 
 ## [5] Packages
-* using virtualenv, the installation of the packages could be automated with a bootstrap script
-* Some of the packages will install additional packages their are depending on
-* Note that for numpy "--devel" or "--HEAD" is needed to get 1.7rc
 
+* using virtualenv, the installation of the pip-installed-packages could be automated with a bootstrap script
+* Some of the packages will install additional packages  (dependencies)
+* Note that for numpy `--devel` or `--HEAD` is needed to get 1.7rc (crucial as this version adds proper datetime support)
+* Note that the brew commands need to be installed outside of any virtualenv! Use virtuelenv for pip installs only!
+
+```
     brew tap samueljohn/python
     brew install numpy --devel
     brew install scipy
-    brew install pyside
+    brew install pyside  
+    
     pip install matplotlib
     pip install sphinx
     pip install nose
@@ -42,6 +49,7 @@
     pip install web.py
     pip install esky
     pip install lxml
+```
 
 ## [6] Upgrades
     brew upgrade <packagename>
@@ -53,9 +61,9 @@
     rmvirtualenv <virutalenvname>
 
 ## [8] Links/Sources
-http://mxcl.github.com/homebrew  
-http://www.virtualenv.org  
-http://www.pip-installer.org  
 http://www.thisisthegreenroom.com/2011/installing-python-numpy-scipy-matplotlib-and-ipython-on-lion  
+http://mxcl.github.com/homebrew  
 https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python  
 https://github.com/samueljohn/homebrew-python  
+http://www.virtualenv.org  
+http://www.pip-installer.org

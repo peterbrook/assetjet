@@ -36,6 +36,7 @@
 ```
     brew tap samueljohn/python
     brew install numpy --devel
+    brew install gfortran
     brew install scipy
     brew install pyside  
     

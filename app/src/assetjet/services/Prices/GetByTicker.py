@@ -120,7 +120,7 @@ def getPricesRebased(prices, startdates, base=100, asjson=False, frequency=None)
         # dataframe to_json() method is still pending, therefore:
         return tojson(pricesRebased.reset_index())
         
-    else:        
+    else:
         return pricesRebased 
     
 def tojson(df):
@@ -128,18 +128,15 @@ def tojson(df):
     convert a pandas data frame into a JSON object
     """     
     d = [ 
-        dict([
-            (colname, row[i]) 
-            for i,colname in enumerate(df.columns)
-        ])
+        dict([(colname, row[i]) for i, colname in enumerate(df.columns)])
         for row in df.values
     ]
-    
     # json cannot deal with datetime objects, therefore convert into string
-    dthandler = lambda obj: obj.isoformat() if isinstance(obj, datetime) else obj
+    dthandler = lambda obj: obj.isoformat() if isinstance(obj, datetime) else None
     
-    return json.dumps(d, default=dthandler, indent=4)
-
+    ret = json.dumps(d, default=dthandler, indent=4)
+    print ret
+    return ret
     #return json.dumps(d, indent=4)
 
 def getAdjClosePrices(tickers, startdate, enddate):
@@ -171,7 +168,7 @@ def getAdjClosePrices(tickers, startdate, enddate):
     return prices, seriesbegin
     
 if __name__ == "__main__":
-    tickers = ['AAPL','MMM', 'ACE', 'ABT', 'ANF', 'ACN', 'ADBE', 'ADT', 'AMD', 'AES', 'AET']
+    tickers = [ 'AAPL','MMM', 'ACE', 'ABT', 'ANF', 'ACN', 'ADBE', 'ADT', 'AMD', 'AES', 'AET' ]
     startdate = '2011-01-01'
     enddate = date.today()
     

@@ -1,14 +1,3 @@
-//Utils = {}
-//Utils.import
-
-
-//Components.utils.import("resource://lib/jquery.js");
-//Components.utils.import("resource://lib/jquery.jsonp.js");
-//Components.utils.import("resource://lib/modernizr-min.js");
-//Components.utils.import("resource://lib/bootstrap-min.js");
-//Components.utils.import("resource://lib/underscore-min.js");
-//Components.utils.import("resource://lib/backbone-min.js");
-
 (function(root, $, _, Backbone, undefined){
 	"use strict";
 	
@@ -30,6 +19,7 @@
 	  	}
 		return s;
 	};
+	
 	// String convenience functions
 	String.prototype.format = function() {
 		var s = this;
@@ -39,15 +29,43 @@
 	  	}
 		return s;
 	};
+	
+	Date.prototype.getDayRebased = function(base){
+		if(!base){
+			// assume base 10
+			return parseInt(10, this.getDay());
+		} else {
+			return parseInt(base, this.getDay());
+		}
+	};
+	
+	Date.prototype.getMonthRebased = function(base){
+		var mth = this.getMonth() + 1;
+		if(!base){
+			// assume base 10
+			return parseInt(10, mth);
+		} else {
+			return parseInt(base, mth);
+		}
+	};
 
 	Date.prototype.isoFormat = function(){
 		return "{0}-{1}-{2}T{3}:{4}:{5}.{6}".format(
-			this.getFullYear(), this.getMonth(), this.getDay(), 
+			this.getFullYear(), this.getMonthRebased(), this.getDayRebased(), 
 			this.getHours(), this.getMinutes(), this.getSeconds(), 
 			this.getMilliseconds()
 		); 
 	};
 		
+	// parse a date in yyyy-mm-dd format
+	Date.parseDate = function (input) {
+	    var parts = input.match(/(\d+)/g);
+	    return new Date(parts[0], parts[1]-1, parts[2]);
+	};
+	Date.prototype.getTicks = function(){
+		return (this.getTime() * 10000) + 621355968000000000;
+
+	}
 	AJ.getCSV = function(url){
 		$.jsonp(url, 
 			function(data){
@@ -82,18 +100,9 @@
 			endDate = new Date();
 			startDate.setMonth(endDate.getMonth() - 12);
 		}
-		var rootUrl = "http://ichart.finance.yahoo.com/table.csv?s={0}&a={1}&b={2}&c={3}&d={4}&e={5}&f={6}&y={7}&g={9}&ignore=.csv"
+		var serviceUrl = AJ.rootUrl + "/services/Prices/GetByTicker/?ticker={0}&startDate={1}&endDate={2}&period={3}"
 		var queryUrl = String.format(
-			rootUrl,
-			symbol,
-			startDate.getMonth(), startDate.getDay(), startDate.getFullYear(), 
-			endDate.getMonth(), endDate.getDay(), endDate.getFullYear(),
-			(period || "d")
-		);
-			
-		rootUrl = AJ.rootUrl + "/services/Prices/GetByTicker/?ticker={0}&startDate={1}&endDate={2}&period={3}"
-		queryUrl = String.format(
-			rootUrl,
+			serviceUrl,
 			symbol,
 			startDate.isoFormat(), 
 			endDate.isoFormat(),
@@ -102,20 +111,13 @@
 		var response;
 		$.jsonp({
 	        url:    	queryUrl
-	    ,	async: 		false
-        ,   success: 	function(data){
-        		response = data;
-            }
+        ,   success: 	callback
         ,   error: 		function(result, status){
                 console.log(result);
                 console.log(status);
             }
 	    });          
-	    return response;
 	};
 
 })(window, $, _, Backbone);
-
-
-
 

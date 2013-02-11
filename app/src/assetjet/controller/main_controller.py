@@ -4,7 +4,6 @@ from assetjet.view.vw_main import Ui_Main
 from assetjet.cfg import db
 from assetjet.log import log
 from assetjet.util import util
-from assetjet import local_server
 import sqlalchemy.orm as orm
 
 from assetjet.model import asset
@@ -23,7 +22,6 @@ class MainController(QtGui.QMainWindow):
         self.ui.setupUi(self)
         mainPath = os.path.join(util.getBaseDir(), 'web', 'main.html')
         mainUrl = QtCore.QUrl.fromLocalFile(mainPath)
-        print mainUrl
         self.ui.webView.load(mainUrl)
         self.ui.webView.url = mainUrl
         super(QtGui.QMainWindow, self).show()

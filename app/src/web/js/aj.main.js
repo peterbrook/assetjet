@@ -33,9 +33,9 @@
 	Date.prototype.getDayRebased = function(base){
 		if(!base){
 			// assume base 10
-			return parseInt(10, this.getDay());
+			return parseInt(10, this.getUTCDate());
 		} else {
-			return parseInt(base, this.getDay());
+			return parseInt(base, this.getUTCDate());
 		}
 	};
 	
@@ -108,7 +108,6 @@
 			endDate.isoFormat(),
 			(period || "d")
 		);
-		var response;
 		$.jsonp({
 	        url:    	queryUrl
         ,   success: 	callback

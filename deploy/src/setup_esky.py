@@ -20,7 +20,7 @@ def get_data_files(dirs):
 if sys.platform in ['win32','cygwin','win64']:
     
     # TODO: add folder contents recursively
-    data_files =  get_data_files([r'../../app/src/web'])
+    data_files =  get_data_files([r'../../app/src/web']) + [r'../../app/src/local_server.py', r'../../app/src/__init__.py']
     
     # We can customise the executable's creation by passing an instance
     # of Executable() instead of just the script name.

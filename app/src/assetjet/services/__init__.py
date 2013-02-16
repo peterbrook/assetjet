@@ -1,2 +1,2 @@
-__all__= [ "routing", "Symbols" ]
+__all__= [ "routing", "Symbols", "Prices" ]
 

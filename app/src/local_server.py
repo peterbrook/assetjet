@@ -7,6 +7,7 @@ import threading
 from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.response import Response
+from assetjet import log
 
 #from services import routing
 #from services.Symbols import GetAll
@@ -42,7 +43,7 @@ class LocalServer(threading.Thread):
         config.scan('assetjet.services')
         app = config.make_wsgi_app()
         server = make_server(self.host, self.port, app)
-        print ("Serving on :", self.host, self.port)
+        log.log.Debug("Serving on :", self.host, self.port)
         server.serve_forever()
         
 def main():

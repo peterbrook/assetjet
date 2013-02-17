@@ -7,6 +7,7 @@ import threading
 from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.response import Response
+from assetjet.log import log
 
 #from services import routing
 #from services.Symbols import GetAll
@@ -33,16 +34,18 @@ class LocalServer(threading.Thread):
 
     def run(self):
         config = Configurator()
-        config.add_route('services.Symbols.GetAll', \
-                         'services/Symbols/GetAll/')
-        
-        config.add_route('services.Prices.GetByTicker', \
-                         'services/Prices/GetByTicker/')
+        config.add_route('services.Symbols.GetAll', 'services/Symbols/GetAll/')     
+        config.add_route('services.Prices.GetByTicker', 'services/Prices/GetByTicker/')
             
-        config.scan('assetjet.services')
+        try:
+            config.scan('assetjet.services')
+        except Exception, e:
+            log.Debug(str(e))
+            
         app = config.make_wsgi_app()
         server = make_server(self.host, self.port, app)
-        print ("Serving on :", self.host, self.port)
+        log.Debug("Servgin on: {0}, {1}".format(self.host, self.port))
+        
         server.serve_forever()
         
 def main():

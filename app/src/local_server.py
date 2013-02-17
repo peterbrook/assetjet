@@ -43,6 +43,11 @@ class LocalServer(threading.Thread):
             log.Debug(str(e))
             
         app = config.make_wsgi_app()
+        
+        # Logging the server activity under assetjet.debug.log.txt
+        from paste.translogger import TransLogger
+        app = TransLogger(app, setup_console_handler=False)
+        
         server = make_server(self.host, self.port, app)
         log.Debug("Serving on: {0}, {1}".format(self.host, self.port))
         

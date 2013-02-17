@@ -19,10 +19,11 @@ def main():
     upd.start()
     
     # Initialise web server to server HTML to WebView
+    
     srv = local_server.LocalServer()
     srv.daemon=True
     srv.start()
-    
+    log.Debug("Started web server")
     # Launch the app and pass control to the main controller 
     app = QtGui.QApplication(sys.argv)
     mainForm = MainController()

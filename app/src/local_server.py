@@ -33,18 +33,22 @@ class LocalServer(threading.Thread):
         self.port = port
 
     def run(self):
-        config = Configurator()
-        config.add_route('services.Symbols.GetAll', \
-                         'services/Symbols/GetAll/')
-        
-        config.add_route('services.Prices.GetByTicker', \
-                         'services/Prices/GetByTicker/')
+        try:
+            config = Configurator()
+            config.add_route('services.Symbols.GetAll', \
+                             'services/Symbols/GetAll/')
             
-        config.scan('assetjet.services')
-        app = config.make_wsgi_app()
-        server = make_server(self.host, self.port, app)
-        log.log.Debug("Serving on :", self.host, self.port)
-        server.serve_forever()
+            config.add_route('services.Prices.GetByTicker', \
+                             'services/Prices/GetByTicker/')
+                
+            config.scan('assetjet.services')
+            app = config.make_wsgi_app()
+            server = make_server(self.host, self.port, app)
+            log.log.Debug("Serving on :", self.host, self.port)
+            server.serve_forever()
+        except Exception:
+            log.log.Error(Exception.message)
+             ]
         
 def main():
     try:

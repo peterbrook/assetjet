@@ -44,7 +44,7 @@ class LocalServer(threading.Thread):
             
         app = config.make_wsgi_app()
         server = make_server(self.host, self.port, app)
-        log.Debug("Servgin on: {0}, {1}".format(self.host, self.port))
+        log.Debug("Serving on: {0}, {1}".format(self.host, self.port))
         
         server.serve_forever()
         

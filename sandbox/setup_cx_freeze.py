@@ -1,13 +1,13 @@
-import sys
+import os, sys
 from cx_Freeze import setup, Executable
-
 
 # Dependencies are automatically detected, but it might need fine tuning.
 includefiles = []
 includes = ['lxml.etree', 'lxml._elementpath',
-            'gzip', 'numpy.core._mx_datetime_parser']
-build_exe_options = {'packages': ['os', 'sqlalchemy.dialects.sqlite'],
-                     'icon': './resources/Pie-chart.ico',
+            'gzip', 'numpy.core._mx_datetime_parser',
+            'PySide.QtWebKit', 'web', 'PySide.QtNetwork']
+build_exe_options = {'packages': ['pygments', 'os', 'sqlalchemy.dialects.sqlite', 'assetjet'],
+                     'icon': '../resources/Pie-chart.ico',
                      'excludes': ['tkinter'],
                      'includes': includes,
                      'include_files': includefiles}
@@ -18,8 +18,8 @@ base = None
 if sys.platform == 'win32':
     base = 'Win32GUI'
 
-setup(  name = 'tripping-nemesis',
+setup(  name = 'assetjet',
         version = '0.1',
-        description = 'tripping-nemesis is a stock analyzer',
+        description = 'assetjet',
         options = {'build_exe': build_exe_options},
-        executables = [Executable('./assetjet/main.py', base=base, targetName="AssetJet.exe")])
+        executables = [Executable('../app/src/main.py', base=base, targetName="AssetJet.exe")])

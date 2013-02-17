@@ -8,5 +8,6 @@ if os.path.isdir('./build/exe.win-amd64-2.7'):
 # Freeze it
 os.system('python setup_cx_freeze.py build')
 
-# TODO: Hack - for now, copy over the config file manually
-shutil.copy('./assetjet/app.cfg', './build/exe.win-amd64-2.7')
+# TODO: copy over web folder and local_server.py
+
+

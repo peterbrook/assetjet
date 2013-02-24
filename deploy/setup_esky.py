@@ -2,7 +2,7 @@ import sys, os
 from esky.bdist_esky import Executable
 from distutils.core import setup
 import assetjet
-from main import exeName, appName
+from deploy import exeName, appName
 from glob import glob
 
 def get_data_files(dirs):
@@ -20,12 +20,12 @@ def get_data_files(dirs):
 if sys.platform in ['win32','cygwin','win64']:
     
     # TODO: add folder contents recursively
-    data_files =  get_data_files([r'../../app/src/web']) + [r'../../app/src/local_server.py', r'../../app/src/__init__.py']
+    data_files =  get_data_files([r'../app/src/web']) + [r'../app/src/local_server.py']
     
     # We can customise the executable's creation by passing an instance
     # of Executable() instead of just the script name.
-    exe = Executable('../../app/src/main.py',
-                     icon='../../resources/Pie-chart.ico',
+    exe = Executable('../app/src/main.py',
+                     icon='../resources/Pie-chart.ico',
                      gui_only=True,
                      name=exeName
                     )

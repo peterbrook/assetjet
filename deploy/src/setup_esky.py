@@ -38,14 +38,14 @@ if sys.platform in ['win32','cygwin','win64']:
       options = {'bdist_esky':{
                  #  forcibly include some other modules
                  'includes': ['lxml.etree', 'lxml._elementpath',
-                              'gzip', 'numpy.core._mx_datetime_parser',
+                              'gzip',
                               'PySide.QtWebKit', 'web', 'PySide.QtNetwork'],
                  #  forcibly exclude some other modules
                  'excludes': ['tkinter', 'pydoc'],
                  #  force esky to freeze the app using py2exe
                  'freezer_module': 'cx_freeze',
                  #  tweak the options used by cx_freezer
-                 'freezer_options':  {'packages': ['pygments', 'os', 'sqlalchemy.dialects.sqlite', 'assetjet']}
+                 'freezer_options':  {'packages': ['pygments', 'numpy', 'sqlalchemy.dialects.sqlite', 'assetjet']}
               }}
     )
 

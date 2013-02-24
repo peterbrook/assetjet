@@ -2,7 +2,6 @@
     Created on 2 Jan 2013
     @author: Mel
 '''
-import sys
 import threading
 from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
@@ -13,7 +12,6 @@ from assetjet.services.Prices import GetByTicker
 
 #from services import routing
 #from services.Symbols import GetAll
-
 
 class LocalServer(threading.Thread):
     """
@@ -58,7 +56,7 @@ class LocalServer(threading.Thread):
 
 
 
-# Workaround: the frozen version can't handle config.scan(assetjet.service) properly
+# Workaround: the frozen version can't handle config.scan(assetjet.services) properly
 @view_config(route_name="services.Prices.GetByTicker")   
 def GET(request):
     return GetByTicker.GET(request)               

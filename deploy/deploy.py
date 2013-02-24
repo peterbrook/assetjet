@@ -25,7 +25,7 @@ from subprocess import call
 import distutils.util
 from glob import glob
 from assetjet import __version__
-import publish
+import publish_to_server as publish
 import build_inno_setup
 
 ################################ SETTINGS #####################################

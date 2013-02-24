@@ -20,14 +20,14 @@ def get_data_files(dirs):
 if sys.platform in ['win32','cygwin','win64']:
     
     # TODO: add folder contents recursively
-    data_files =  get_data_files([r'../app/src/web']) + [r'../app/src/local_server.py']
+    data_files =  get_data_files([r'../app/src/web']) + [r'../app/src/local_server.pyc']
     
     # We can customise the executable's creation by passing an instance
     # of Executable() instead of just the script name.
     exe = Executable('../app/src/main.py',
                      icon='../resources/Pie-chart.ico',
                      gui_only=True,
-                     name=exeName
+                     name=exeName,                     
                     )
 
     setup(
@@ -39,13 +39,13 @@ if sys.platform in ['win32','cygwin','win64']:
                  #  forcibly include some other modules
                  'includes': ['lxml.etree', 'lxml._elementpath',
                               'gzip',
-                              'PySide.QtWebKit', 'web', 'PySide.QtNetwork'],
+                              'PySide.QtWebKit', 'web', 'PySide.QtNetwork', 'numpy'],
                  #  forcibly exclude some other modules
-                 'excludes': ['tkinter', 'pydoc'],
+                 'excludes': ['Tkinter', 'Tkconstants', 'pydoc', 'tcl', 'tk', 'matplotlib', 'PIL', 'nose', 'setuptools', 'xlrd', 'xlwt', 'PyQt4', 'markdown', 'IPython', 'docutils'],
                  #  force esky to freeze the app using py2exe
                  'freezer_module': 'cx_freeze',
                  #  tweak the options used by cx_freezer
-                 'freezer_options':  {'packages': ['pygments', 'numpy', 'sqlalchemy.dialects.sqlite', 'assetjet']}
+                 'freezer_options':  {'packages': ['pygments', 'sqlalchemy.dialects.sqlite', 'assetjet']}
               }}
     )
 

@@ -19,7 +19,7 @@ SolidCompression=yes
 OutputBaseFilename={#OutputBaseFilename}
 OutputDir=.\dist
 ArchitecturesAllowed={#ArchitecturesAllowed}
-LicenseFile=..\..\LICENSE.txt
+LicenseFile=..\LICENSE.txt
 
 [Files]
 Source: ".\dist\AssetJet\*.*"; DestDir: "{app}"; Flags: recursesubdirs
@@ -31,5 +31,5 @@ Name: "{app}\appdata"
 Name: "{group}\{#AppName}"; Filename: "{app}\{#AppName}.exe"
 
 [UninstallDelete]
-; Needed as the program folder gets changed through the Esky updates
+; Needed as the program folder gets changed by the Esky updates
 Type: filesandordirs; Name: "{app}\appdata"

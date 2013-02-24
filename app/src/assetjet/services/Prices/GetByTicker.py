@@ -10,6 +10,7 @@ import sqlite3
 import numpy as np
 from datetime import date, datetime
 from assetjet.cfg import db
+from assetjet.log import log
 import sqlalchemy.orm as orm
 #import simplejson as json
 import json
@@ -25,7 +26,7 @@ import numpy as np
 import dateutil.parser
 
 #@view_config(route_name="services/Symbols/GetAll/", renderer="json")
-@view_config(route_name="services.Prices.GetByTicker")
+#@view_config(route_name="services.Prices.GetByTicker")
 def GET(request):
     ticker = request.GET.get('ticker')
     startDate = dateutil.parser.parse(request.GET.get('startDate'))
@@ -135,7 +136,7 @@ def tojson(df):
     dthandler = lambda obj: obj.isoformat() if isinstance(obj, datetime) else None
     
     ret = json.dumps(d, default=dthandler, indent=4)
-    print ret
+#    print ret # must be disabled for freezing
     return ret
     #return json.dumps(d, indent=4)
 

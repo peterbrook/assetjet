@@ -6,8 +6,10 @@ import sys
 import threading
 from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
+from pyramid.view import view_config
 from pyramid.response import Response
 from assetjet.log import log
+from assetjet.services.Prices import GetByTicker
 
 #from services import routing
 #from services.Symbols import GetAll
@@ -38,7 +40,8 @@ class LocalServer(threading.Thread):
         config.add_route('services.Prices.GetByTicker', 'services/Prices/GetByTicker/')
             
         try:
-            config.scan('assetjet.services')
+#            config.scan('assetjet.services') # not found by frozen version
+            config.scan()
         except Exception, e:
             log.Debug(str(e))
             
@@ -52,6 +55,14 @@ class LocalServer(threading.Thread):
         log.Debug("Serving on: {0}, {1}".format(self.host, self.port))
         
         server.serve_forever()
+
+
+
+# Workaround: the frozen version can't handle config.scan(assetjet.service) properly
+@view_config(route_name="services.Prices.GetByTicker")   
+def GET(request):
+    return GetByTicker.GET(request)               
+
         
 def main():
     try:

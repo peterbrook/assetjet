@@ -2,6 +2,9 @@
 
 comment out "del sys" in /numpy/core/init.py  
 http://stackoverflow.com/questions/14969552/error-when-freezing-pandas-numpy-1-7-0-code-with-cx-freeze
+  
+there's a patch available here to fix this issue in cx_Freeze:  
+http://sourceforge.net/p/cx-freeze/bugs/36/
 
 ## Chameleon
 

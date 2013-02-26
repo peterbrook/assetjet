@@ -15,6 +15,6 @@ with
 source = textwrap.dedent('')  
 http://www.mail-archive.com/cx-freeze-users@lists.sourceforge.net/msg01284.html
 
-### Print statments
+### Print statements
 
 get rid of all print statements or otherwise the frozen app will fail with something like Error9: File not found.

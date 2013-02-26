@@ -14,7 +14,6 @@ for item in sys.path:
 from assetjet.cfg import db
 import sqlalchemy.orm as orm
 import json
-import web
 import assetjet.model
 from assetjet.model import asset
 from pyramid.view import view_config

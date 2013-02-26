@@ -20,7 +20,7 @@ class MainController(QtGui.QMainWindow):
         
         self.ui = Ui_Main()
         self.ui.setupUi(self)
-        mainPath = os.path.join(util.getBaseDir(), 'web', 'main.html')
+        mainPath = os.path.join(util.getBaseDir(), 'httpdocs', 'main.html')
         mainUrl = QtCore.QUrl.fromLocalFile(mainPath)
         self.ui.webView.load(mainUrl)
         self.ui.webView.url = mainUrl

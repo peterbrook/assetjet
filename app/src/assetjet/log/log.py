@@ -6,15 +6,16 @@ Created on Wed Dec 19 20:17:40 2012
 
 import logging, logging.handlers, os
 from assetjet.util import util
+from os.path import pardir
 
 __logDir = 'logfiles'
 __logFile = 'assetjet'
 
 def getLogFileName(logLevel):
-    return os.path.join(util.getBaseDir(), __logDir, __logFile + '.' + logLevel + '.log.txt')
+    return os.path.join(util.getBaseDir(), pardir, __logDir, __logFile + '.' + logLevel + '.log.txt')
 
-if not (os.path.isdir(os.path.join(util.getBaseDir(), __logDir))):
-    os.mkdir(os.path.join(util.getBaseDir(), __logDir))
+if not (os.path.isdir(os.path.join(util.getBaseDir(), pardir, __logDir))):
+    os.mkdir(os.path.join(util.getBaseDir(), pardir, __logDir))
 
 # create ____loggerwith 'spam_application'
 __logger= logging.getLogger('')

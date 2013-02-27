@@ -6,15 +6,22 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>775</width>
+    <width>780</width>
     <height>589</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>AssetJet</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../qrc/main.qrc">
+    <normaloff>:/Pie-chart.ico</normaloff>:/Pie-chart.ico</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
+    <property name="margin">
+     <number>0</number>
+    </property>
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout" rowstretch="0">
       <property name="sizeConstraint">
@@ -22,10 +29,16 @@
       </property>
       <item row="0" column="0">
        <widget class="QWebView" name="webView">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="minimumSize">
          <size>
           <width>709</width>
-          <height>519</height>
+          <height>528</height>
          </size>
         </property>
         <property name="url">
@@ -44,7 +57,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>775</width>
+     <width>780</width>
      <height>21</height>
     </rect>
    </property>
@@ -58,6 +71,8 @@
    <header>QtWebKit/QWebView</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../qrc/main.qrc"/>
+ </resources>
  <connections/>
 </ui>

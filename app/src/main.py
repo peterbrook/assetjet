@@ -15,8 +15,9 @@ def main():
     
     # Initialise updater Daemon    
     upd = updater.Updater(cfg.root.UpdateUrl)
-    upd.daemon=True
-    upd.start()
+#    upd.daemon=True
+#    upd.start()
+    upd.run()
     
     # Initialise web server to server HTML to WebView
     srv = local_server.LocalServer()

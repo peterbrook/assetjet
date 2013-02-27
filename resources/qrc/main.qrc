@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/">
+    <file>../Pie-chart.ico</file>
+  </qresource>
+</RCC>

@@ -19,7 +19,7 @@ def get_data_files(dirs):
 
 if sys.platform in ['win32','cygwin','win64']:
     
-    # TODO: add folder contents recursively
+    # Add http files
     data_files =  get_data_files([r'../app/src/httpdocs']) + [r'../app/src/local_server.pyc']
     
     # We can customise the executable's creation by passing an instance
@@ -38,8 +38,8 @@ if sys.platform in ['win32','cygwin','win64']:
       options = {'bdist_esky':{
                  #  forcibly include some other modules
                  'includes': ['lxml.etree', 'lxml._elementpath',
-                              'gzip',
-                              'PySide.QtWebKit', 'web', 'PySide.QtNetwork', 'numpy'],
+                              'gzip','numpy',
+                              'PySide.QtWebKit', 'PySide.QtNetwork', 'PySide.QtSvg'],
                  #  forcibly exclude some other modules
                  'excludes': ['Tkinter', 'Tkconstants', 'pydoc', 'tcl', 'tk', 'matplotlib', 'PIL', 'nose', 'setuptools', 'xlrd', 'xlwt', 'PyQt4', 'markdown', 'IPython', 'docutils'],
                  #  force esky to freeze the app using py2exe

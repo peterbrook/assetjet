@@ -18,3 +18,17 @@ http://www.mail-archive.com/cx-freeze-users@lists.sourceforge.net/msg01284.html
 ### Print statements
 
 get rid of all print statements or otherwise the frozen app will fail with something like Error9: File not found.
+
+### Icons (resource files)
+
+Add this to cx_Freeze/hooks.py:
+
+    def load_PySide_QtGui(finder, module):
+        """There is a chance that GUI will use some image formats
+        add the image format plugins
+        """
+        dir0 = os.path.dirname(module.file)
+        dir = os.path.join(dir0, "plugins", "imageformats")
+        finder.IncludeFiles(dir, "imageformats")
+
+https://bitbucket.org/anthony_tuininga/cx_freeze/pull-request/11/added-pyqt4qtgui-load-hook-that-adds/diff#comment-134053

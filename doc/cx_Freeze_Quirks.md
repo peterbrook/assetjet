@@ -32,3 +32,5 @@ Add this to cx_Freeze/hooks.py:
         finder.IncludeFiles(dir, "imageformats")
 
 https://bitbucket.org/anthony_tuininga/cx_freeze/pull-request/11/added-pyqt4qtgui-load-hook-that-adds/diff#comment-134053
+
+NOTE: Esky needs the folder next to the called executable!

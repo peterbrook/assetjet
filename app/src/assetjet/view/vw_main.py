@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '..\resources\ui\vw_main.ui'
 #
-# Created: Wed Feb 27 22:17:30 2013
+# Created: Fri Mar 01 10:54:06 2013
 #      by: pyside-uic 0.2.14 running on PySide 1.1.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -43,12 +43,15 @@ class Ui_Main(object):
         self.statusbar = QtGui.QStatusBar(Main)
         self.statusbar.setObjectName("statusbar")
         Main.setStatusBar(self.statusbar)
+        self.actionExit = QtGui.QAction(Main)
+        self.actionExit.setObjectName("actionExit")
 
         self.retranslateUi(Main)
         QtCore.QMetaObject.connectSlotsByName(Main)
 
     def retranslateUi(self, Main):
         Main.setWindowTitle(QtGui.QApplication.translate("Main", "AssetJet", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionExit.setText(QtGui.QApplication.translate("Main", "Exit", None, QtGui.QApplication.UnicodeUTF8))
 
 from PySide import QtWebKit
-import main_rc
+import icons_rc

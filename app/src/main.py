@@ -4,6 +4,7 @@
     Program Entry Point
 """
 import os, sys
+import time
 from PySide import QtCore, QtGui
 from assetjet.log import log
 from assetjet.controller.main_controller import MainController 
@@ -19,15 +20,34 @@ def main():
 #    upd.start()
     upd.run()
     
+    # Create MainApp
+    app = QtGui.QApplication(sys.argv)
+    
+    # Create and display the splash screen
+    if getattr(sys,"frozen",False):
+        splash_pix = QtGui.QPixmap('splashAssetJet.png')
+    else:
+        splash_pix = QtGui.QPixmap(r'../../resources/splashAssetJet.png') 
+    splash = QtGui.QSplashScreen(splash_pix, QtCore.Qt.WindowStaysOnTopHint)
+    splash.setMask(splash_pix.mask())
+    splash.show()  
+    app.processEvents() 
+
+    # Load the heavy modules here
+    time.sleep(3)
+    import pandas
+    import numpy
+    import scipy
+    
     # Initialise web server to server HTML to WebView
     srv = local_server.LocalServer()
     srv.daemon=True
     srv.start()
     
     # Launch the app and pass control to the main controller 
-    app = QtGui.QApplication(sys.argv)
     mainForm = MainController()
-    mainForm.Show()
+    mainForm.show_()
+    splash.finish(mainForm)
     sys.exit(app.exec_())
     sys.exit(0)
 

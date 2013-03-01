@@ -15,15 +15,16 @@ class MainController(QtGui.QMainWindow):
     def __init__(self, parent=None):
         super(MainController, self).__init__(parent)
             
-    def Show(self):        
+    def show_(self):        
         self.ui = Ui_Main()
         self.ui.setupUi(self)
         mainPath = os.path.join(util.getBaseDir(), 'httpdocs', 'main.html')
         mainUrl = QtCore.QUrl.fromLocalFile(mainPath)
         self.ui.webView.load(mainUrl)
         self.ui.webView.url = mainUrl
-        super(QtGui.QMainWindow, self).show()
-        super(QtGui.QMainWindow, self).setWindowState(QtCore.Qt.WindowMaximized)
+        self.show()
+        self.setWindowState(QtCore.Qt.WindowMaximized)
+
 
         """
         tickers = self.GetAllSymbols()

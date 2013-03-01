@@ -1,8 +1,5 @@
-import os
 from subprocess import call
-import shutil
 import distutils.util
-from zipfile import ZipFile
 from ConfigParser import ConfigParser
 from assetjet import __version__
 
@@ -18,25 +15,6 @@ def build_installer(appName, filename, installerName):
         architecturesAllowed = 'x64'
     else:   
         architecturesAllowed = ''
-    
-    # Clean
-    if os.path.isdir(os.path.join('dist', 'AssetJet')):
-        print('Deleting existing folder...')
-        shutil.rmtree(os.path.join('dist', 'AssetJet'))
-       
-    if os.path.isfile(os.path.join('dist', installerName, '.exe')):
-        print('Deleting existing installer...')
-        os.remove(os.path.join('dist', installerName, '.exe'))
-    
-    # Unzip file
-    print('unzipping')
-    with ZipFile(os.path.join('dist', filename + '.zip'),"r") as zf:
-        zf.extractall(os.path.join('dist', 'AssetJet'))
-    
-    # Bring into esky folder structure
-    print('bring into esky folder structure')
-    shutil.move(os.path.join('dist','AssetJet', filename),
-                os.path.join('dist','AssetJet','appdata',filename))
     
     # Compile it
     print('compiling inno setup..')

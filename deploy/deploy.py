@@ -24,13 +24,16 @@ import sys, os
 from subprocess import call
 import distutils.util
 from glob import glob
+import shutil
+from zipfile import ZipFile
 from assetjet import __version__
 import publish_to_server as publish
 import build_inno_setup
 
 ################################ SETTINGS #####################################
 environment = 'DEV' # Set to 'DEV' or 'PROD'
-createInstaller = False
+eskyStructure = False
+createInstaller = False # eskyStructure needs to be True
 pushToServer = False # push esky zip file, patch files and installer onto server
 ###############################################################################
 
@@ -58,6 +61,35 @@ def main():
     # Freeze the files and create patches if older version are in dist folder
     call('python setup_esky.py bdist_esky_patch')
     print('done with esky')
+    
+    # Bring into Esky folder structure
+    # Clean directory
+    if eskyStructure:
+        if os.path.isdir(os.path.join('dist', 'AssetJet')):
+            print('Deleting existing folder...')
+            shutil.rmtree(os.path.join('dist', 'AssetJet'))
+           
+        if os.path.isfile(os.path.join('dist', installerName, '.exe')):
+            print('Deleting existing installer...')
+            os.remove(os.path.join('dist', installerName, '.exe'))
+        
+        # Unzip file
+        print('unzipping')
+        with ZipFile(os.path.join('dist', filename + '.zip'),"r") as zf:
+            zf.extractall(os.path.join('dist', 'AssetJet'))
+    
+        # Bring into esky folder structure
+        print('bring into esky folder structure')
+        shutil.move(os.path.join('dist','AssetJet', filename),
+                    os.path.join('dist','AssetJet','appdata',filename))
+        
+        # Esky Hack: 'imageformats' dir next to top-level executable to display window icon
+        shutil.move(os.path.join('dist','AssetJet', 'appdata', filename, 'imageformats'),
+                    os.path.join('dist','AssetJet','imageformats'))
+        # Esky Hack: remove unnecessary python27.dll next to top-level executable
+#        os.remove(os.path.join('dist', 'AssetJet', 'python27.dll'))
+        # TODO: (Reminder): bring logging and cfg file one level higher
+        
     # Create installer
     if createInstaller:
         build_inno_setup.build_installer(appName, filename, installerName)

@@ -15,12 +15,10 @@ class MainController(QtGui.QMainWindow):
     def __init__(self, parent=None):
         super(MainController, self).__init__(parent)
             
-    def Show(self):
-        # Go borderless so it looks the same no matter what platform? TBD
-        
+    def Show(self):        
         self.ui = Ui_Main()
         self.ui.setupUi(self)
-        mainPath = os.path.join(util.getBaseDir(), 'web', 'main.html')
+        mainPath = os.path.join(util.getBaseDir(), 'httpdocs', 'main.html')
         mainUrl = QtCore.QUrl.fromLocalFile(mainPath)
         self.ui.webView.load(mainUrl)
         self.ui.webView.url = mainUrl

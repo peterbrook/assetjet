@@ -9,14 +9,15 @@ from assetjet.log import log
 from assetjet.controller.main_controller import MainController 
 from assetjet.cfg import cfg
 from assetjet.util import updater
-import local_server  
+import local_server 
 
 def main():
     
     # Initialise updater Daemon    
     upd = updater.Updater(cfg.root.UpdateUrl)
-    upd.daemon=True
-    upd.start()
+#    upd.daemon=True
+#    upd.start()
+    upd.run()
     
     # Initialise web server to server HTML to WebView
     

@@ -5,12 +5,11 @@ AssetJet is a showcase application to prove that Python is a great choice for bu
 AssetJet is also a demo of the following state-of-the-art libraries:
 
 * sqlite3 (embedded database)
-* Alembic (database migration)
 * SQLAlchemy (object relational mapper)
 * lxml (web scraping)
 * NumPy/SciPy/pandas (data processing/scientific computing)
-* Qt and PySide (GUI)
-* Chaco (interactive charts)
+* Qt and PySide (webkit)
+* Pyramid (web framework)
 * cx_Freeze and Esky (packaging and auto-update)
 
 All this is based on open-source software that will work cross-platform (Windows, Mac, Linux) out of the box.

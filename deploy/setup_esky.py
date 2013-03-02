@@ -20,12 +20,14 @@ def get_data_files(dirs):
 if sys.platform in ['win32','cygwin','win64']:
     
     # Add http files
-    data_files =  get_data_files([r'../app/src/httpdocs']) + [r'../app/src/local_server.pyc']
+    data_files =  get_data_files([r'../app/src/httpdocs']) + [
+                  r'../app/src/local_server.pyc',
+                  r'../resources/splashAssetJet.png']
     
     # We can customise the executable's creation by passing an instance
     # of Executable() instead of just the script name.
     exe = Executable('../app/src/main.py',
-                     icon='../resources/Pie-chart.ico',
+                     icon='../resources/icons/Pie-chart.ico',
                      gui_only=True,
                      name=exeName,                     
                     )

@@ -14,7 +14,7 @@
    <string>AssetJet</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../icons/icons.qrc">
+   <iconset resource="../images/resources.qrc">
     <normaloff>:/Pie-chart.ico</normaloff>:/Pie-chart.ico</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -77,7 +77,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../icons/icons.qrc"/>
+  <include location="../images/resources.qrc"/>
  </resources>
  <connections/>
 </ui>

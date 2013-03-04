@@ -10,24 +10,24 @@ from assetjet.log import log
 from assetjet.controller.main_controller import MainController 
 from assetjet.cfg import cfg
 from assetjet.util import updater
-import local_server 
+import local_server
+import assetjet.view.resources_rc
 
 def main():
+    # Create MainApp
+    app = QtGui.QApplication(sys.argv)
     
     # Initialise updater Daemon    
     upd = updater.Updater(cfg.root.UpdateUrl)
+    upd.updateDialog()
+# Disable threading for now
 #    upd.daemon=True
 #    upd.start()
     upd.run()
     
-    # Create MainApp
-    app = QtGui.QApplication(sys.argv)
     
     # Create and display the splash screen
-    if getattr(sys,"frozen",False):
-        splash_pix = QtGui.QPixmap('splashAssetJet.png')
-    else:
-        splash_pix = QtGui.QPixmap(r'../../resources/splashAssetJet.png') 
+    splash_pix = QtGui.QPixmap(':/splashAssetJet.png') 
     splash = QtGui.QSplashScreen(splash_pix, QtCore.Qt.WindowStaysOnTopHint)
     splash.setMask(splash_pix.mask())
     splash.show()  

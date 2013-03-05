@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '..\resources\ui\vw_main.ui'
 #
-# Created: Fri Mar 01 10:54:06 2013
+# Created: Mon Mar 04 23:42:09 2013
 #      by: pyside-uic 0.2.14 running on PySide 1.1.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -54,4 +54,4 @@ class Ui_Main(object):
         self.actionExit.setText(QtGui.QApplication.translate("Main", "Exit", None, QtGui.QApplication.UnicodeUTF8))
 
 from PySide import QtWebKit
-import icons_rc
+import resources_rc

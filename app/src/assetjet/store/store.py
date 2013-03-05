@@ -6,12 +6,12 @@ from assetjet.log import log
 def GetEngine(dbfileName=None):
     connString = "sqlite:///{0}".format(dbfileName)
     return create_engine(connString)
-    
+
+
 class StoreException(Exception):
     def __init__(self, message, *errors):
         Exception.__init__(self, message)
         self.errors = errors
-
 
 # base store class
 class Store():

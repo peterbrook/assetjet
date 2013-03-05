@@ -11,6 +11,9 @@ appName = os.path.splitext(os.path.split(sys.executable)[1])[0]
 # therefore store it in the parent of main.py
 fileName = 'app.cfg'
 location = os.path.join(util.getBaseDir(), pardir, pardir)
+filePath = os.path.join(location, fileName)
+print location
+print filePath
 
 # If config file doesn't exist, create with defaults
 # TODO: get db location from user input upon first startup

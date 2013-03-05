@@ -104,9 +104,10 @@
                 _trigger.click(function(e){
                     var symbol = $("#stock_ticker").val();
                     console.log(symbol);
-                    var startDate = new Date();
+                    var startDate = new Date(2013, 03, 01);
                     var endDate = new Date();
                     startDate.setMonth(endDate.getMonth() - 12);
+                    console.log(startDate, endDate);
                     var period = "d";
                     var callback = function(data){
                         console.log(data);

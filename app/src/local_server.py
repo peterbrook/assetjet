@@ -7,15 +7,8 @@ from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.view import view_config
 from pyramid.response import Response
-<<<<<<< HEAD
-from assetjet import log
-=======
 from assetjet.log import log
 from assetjet.services.Prices import GetByTicker
->>>>>>> f1c735f08449260912d0850053686c2e895b21ae
-
-#from services import routing
-#from services.Symbols import GetAll
 
 class LocalServer(threading.Thread):
     """
@@ -37,7 +30,6 @@ class LocalServer(threading.Thread):
         self.port = port
 
     def run(self):
-<<<<<<< HEAD
         try:
             config = Configurator()
             config.add_route('services.Symbols.GetAll', \
@@ -49,12 +41,11 @@ class LocalServer(threading.Thread):
             config.scan('assetjet.services')
             app = config.make_wsgi_app()
             server = make_server(self.host, self.port, app)
-            log.log.Debug("Serving on :", self.host, self.port)
+            log.Debug("Serving on :", self.host, self.port)
             server.serve_forever()
         except Exception:
-            log.log.Error(Exception.message)
-             ]
-=======
+            log.Error(Exception.message)
+
         config = Configurator()
         config.add_route('services.Symbols.GetAll', 'services/Symbols/GetAll/')     
         config.add_route('services.Prices.GetByTicker', 'services/Prices/GetByTicker/')
@@ -76,14 +67,10 @@ class LocalServer(threading.Thread):
         
         server.serve_forever()
 
-
-
 # Workaround: the frozen version can't handle config.scan(assetjet.services) properly
 @view_config(route_name="services.Prices.GetByTicker")   
 def GET(request):
     return GetByTicker.GET(request)               
-
->>>>>>> f1c735f08449260912d0850053686c2e895b21ae
         
 def main():
     try:

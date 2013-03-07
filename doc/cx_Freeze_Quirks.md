@@ -1,9 +1,9 @@
 ### NumPy 1.7.0
 
-comment out "del sys" in /numpy/core/init.py  
+Workaround: comment out "del sys" in /numpy/core/init.py  
 http://stackoverflow.com/questions/14969552/error-when-freezing-pandas-numpy-1-7-0-code-with-cx-freeze
   
-there's a patch available here to fix this issue in cx_Freeze:  
+There's a patch available here to fix this issue in cx_Freeze:  
 http://sourceforge.net/p/cx-freeze/bugs/36/
 
 ### Chameleon
@@ -33,4 +33,4 @@ Add this to cx_Freeze/hooks.py:
 
 https://bitbucket.org/anthony_tuininga/cx_freeze/pull-request/11/added-pyqt4qtgui-load-hook-that-adds/diff#comment-134053
 
-NOTE: Esky needs the folder next to the called executable!
+NOTE: Since Esky needs the folder next to the called executable, we don't need this in AssetJet, but rather copy the file seperately.

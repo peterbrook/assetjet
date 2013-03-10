@@ -29,6 +29,7 @@ from zipfile import ZipFile
 from assetjet import __version__
 import publish_to_server as publish
 import build_inno_setup
+import PySide
 
 ################################ SETTINGS #####################################
 environment = 'DEV' # Set to 'DEV' or 'PROD'
@@ -59,7 +60,7 @@ else:
 
 def main():
     # Freeze the files and create patches if older version are in dist folder
-    call('python setup_esky.py bdist_esky_patch')
+#    call('python setup_esky.py bdist_esky_patch')
     print('done with esky')
     
     # Bring into Esky folder structure
@@ -82,13 +83,11 @@ def main():
         print('bring into esky folder structure')
         shutil.move(os.path.join('dist','AssetJet', filename),
                     os.path.join('dist','AssetJet','appdata',filename))
-        
-        # Esky Hack: 'imageformats' dir next to top-level executable to display window icon
-        shutil.move(os.path.join('dist','AssetJet', 'appdata', filename, 'imageformats'),
-                    os.path.join('dist','AssetJet','imageformats'))
-        # Esky Hack: remove unnecessary python27.dll next to top-level executable
-#        os.remove(os.path.join('dist', 'AssetJet', 'python27.dll'))
-        # TODO: (Reminder): bring logging and cfg file one level higher
+                    
+        # PySide Hack: 'imageformats/qico4.dll' dir next to top-level executable to display window icon
+        iconPlugin = os.path.join(os.path.split(PySide.__file__)[0], 'plugins', 'imageformats', 'qico4.dll')
+        os.mkdir(os.path.join('dist', 'AssetJet', 'imageformats'))        
+        shutil.copy(iconPlugin, os.path.join('dist', 'AssetJet', 'imageformats'))
         
     # Create installer
     if createInstaller:

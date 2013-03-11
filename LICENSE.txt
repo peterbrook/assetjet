@@ -1,7 +1,7 @@
 AssetJet is Copyright (C) 2013 AssetJet Contributors
 
 You may use, distribute and copy AssetJet under the terms of GNU General
-Public License version 3, which is deplayed below.
+Public License version 3, which is displayed below.
 
 ------------------------------------------------------------------------
 

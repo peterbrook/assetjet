@@ -60,7 +60,7 @@ else:
 
 def main():
     # Freeze the files and create patches if older version are in dist folder
-#    call('python setup_esky.py bdist_esky_patch')
+    call('python setup_esky.py bdist_esky_patch')
     print('done with esky')
     
     # Bring into Esky folder structure

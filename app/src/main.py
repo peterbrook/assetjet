@@ -9,29 +9,37 @@ from PySide import QtCore, QtGui
 from assetjet.log import log
 from assetjet.controller.main_controller import MainController
 from assetjet.util import updater
-import local_server
 import assetjet.view.resources_rc
+from assetjet.cfg import cfg
+from assetjet.util import wizard
 
 def main():
     # Create MainApp
     app = QtGui.QApplication(sys.argv)
        
     # Check for Updates when run as frozen executable
-    if getattr(sys,'frozen',False):
+    if getattr(sys, 'frozen', False):
         updater.update(app)
+        
+    # Start wizard to set database path
+    if not cfg.config.has_option('Wizard','done'):
+        wizard.run(app)
+        cfg.add_entry('Wizard','done', 'True')
     
     # Splash screen
     splash_pix = QtGui.QPixmap(':/splashAssetJet.png') 
     splash = QtGui.QSplashScreen(splash_pix, QtCore.Qt.WindowStaysOnTopHint)
     splash.setMask(splash_pix.mask())
-    splash.show()  
+    splash.show()
     app.processEvents()
+    
     # Load the heavy modules here
-    time.sleep(3)
     import pandas
     import numpy
     import scipy
-    
+    import local_server
+    time.sleep(1)
+  
     # Initialise web server to server HTML to WebView
     srv = local_server.LocalServer()
     srv.daemon=True

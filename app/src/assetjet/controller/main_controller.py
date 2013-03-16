@@ -2,10 +2,9 @@ import os
 from PySide import QtGui, QtCore
 import sqlalchemy.orm as orm
 from assetjet.view.vw_main import Ui_Main
-from assetjet.cfg import db
 from assetjet.log import log
 from assetjet.util import util
-from assetjet.model import asset
+#from assetjet.model import asset
 from assetjet import __version__
 
 class MainController(QtGui.QMainWindow):

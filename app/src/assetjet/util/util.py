@@ -17,4 +17,5 @@ def getBaseDir():
         # to inspect the currently executing frame to ensure that 
         # we return the path relative to the application root and not the last run script
         thisdir = os.path.dirname(inspect.getfile(inspect.currentframe()))
-        return os.path.realpath(os.path.join(thisdir, '..', '..'))
+        #return os.path.realpath(os.path.join(thisdir, '..', '..'))
+        return os.path.realpath(os.path.join(thisdir))

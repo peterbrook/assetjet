@@ -19,7 +19,7 @@ def main():
     
     # Initialise updater Daemon    
     upd = updater.Updater(cfg.root.UpdateUrl)
-    upd.updateDialog()
+    #upd.updateDialog()
 # Disable threading for now
 #    upd.daemon=True
 #    upd.start()

@@ -31,6 +31,7 @@
 	};
 	
 	Date.prototype.getDayRebased = function(base){
+		return this.getUTCDate();
 		if(!base){
 			// assume base 10
 			return parseInt(10, this.getUTCDate());

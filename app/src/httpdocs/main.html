@@ -9,8 +9,9 @@
         <title>AssetJet Main UI</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <link href="css/bootstrap.min.css" rel="stylesheet" >
-        <link href="css/bootstrap-responsive.min.css" rel="stylesheet" >
+        <link href="css/bootstrap.css" rel="stylesheet" >
+        <link href="css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="css/ui-lightness/jquery-ui.css" rel="stylesheet">
         <link href="css/main.css" rel="stylesheet" >
     </head>
     <body>
@@ -45,38 +46,33 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <hr />
-            <div class="left">
-                <div id="single_symbol_select">
-                    
-                    <input id="stock_ticker" class="left_input"></input>
-                    <input id="start_date" class="left_input"></input>
-                    <input id="end_date" class="left_input"></input>
-                    <input id="periodicity" class="left_input"></input>
-                    <input id="autocomplete_trigger" type="button" class="left_input" value="Get Prices"></input>
-                </div>
-                <div id="listView"></div>
+        <div class="clear">&nbsp;</div>
+        <div class="main_container">
+            <div id="single_symbol_select">
+                <label for="stock_ticker">Stock</label>
+                <input id="stock_ticker" class="left_input" value="AAPL"></input>
+                <label for="start_date">Start Date</label>
+                <input id="start_date" class="left_input datepicker"></input>
+                <label for="end_date">End Date</label>
+                <input id="end_date" class="left_input datepicker"></input>
+                <label for="periodicity">Periodicity</label>
+                <input id="periodicity" class="left_input" value="D"></input>
+                <input id="autocomplete_trigger" type="button" class="left_input" value="Get Prices"></input>
             </div>
-            <div id="chart_container">
-                <div id="chart">
-
+            <div class="clear">&nbsp;</div>
+            <div id="listView"></div>
+                <div id="chart_container">
+                    <div id="chart"></div>
                 </div>
-
             </div>
             <hr>
             <footer>
                 <p></p>
             </footer>
         </div> <!-- /container -->
-<!--
-        <script src="res/kendoui/js/jquery.min.js"></script>
-        <!--<script src="res/kendoui/js/kendo.web.min.js"></script>
-        <script src="res/kendoui/src/js/kendo.web.js"></script>
-        <script src="res/highcharts/highcharts.js"></script>
--->
 
         <script src="js/vendor/jquery.js"></script>
+        <script src="js/vendor/jquery-ui.js"></script>
         <script src="js/vendor/jquery.jsonp.js"></script>
         <script src="js/vendor/modernizr-min.js"></script>
         <script src="js/vendor/bootstrap-min.js"></script>
@@ -88,8 +84,12 @@
         <script>
 
             $(document).ready(function() {
+                AJ.startDatePicker = $("#start_date").datepicker();
+                AJ.endDatePicker = $("#end_date").datepicker();
+
                 symbolUrl = AJ.rootUrl + "/services/Symbols/GetAll/";
                 var symbols;
+                /*
                 $.jsonp({
                     type: "GET"
                 ,    url: symbolUrl
@@ -104,21 +104,22 @@
                         console.log(status);
                     }
                 });
+                */
                 var _trigger = $("#autocomplete_trigger");
                 _trigger.click(function(e){
+
                     var symbol = $("#stock_ticker").val();
-                    console.log(symbol);
-                    var startDate = new Date(2013, 03, 01);
-                    var endDate = new Date();
-                    startDate.setMonth(endDate.getMonth() - 12);
-                    console.log(startDate, endDate);
-                    var period = "d";
+                    var startDate = AJ.startDatePicker.datepicker("getDate");
+                    var endDate = AJ.endDatePicker.datepicker("getDate");
+                    console.log(startDate);
+                    console.log(endDate);
+                    var period = $("#periodicity").val();
                     var callback = function(data){
-                        console.log(data);
+                        // console.log(data);
                     };
-                    AJ.getYahooData(symbol, startDate, endDate, period,
+ 
+                    AJ.getChartData(symbol, startDate, endDate, period,
                         function(data) {
-                            $("#chart").text(JSON.stringify(data));
                             var timeSeries = _.map(data, function(item) {
                                 return item[symbol];
                             });
@@ -127,8 +128,9 @@
                             });
                             var minDate = _.min(dateSeries);
 
-                            console.log('minDate', minDate);
-                            console.log('timeSeries', timeSeries);
+                            //console.log('dateSeries', dateSeries);
+                            //console.log('minDate', minDate);
+                            //console.log('timeSeries', timeSeries);
 
                             chart = new Highcharts.Chart({
                                 chart: {
@@ -195,8 +197,7 @@
                                     type: 'area',
                                     name: 'Stock Price against Time',
                                     pointInterval: 24 * 3600 * 1000,
-                                    pointStart: Date.UTC(2006, 0, 01),
-                                    //pointStart: minDate,
+                                    pointStart: minDate,
                                     data: timeSeries
                                 }]
                         });

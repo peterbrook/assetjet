@@ -1,12 +1,12 @@
 import os
 from PySide import QtGui, QtCore
+import sqlalchemy.orm as orm
 from assetjet.view.vw_main import Ui_Main
 from assetjet.cfg import db
 from assetjet.log import log
 from assetjet.util import util
-import sqlalchemy.orm as orm
-
 from assetjet.model import asset
+from assetjet import __version__
 
 class MainController(QtGui.QMainWindow):
 
@@ -25,7 +25,7 @@ class MainController(QtGui.QMainWindow):
         self.ui.webView.url = mainUrl
         self.show()
         self.setWindowState(QtCore.Qt.WindowMaximized)
-
+        self.setWindowTitle('AssetJet {0}'.format(__version__))
 
         """
         tickers = self.GetAllSymbols()

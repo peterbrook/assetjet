@@ -21,6 +21,9 @@ OutputDir=.\dist
 ArchitecturesAllowed={#ArchitecturesAllowed}
 LicenseFile=..\LICENSE.txt
 
+[CustomMessages]
+InstallingLabel=
+
 [Files]
 Source: ".\dist\AssetJet\*.*"; DestDir: "{app}"; Flags: recursesubdirs
 
@@ -33,3 +36,18 @@ Name: "{group}\{#AppName}"; Filename: "{app}\{#AppName}.exe"
 [UninstallDelete]
 ; Needed as the program folder gets changed by the Esky updates
 Type: filesandordirs; Name: "{app}\appdata"
+
+[Code]
+procedure InitializeWizard;
+begin
+  with TNewStaticText.Create(WizardForm) do
+  begin
+    Parent := WizardForm.FilenameLabel.Parent;
+    Left := WizardForm.FilenameLabel.Left;
+    Top := WizardForm.FilenameLabel.Top;
+    Width := WizardForm.FilenameLabel.Width;
+    Height := WizardForm.FilenameLabel.Height;
+    Caption := ExpandConstant('{cm:InstallingLabel}');
+  end;
+  WizardForm.FilenameLabel.Visible := False;
+end;

@@ -7,7 +7,7 @@
 	}
 	var AJ = root.AJ = {
 		VERSION : "0.1"
-	,	rootUrl :"http://127.0.0.1:8080"
+	,	rootUrl :"http://127.0.0.1:81"
 	};
 
 	// String convenience functions
@@ -31,30 +31,32 @@
 	};
 	
 	Date.prototype.getDayRebased = function(base){
-		if(!base){
-			// assume base 10
-			return parseInt(10, this.getUTCDate());
-		} else {
-			return parseInt(base, this.getUTCDate());
-		}
+		var dy = this.getUTCDate() + 1;
+		return dy;
 	};
 	
 	Date.prototype.getMonthRebased = function(base){
 		var mth = this.getMonth() + 1;
-		if(!base){
-			// assume base 10
-			return parseInt(10, mth);
-		} else {
-			return parseInt(base, mth);
-		}
+		return mth;
 	};
 
 	Date.prototype.isoFormat = function(){
-		return "{0}-{1}-{2}T{3}:{4}:{5}.{6}".format(
+		var str = "{0}-{1}-{2}T{3}:{4}:{5}.{6}".format(
 			this.getFullYear(), this.getMonthRebased(), this.getDayRebased(), 
 			this.getHours(), this.getMinutes(), this.getSeconds(), 
 			this.getMilliseconds()
 		); 
+		//console.log(this);
+		//console.log(str);
+		return str;
+	};
+	Date.prototype.shortFormat = function(){
+		var str = "{0}-{1}-{2}".format(
+			this.getFullYear(), this.getMonthRebased(), this.getDayRebased()
+		); 
+		//console.log(this);
+		//console.log(str);
+		return str;
 	};
 		
 	// parse a date in yyyy-mm-dd format
@@ -94,20 +96,31 @@
 	};
 
 	var yahooUrl = "http://query.yahooapis.com/v1/public/yql?[query_params]";
-	AJ.getYahooData = function(symbol, startDate, endDate, period, callback){
+	AJ.getChartData = function(symbol, startDate, endDate, period, callback){
+		//console.log(arguments);
+		if(period){
+			period = period.toLowerCase();
+		} 
+		else{
+			period = "d";
+		}
+
+		//console.log(arguments);
 		if(!startDate){
 			startDate = new Date();
 			endDate = new Date();
 			startDate.setMonth(endDate.getMonth() - 12);
 		}
+
 		var serviceUrl = AJ.rootUrl + "/services/Prices/GetByTicker/?ticker={0}&startDate={1}&endDate={2}&period={3}"
 		var queryUrl = String.format(
 			serviceUrl,
 			symbol,
-			startDate.isoFormat(), 
-			endDate.isoFormat(),
-			(period || "d")
+			startDate.shortFormat(), 
+			endDate.shortFormat(),
+			period
 		);
+
 		$.jsonp({
 	        url:    	queryUrl
         ,   success: 	callback
@@ -117,4 +130,5 @@
             }
 	    });          
 	};
+	$.datepicker.setDefaults( $.datepicker.regional[ "ch-de" ] );
 })(window, $, _, Backbone);

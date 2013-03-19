@@ -26,6 +26,16 @@ def main():
         wizard.run(app)
         cfg.add_entry('Wizard','done', 'True')
     
+    # Initialise updater Daemon    
+    #upd = updater.Updater(cfg.root.UpdateUrl)
+    #upd.updateDialog()
+# Disable threading for now
+#    upd.daemon=True
+#    upd.start()
+#    upd.run()
+    
+    
+    # Create and display the splash screen
     # Splash screen
     splash_pix = QtGui.QPixmap(':/splashAssetJet.png') 
     splash = QtGui.QSplashScreen(splash_pix, QtCore.Qt.WindowStaysOnTopHint)

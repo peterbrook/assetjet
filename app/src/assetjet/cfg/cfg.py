@@ -10,8 +10,8 @@ appName = os.path.splitext(os.path.split(sys.executable)[1])[0]
 fileName = 'app.cfg'
 location = os.path.abspath(os.path.join(util.getBaseDir(), pardir, pardir))
 filePath = os.path.abspath(os.path.join(location, fileName))
-print location
-print filePath
+#print location
+#print filePath
 
 # If config file doesn't exist, create with defaults
 if not os.path.exists(os.path.join(location, fileName)):

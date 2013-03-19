@@ -50,6 +50,14 @@
 		console.log(str);
 		return str;
 	};
+	Date.prototype.shortFormat = function(){
+		var str = "{0}-{1}-{2}".format(
+			this.getFullYear(), this.getMonthRebased(), this.getDayRebased()
+		); 
+		console.log(this);
+		console.log(str);
+		return str;
+	};
 		
 	// parse a date in yyyy-mm-dd format
 	Date.parseDate = function (input) {
@@ -108,8 +116,8 @@
 		var queryUrl = String.format(
 			serviceUrl,
 			symbol,
-			startDate.isoFormat(), 
-			endDate.isoFormat(),
+			startDate.shortFormat(), 
+			endDate.shortFormat(),
 			period
 		);
 

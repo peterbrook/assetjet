@@ -26,7 +26,7 @@ def main():
 # Disable threading for now
 #    upd.daemon=True
 #    upd.start()
-    upd.run()
+#    upd.run()
     
     
     # Create and display the splash screen

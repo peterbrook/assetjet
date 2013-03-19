@@ -1,9 +1,11 @@
 # TODO: Turn into Wizard
 import os, sys
 from PySide import QtGui, QtCore
+from PySide.QtCore import Qt
 import assetjet.view.resources_rc
 from assetjet.view.vw_db_location import Ui_db_location
 from assetjet.cfg import cfg
+from assetjet.db import create_sample_db
 
 # Dialog Window
 class DbLocation(QtGui.QDialog):
@@ -33,14 +35,32 @@ class DbLocation(QtGui.QDialog):
         return self.ui.location.text()
         
 def run(app):
+    # Ask user for AssetJet database location
     dlgDbLocation=DbLocation()
     dlgDbLocation.setWindowFlags(QtCore.Qt.WindowTitleHint)
     if dlgDbLocation.exec_():
-        cfg.add_entry('Database', 'DbFileName',
-                      os.path.join(dlgDbLocation.getText(),'assetjet.db'))
+        loc = os.path.join(dlgDbLocation.getText(),'assetjet.db')
+        cfg.add_entry('Database', 'DbFileName', loc)
+                      
+    # Start download thread
+    download = create_sample_db.Downloader(loc)
+    download.daemon = True
+    download.start()
 
-if __name__ == "__main__":
-    run()
+    dlgProgress = QtGui.QProgressDialog(
+                        labelText='Downloading a few tickers and populating the database...Obviously, this should be done in the background.\n Try one of these tickers: ANF, ADBE, ACE, ACN, AMD, MMM, ABT, ACT, ADT' ,
+                        minimum = 0, maximum = 0,
+                        flags=Qt.WindowTitleHint)
+    dlgProgress.setWindowTitle('Donwloading...')                                            
+    dlgProgress.setCancelButton(None)
+    dlgProgress.setWindowIcon(QtGui.QIcon(':/Pie-chart.ico'))
+    dlgProgress.show()
+    
+    download.finished.connect(dlgProgress.close)
+    app.exec_()  
+    
+    # TODO: let it run in parallel with the local server thread
+    download.wait()
     
 
  

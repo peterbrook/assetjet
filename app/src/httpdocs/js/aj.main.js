@@ -46,16 +46,16 @@
 			this.getHours(), this.getMinutes(), this.getSeconds(), 
 			this.getMilliseconds()
 		); 
-		console.log(this);
-		console.log(str);
+		//console.log(this);
+		//console.log(str);
 		return str;
 	};
 	Date.prototype.shortFormat = function(){
 		var str = "{0}-{1}-{2}".format(
 			this.getFullYear(), this.getMonthRebased(), this.getDayRebased()
 		); 
-		console.log(this);
-		console.log(str);
+		//console.log(this);
+		//console.log(str);
 		return str;
 	};
 		
@@ -97,7 +97,7 @@
 
 	var yahooUrl = "http://query.yahooapis.com/v1/public/yql?[query_params]";
 	AJ.getChartData = function(symbol, startDate, endDate, period, callback){
-		console.log(arguments);
+		//console.log(arguments);
 		if(period){
 			period = period.toLowerCase();
 		} 

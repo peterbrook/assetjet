@@ -113,8 +113,8 @@
                     var symbol = $("#stock_ticker").val();
                     var startDate = AJ.startDatePicker.datepicker("getDate");
                     var endDate = AJ.endDatePicker.datepicker("getDate");
-                    console.log(startDate);
-                    console.log(endDate);
+                    //console.log(startDate);
+                    //console.log(endDate);
                     var period = $("#periodicity").val();
                     var callback = function(data){
                         // console.log(data);
@@ -130,9 +130,10 @@
                             });
                             var minDate = _.min(dateSeries);
 
-                            console.log('dateSeries', dateSeries);
+                            //  console.log('data', data);
+                            // console.log('dateSeries', dateSeries);
                             console.log('minDate', minDate);
-                            console.log('timeSeries', timeSeries);
+                            // console.log('timeSeries', timeSeries);
 
                             chart = new Highcharts.Chart({
                                 chart: {
@@ -152,8 +153,9 @@
                                     type: 'datetime',
                                     maxZoom: 14 * 24 * 3600000, // fourteen days
                                     title: {
-                                        text: null
+                                        text: 'Price Date'
                                     }
+                                    // ,min: minDate
                                 },
                                 yAxis: {
                                     title: {

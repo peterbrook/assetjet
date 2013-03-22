@@ -1,10 +1,8 @@
 import os, sys, inspect
 """
-    Convenience function to return the root of the application in the 
-    filesystem depending on the execution context. this is necessary to 
-    allow the same code to run in the executable format and while 
-    debugging as a script
-     
+    Convenience function to return the path to main.py depending on the
+    execution context. this is necessary to allow the same code to run 
+    in the executable format and while debugging as a script.
 """
 
 def getBaseDir():
@@ -17,5 +15,4 @@ def getBaseDir():
         # to inspect the currently executing frame to ensure that 
         # we return the path relative to the application root and not the last run script
         thisdir = os.path.dirname(inspect.getfile(inspect.currentframe()))
-        #return os.path.realpath(os.path.join(thisdir, '..', '..'))
-        return os.path.realpath(os.path.join(thisdir))
+        return os.path.abspath(os.path.join(thisdir, '..', '..'))

@@ -15,7 +15,7 @@ class LocalServer(threading.Thread):
         Serves simple HTTP requests to the local HTML page running in the main window
     """
     host = "127.0.0.1"
-    port = 81
+    port = 80
     app = None
 
     def __init__(self, host=None, port=None):
@@ -26,27 +26,10 @@ class LocalServer(threading.Thread):
         self.host = host
         
         if port is None:
-            port = 81
+            port = 8080
         self.port = port
 
     def run(self):
-        """
-        try:
-            config = Configurator()
-            config.add_route('services.Symbols.GetAll', \
-                             'services/Symbols/GetAll/')
-            
-            config.add_route('services.Prices.GetByTicker', \
-                             'services/Prices/GetByTicker/')
-                
-            config.scan('assetjet.services')
-            app = config.make_wsgi_app()
-            server = make_server(self.host, self.port, app)
-            log.Debug("Serving on :", self.host, self.port)
-            server.serve_forever()
-        except Exception:
-            log.Error(Exception.message)
-        """
         config = Configurator()
         config.add_route('services.Symbols.GetAll', 'services/Symbols/GetAll/')     
         config.add_route('services.Prices.GetByTicker', 'services/Prices/GetByTicker/')

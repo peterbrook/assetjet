@@ -26,7 +26,6 @@ def main():
         wizard.run(app)
         cfg.add_entry('Wizard','done', 'True')
         
-    # Create and display the splash screen
     # Splash screen
     splash_pix = QtGui.QPixmap(':/splashAssetJet.png') 
     splash = QtGui.QSplashScreen(splash_pix, QtCore.Qt.WindowStaysOnTopHint)

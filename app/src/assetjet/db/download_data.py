@@ -1,8 +1,3 @@
-"""
-Run this script to create the TimeSeries.db sample database with all S&P500
-tickers as downloaded from Wikipedia and daily time series from Yahoo! Finance
-"""
-
 import os
 import sqlite3
 from lxml import html
@@ -11,9 +6,8 @@ from PySide.QtCore import QThread
 from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 
-
-
 class Downloader(QThread):
+
     def __init__(self, loc):
         QThread.__init__(self)
         self.loc = loc
@@ -22,11 +16,15 @@ class Downloader(QThread):
         
     def run(self):
         # For now, initialize the db with 1 year of past data
-        startdate = datetime.strftime(date.today() - relativedelta(months=3), '%Y-%m-%d')
+        startdate = datetime.strftime(date.today() - relativedelta(years=1), '%Y-%m-%d')
         enddate = datetime.strftime(date.today(), '%Y-%m-%d')
         download_sp500(startdate, enddate, self.loc)      
 
 def download_sp500(startdate, enddate, dbfilename):
+    """
+    Downloads S&P500 tickers from Wikipedia and daily time series from Yahoo! Finance
+    """    
+    
     # Download list of tickers, company name and GICS Sectors from Wikipedia
     url = 'http://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
     page = html.parse(url)
@@ -63,8 +61,7 @@ def download_sp500(startdate, enddate, dbfilename):
     
     database.populate_db(symbol, startdate, enddate, dbfilename)
     
-    # TODO: download with lxml (?)
-    # http://en.wikipedia.org/wiki/Global_Industry_Classification_Standard
+    # From: http://en.wikipedia.org/wiki/Global_Industry_Classification_Standard
     # Note: Telecommunication Services is listed as Telecommunications Services
     conn.execute("DELETE FROM GicsSectors")
     conn.execute("INSERT INTO GicsSectors VALUES(10, 'Energy')")
@@ -94,6 +91,4 @@ def download_sp500(startdate, enddate, dbfilename):
 
 # Create/Update sample database with S&P 500    
 if __name__ == '__main__':
-    
-    
    download_sp500('2012-01-01', '2012-12-12', 'assetjet.db')

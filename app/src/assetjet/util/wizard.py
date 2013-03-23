@@ -36,6 +36,7 @@ class DbLocation(QtGui.QDialog):
 def run(app):
     # Ask user for AssetJet database location
     dlgDbLocation=DbLocation()
+    # Hide the 'What's This' question mark
     dlgDbLocation.setWindowFlags(QtCore.Qt.WindowTitleHint)
     if dlgDbLocation.exec_():
         loc = os.path.join(dlgDbLocation.getText(),'assetjet.db')
@@ -44,25 +45,26 @@ def run(app):
             os.mkdir(dlgDbLocation.getText())
         cfg.add_entry('Database', 'DbFileName', loc)
                       
-    # Start download thread
-    download = download_data.Downloader(loc)
-    download.daemon = True
-    download.start()
-
-    dlgProgress = QtGui.QProgressDialog(
-                        labelText='Downloading a few tickers and populating the database...Obviously, this should be done in the background.\n' ,
-                        minimum = 0, maximum = 0,
-                        flags=Qt.WindowTitleHint)
-    dlgProgress.setWindowTitle('Donwloading...')                                            
-    dlgProgress.setCancelButton(None)
-    dlgProgress.setWindowIcon(QtGui.QIcon(':/Pie-chart.ico'))
-    dlgProgress.show()
+    # Start download thread if database is not existing yet
+    if not os.path.exists(loc):
+        download = download_data.Downloader(loc)
+        download.daemon = True
+        download.start()
     
-    download.finished.connect(dlgProgress.close)
-    app.exec_()  
-    
-    # TODO: let it run in parallel with the local server thread
-    download.wait()
+        dlgProgress = QtGui.QProgressDialog(
+                            labelText='Downloading 1 year of daily returns for members of the S&P 500 ...\n This takes around 5 minutes.\n' ,
+                            minimum = 0, maximum = 0,
+                            flags=Qt.CustomizeWindowHint | Qt.WindowTitleHint )
+        dlgProgress.setWindowTitle('Downloading...')                                       
+        dlgProgress.setCancelButton(None)
+        dlgProgress.setWindowIcon(QtGui.QIcon(':/Pie-chart.ico'))
+        dlgProgress.show()
+        
+        download.finished.connect(dlgProgress.close)
+        app.exec_()  
+        
+        # TODO: let it run in parallel with the local server thread
+        download.wait()
     
 
  

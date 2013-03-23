@@ -5,7 +5,7 @@ from PySide.QtCore import Qt
 import assetjet.view.resources_rc
 from assetjet.view.vw_db_location import Ui_db_location
 from assetjet.cfg import cfg
-from assetjet.db import create_sample_db
+from assetjet.db import download_data
 
 # Dialog Window
 class DbLocation(QtGui.QDialog):
@@ -15,8 +15,7 @@ class DbLocation(QtGui.QDialog):
         self.ui=Ui_db_location()
         self.ui.setupUi(self)
 
-        
-        # using Qt's version as os.path.expanduser('~') fails on WinPython
+        # Using Qt's version as os.path.expanduser('~') fails on WinPython
         self.initial_dir = os.path.abspath(os.path.join(
                                        QtCore.QDir.homePath(),'AssetJetData'))
         self.ui.location.setText(self.initial_dir)
@@ -30,7 +29,7 @@ class DbLocation(QtGui.QDialog):
         # Leave the path unchanged if the users cancels
         if reply:        
             self.ui.location.setText(reply)
-    
+            
     def getText(self):
         return self.ui.location.text()
         
@@ -40,15 +39,18 @@ def run(app):
     dlgDbLocation.setWindowFlags(QtCore.Qt.WindowTitleHint)
     if dlgDbLocation.exec_():
         loc = os.path.join(dlgDbLocation.getText(),'assetjet.db')
+        # create directory if it doens't exist yet
+        if not os.path.exists(dlgDbLocation.getText()):
+            os.mkdir(dlgDbLocation.getText())
         cfg.add_entry('Database', 'DbFileName', loc)
                       
     # Start download thread
-    download = create_sample_db.Downloader(loc)
+    download = download_data.Downloader(loc)
     download.daemon = True
     download.start()
 
     dlgProgress = QtGui.QProgressDialog(
-                        labelText='Downloading a few tickers and populating the database...Obviously, this should be done in the background.\n Try one of these tickers: ANF, ADBE, ACE, ACN, AMD, MMM, ABT, ACT, ADT' ,
+                        labelText='Downloading a few tickers and populating the database...Obviously, this should be done in the background.\n' ,
                         minimum = 0, maximum = 0,
                         flags=Qt.WindowTitleHint)
     dlgProgress.setWindowTitle('Donwloading...')                                            

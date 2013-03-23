@@ -7,8 +7,9 @@ import os
 import sqlite3
 from lxml import html
 import database
-from PySide.QtCore import QThread, QMutex
-from datetime import datetime
+from PySide.QtCore import QThread
+from datetime import datetime, date
+from dateutil.relativedelta import relativedelta
 
 
 
@@ -20,7 +21,10 @@ class Downloader(QThread):
         datetime.strptime('2013-01-01',"%Y-%m-%d")
         
     def run(self):
-        download_sp500('2012-01-01', '2012-12-31', self.loc)      
+        # For now, initialize the db with 1 year of past data
+        startdate = datetime.strftime(date.today() - relativedelta(months=3), '%Y-%m-%d')
+        enddate = datetime.strftime(date.today(), '%Y-%m-%d')
+        download_sp500(startdate, enddate, self.loc)      
 
 def download_sp500(startdate, enddate, dbfilename):
     # Download list of tickers, company name and GICS Sectors from Wikipedia
@@ -39,9 +43,9 @@ def download_sp500(startdate, enddate, dbfilename):
     if 'BRK.B' in symbol: symbol[symbol.index('BRK.B')]='BRK-B'
     
     # Debugging: restrict to the first 10 stocks of the index
-    symbol = symbol[:10]
-    company = company[:10]
-    sector = sector[:10] 
+#    symbol = symbol[:10]
+#    company = company[:10]
+#    sector = sector[:10] 
     
     # If database doesn't exist, create it
     if not os.path.exists(dbfilename):
@@ -89,5 +93,7 @@ def download_sp500(startdate, enddate, dbfilename):
     conn.close()
 
 # Create/Update sample database with S&P 500    
-if __name__ == '__main__': 
+if __name__ == '__main__':
+    
+    
    download_sp500('2012-01-01', '2012-12-12', 'assetjet.db')

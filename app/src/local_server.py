@@ -31,8 +31,8 @@ class LocalServer(threading.Thread):
 
     def run(self):
         config = Configurator()
-        config.add_route('services.symbols.getAll', 'services/symbols/getAll/')     
-        config.add_route('services.prices.getByTicker', 'services/prices/getByTicker/')
+        config.add_route('services.symbols.getAll', 'services/Symbols/GetAll/')     
+        config.add_route('services.prices.getByTicker', 'services/Prices/GetByTicker/')
             
         try:
 #            config.scan('assetjet.services') # not found by frozen version
@@ -54,7 +54,7 @@ class LocalServer(threading.Thread):
 # Workaround: the frozen version can't handle config.scan(assetjet.services) properly
 @view_config(route_name="services.prices.getByTicker")   
 def GET(request):
-    return GetByTicker.GET(request)               
+    return getByTicker.GET(request)               
         
 def main():
     try:

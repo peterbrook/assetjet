@@ -8,7 +8,7 @@ from pyramid.config import Configurator
 from pyramid.view import view_config
 from pyramid.response import Response
 from assetjet.log import log
-from assetjet.services.Prices import GetByTicker
+from assetjet.services.prices import getByTicker
 
 class LocalServer(threading.Thread):
     """
@@ -31,8 +31,8 @@ class LocalServer(threading.Thread):
 
     def run(self):
         config = Configurator()
-        config.add_route('services.Symbols.GetAll', 'services/Symbols/GetAll/')     
-        config.add_route('services.Prices.GetByTicker', 'services/Prices/GetByTicker/')
+        config.add_route('services.symbols.getAll', 'services/symbols/getAll/')     
+        config.add_route('services.prices.getByTicker', 'services/prices/getByTicker/')
             
         try:
 #            config.scan('assetjet.services') # not found by frozen version
@@ -52,7 +52,7 @@ class LocalServer(threading.Thread):
         server.serve_forever()
 
 # Workaround: the frozen version can't handle config.scan(assetjet.services) properly
-@view_config(route_name="services.Prices.GetByTicker")   
+@view_config(route_name="services.prices.getByTicker")   
 def GET(request):
     return GetByTicker.GET(request)               
         

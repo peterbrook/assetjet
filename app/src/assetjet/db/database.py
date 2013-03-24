@@ -121,10 +121,9 @@ def save_to_db(data, dbfilename):
     c = conn.cursor()
 
     # Wrap in a try block in case there's a duplicate given our UNIQUE INDEX
-    #     criteria above.
+    # criteria above.
     try:
         sql = "INSERT INTO TimeSeries (Cd, Date, Open, High, Low, Close, Volume, AdjClose) VALUES (?, ?, ?, ?, ?, ?, ?, ?);"
-        
         c.executemany(sql, data.tolist())
     except sqlite3.IntegrityError:
         pass
@@ -134,53 +133,4 @@ def save_to_db(data, dbfilename):
     c.close()
     conn.close()
     return change_count
-    
-def populate_db(symbols, startdate, enddate, dbfilename):
-    """ Wrapper function to rifle through a list of symbols, pull the data,
-        and store it in a sqlite database file.
         
-        Parameters:
-        symbols: list of strings or a string representing a csv file path.
-            If a csv filepath is provided, the first column will be used for
-            symbols.
-        startdate: string, a date string representing the beginning date
-            for the requested data.
-        enddate: string, a date string representing the ending date for the 
-            requested data.
-    """
-    save_count = 0
-    rec_count = 0
-    if isinstance(symbols, str):
-        # Try loading list from a file
-        reader = csv.reader(open(symbols))
-        
-        symbolset = set()
-        badchars = ["/", ":", "^", "%", "\\"]
-
-        # pull symbols from file and put into list
-        for line in reader:
-    
-            symb = line[0]
-            for itm in badchars:
-                symb = symb.replace(itm, "-")
-                symbolset.add(symb.strip())
-        symbollist = list(symbolset)
-    else:
-        symbollist = set(symbols)
-    
-    count=0.0
-#    print "loading data ..."
-    for symbol in list(symbollist):
-        data = get_yahoo_prices(symbol, startdate, enddate)
-        num_saved = save_to_db(data, dbfilename)
-        count+=1.0
-        if num_saved:
-            save_count+=1
-            rec_count+=num_saved
-        # Give some indication of progress at the command line
-#        print symbol + "",
-#        sys.stdout.flush()
-
-#    print "Saved %s records for %s out of %s symbols" % (rec_count,
-#                                                         save_count,
-#                                                         len(symbollist))

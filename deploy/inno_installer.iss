@@ -10,7 +10,7 @@ AppName={#AppName}
 AppVersion={#Version}
 UninstallDisplayName={#AppName}
 UninstallDisplayIcon={app}\{#AppName}.exe
-DefaultDirName={localappdata}\{#AppName}
+DefaultDirName={userappdata}\{#AppName}
 DisableDirPage=yes
 DefaultGroupName={#AppName}
 DisableProgramGroupPage=yes
@@ -34,8 +34,8 @@ Name: "{app}\appdata"
 Name: "{group}\{#AppName}"; Filename: "{app}\{#AppName}.exe"
 
 [UninstallDelete]
-; Needed as the program folder gets changed by the Esky updates
-Type: filesandordirs; Name: "{app}\appdata"
+; Needed as the program folder gets changed by the Esky updates & log, cfg files
+Type: filesandordirs; Name: "{app}"
 
 [Code]
 procedure InitializeWizard;

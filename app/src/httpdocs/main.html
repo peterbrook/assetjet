@@ -58,6 +58,7 @@
                 <label for="periodicity">Periodicity</label>
                 <input id="periodicity" class="left_input" value="D"></input>
                 <input id="autocomplete_trigger" type="button" class="left_input" value="Get Prices"></input>
+                <input id="ws_trigger" type="button" class="left_input" value="Test WS"></input>
             </div>
             <div class="clear">&nbsp;</div>
             <div id="listView"></div>
@@ -107,6 +108,11 @@
                 });
                 */
 
+                var _wstrigger = $("#ws_trigger");
+                _wstrigger.click(function(e){
+                    AJ.webSocketTest();
+                });
+
                 var _trigger = $("#autocomplete_trigger");
                 _trigger.click(function(e){
 
@@ -130,7 +136,7 @@
                             });
                             var minDate = _.min(dateSeries);
 
-                            //  console.log('data', data);
+                            // console.log('data', data);
                             // console.log('dateSeries', dateSeries);
                             console.log('minDate', minDate);
                             // console.log('timeSeries', timeSeries);

@@ -2,10 +2,9 @@ import os
 from PySide import QtGui, QtCore
 import sqlalchemy.orm as orm
 from assetjet.view.vw_main import Ui_Main
-from assetjet.cfg import db
 from assetjet.log import log
 from assetjet.util import util
-from assetjet.model import asset
+#from assetjet.model import asset
 from assetjet import __version__
 
 class MainController(QtGui.QMainWindow):
@@ -18,7 +17,7 @@ class MainController(QtGui.QMainWindow):
     def show_(self):        
         self.ui = Ui_Main()
         self.ui.setupUi(self)
-        mainPath = os.path.join(util.getBaseDir(), '..', '..', 'httpdocs', 'main.html')
+        mainPath = os.path.join(util.getBaseDir(), 'httpdocs', 'main.html')
         print mainPath
         mainUrl = QtCore.QUrl.fromLocalFile(mainPath)
         self.ui.webView.load(mainUrl)

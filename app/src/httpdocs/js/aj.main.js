@@ -7,7 +7,7 @@
 	}
 	var AJ = root.AJ = {
 		VERSION : "0.1"
-	,	rootUrl :"http://127.0.0.1:81"
+	,	rootUrl :"http://127.0.0.1:8080"
 	};
 	AJ.webSocketTest = function()
 	{

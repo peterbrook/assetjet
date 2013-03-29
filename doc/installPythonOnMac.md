@@ -30,12 +30,12 @@
 
 * using virtualenv, the installation of the pip-installed-packages could be automated with a bootstrap script
 * Some of the packages will install additional packages  (dependencies)
-* Note that for numpy `--devel` or `--HEAD` is needed to get 1.7rc (crucial as this version adds proper datetime support)
+* For dev version of a brew install add `--devel` or `--HEAD`
 * Note that the brew commands need to be installed outside of any virtualenv! Use virtuelenv for pip installs only!
 
 ```
     brew tap samueljohn/python
-    brew install numpy --devel
+    brew install numpy
     brew install gfortran
     brew install scipy
     brew install pyside  
@@ -47,7 +47,6 @@
     pip install pyramid
     pip install pandas
     pip install sqlalchemy
-    pip install web.py
     pip install esky
     pip install lxml
 ```

@@ -17,6 +17,7 @@ from datetime import time
 from urllib2 import *
 import numpy as np
 import dateutil.parser
+from assetjet.util import util
 
 #@view_config(route_name="services/Symbols/GetAll/", renderer="json")
 #@view_config(route_name="services.Prices.GetByTicker")
@@ -98,6 +99,9 @@ def getAdjClosePrices(tickers, startdate, enddate):
     return prices, seriesbegin
     
 if __name__ == "__main__":
+    print util.getBaseDir()
+    """
+    
     tickers = [ 'AAPL','MMM', 'ACE', 'ABT', 'ANF', 'ACN', 'ADBE', 'ADT', 'AMD', 'AES', 'AET' ]
     startdate = '2011-01-01'
     enddate = date.today()
@@ -106,4 +110,4 @@ if __name__ == "__main__":
     closePrices, seriesbegin = getAdjClosePrices(tickers, startdate, enddate)
     pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100, asjson=False, frequency='M')
 #    print pricesRebased
-
+    """

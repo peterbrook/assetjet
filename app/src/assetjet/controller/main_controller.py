@@ -34,5 +34,5 @@ class MainController(QtGui.QMainWindow):
             liTicker = QtGui.QListWidgetItem(tickers[i].name)
             self.ui.lstSymbolList.addItem(liTicker)
         """
-
-               
+if __name__ == "__main__":
+    print util.getBaseDir()

@@ -15,7 +15,7 @@ class LocalServer(threading.Thread):
         Serves simple HTTP requests to the local HTML page running in the main window
     """
     host = "127.0.0.1"
-    port = 80
+    port = 2000
     app = None
 
     def __init__(self, host=None, port=None):
@@ -26,7 +26,7 @@ class LocalServer(threading.Thread):
         self.host = host
         
         if port is None:
-            port = 8080
+            port = 2000
         self.port = port
 
     def run(self):

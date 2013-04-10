@@ -23,6 +23,7 @@ LicenseFile=..\LICENSE.txt
 
 [CustomMessages]
 InstallingLabel=
+LaunchProgram=Launch {#AppName} now!
 
 [Files]
 Source: ".\dist\AssetJet\*.*"; DestDir: "{app}"; Flags: recursesubdirs
@@ -51,3 +52,6 @@ begin
   end;
   WizardForm.FilenameLabel.Visible := False;
 end;
+
+[Run]
+Filename: {app}\{#AppName}.exe; Description: {cm:LaunchProgram,{#AppName}}; Flags: nowait postinstall skipifsilent

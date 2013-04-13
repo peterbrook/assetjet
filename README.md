@@ -8,8 +8,8 @@ AssetJet is also a demo of the following state-of-the-art libraries:
 * SQLAlchemy (object relational mapper)
 * lxml (web scraping)
 * NumPy/SciPy/pandas (data processing/scientific computing)
-* Qt and PySide (webkit)
-* Pyramid (web framework)
+* Qt and PySide (GUI, i.e. webkit)
+* Bottle (web framework)
 * cx_Freeze and Esky (packaging and auto-update)
 
 All this is based on open-source software that will work cross-platform (Windows, Mac, Linux) out of the box.

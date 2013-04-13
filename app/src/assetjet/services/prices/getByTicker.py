@@ -6,30 +6,26 @@ from datetime import date, datetime
 from assetjet.cfg import db
 from assetjet.log import log
 import sqlalchemy.orm as orm
-#import simplejson as json
 import json
 import assetjet.model
 from assetjet.model import asset
-from pyramid.view import view_config
-from pyramid.response import Response
 from datetime import datetime
 from datetime import time
 from urllib2 import *
 import numpy as np
 import dateutil.parser
 from assetjet.util import util
+import bottle
 
-#@view_config(route_name="services/Symbols/GetAll/", renderer="json")
-#@view_config(route_name="services.Prices.GetByTicker")
-def GET(request):
-    ticker = request.GET.get('ticker')
-    startDate = dateutil.parser.parse(request.GET.get('startDate'))
-    endDate = dateutil.parser.parse(request.GET.get('endDate'))
-    period = request.GET.get('period')
-    callbackParam = "_jqjsp"
+@bottle.route('/services/Prices/GetByTicker/')
+def index():
+    ticker = bottle.request.GET.get('ticker')
+    startDate = dateutil.parser.parse(bottle.request.GET.get('startDate'))
+    endDate = dateutil.parser.parse(bottle.request.GET.get('endDate'))
+    period = bottle.request.GET.get('period')
     closePrices, seriesbegin = getAdjClosePrices([ ticker ], startDate, endDate)
     pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100, asjson=True)
-    return Response(str("_jqjsp(" + pricesRebased  + ");"))
+    return "_jqjsp(" + pricesRebased  + ");"
 
 def getPricesRebased(prices, startdates, base=100, asjson=False, frequency=None):
 
@@ -99,9 +95,6 @@ def getAdjClosePrices(tickers, startdate, enddate):
     return prices, seriesbegin
     
 if __name__ == "__main__":
-    print util.getBaseDir()
-    """
-    
     tickers = [ 'AAPL','MMM', 'ACE', 'ABT', 'ANF', 'ACN', 'ADBE', 'ADT', 'AMD', 'AES', 'AET' ]
     startdate = '2011-01-01'
     enddate = date.today()
@@ -110,4 +103,3 @@ if __name__ == "__main__":
     closePrices, seriesbegin = getAdjClosePrices(tickers, startdate, enddate)
     pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100, asjson=False, frequency='M')
 #    print pricesRebased
-    """

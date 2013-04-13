@@ -44,7 +44,7 @@
     pip install sphinx
     pip install nose
     pip install spyder
-    pip install pyramid
+    pip install bottle
     pip install pandas
     pip install sqlalchemy
     pip install esky

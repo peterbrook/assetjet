@@ -1,29 +1,20 @@
 from pandas import DataFrame
 import pandas as pd
-import sqlite3
-import numpy as np
 from datetime import date, datetime
 from assetjet.cfg import db
 from assetjet.log import log
 import sqlalchemy.orm as orm
 import json
-import assetjet.model
-from assetjet.model import asset
-from datetime import datetime
-from datetime import time
-from urllib2 import *
-import numpy as np
 import dateutil.parser
-from assetjet.util import util
-import bottle
+from bottle import route, request
 
-@bottle.route('/services/Prices/GetByTicker/')
-def index():
-    ticker = bottle.request.GET.get('ticker')
-    startDate = dateutil.parser.parse(bottle.request.GET.get('startDate'))
-    endDate = dateutil.parser.parse(bottle.request.GET.get('endDate'))
-    period = bottle.request.GET.get('period')
-    closePrices, seriesbegin = getAdjClosePrices([ ticker ], startDate, endDate)
+@route('/services/Prices/GetByTicker/')
+def getByTicker():
+    ticker = request.query.ticker
+    startDate = dateutil.parser.parse(request.query.startDate)
+    endDate = dateutil.parser.parse(request.query.endDate)
+    period = request.query.period
+    closePrices, seriesbegin = getAdjClosePrices([ticker], startDate, endDate)
     pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100, asjson=True)
     return "_jqjsp(" + pricesRebased  + ");"
 
@@ -101,5 +92,5 @@ if __name__ == "__main__":
     
     # Get rebased prices
     closePrices, seriesbegin = getAdjClosePrices(tickers, startdate, enddate)
-    pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100, asjson=False, frequency='M')
-#    print pricesRebased
+    pricesRebased = getPricesRebased(closePrices, seriesbegin, base=100, asjson=True, frequency='D')
+    print pricesRebased

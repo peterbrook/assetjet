@@ -136,6 +136,14 @@
                             });
                             var minDate = _.min(dateSeries);
 
+							var seriesData = [];
+							for(var i=0;i<data.length;i++){
+								var date = dateSeries[i];
+								seriesData.push([
+									Date.UTC(date.getFullYear(),date.getMonth(),date.getDate()),
+									timeSeries[i]
+								]);
+							}
                             // console.log('data', data);
                             // console.log('dateSeries', dateSeries);
                             console.log('minDate', minDate);
@@ -161,7 +169,7 @@
                                     title: {
                                         text: 'Price Date'
                                     }
-                                    // ,min: minDate
+                                    // ,min: Date.UTC(1980, 0, 1)
                                 },
                                 yAxis: {
                                     title: {
@@ -208,7 +216,7 @@
                                     name: 'Stock Price against Time',
                                     pointInterval: 24 * 3600 * 1000,   // a day
                                     //pointStart: minDate,
-                                    data: timeSeries
+                                    data: seriesData
                                 }]
                         });
                     });
